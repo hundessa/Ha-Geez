@@ -1,7 +1,12 @@
 import book from "../../../assets/images/Banner/book-anime.jpg";
 import { Button } from "@mantine/core";
+import { useState } from "react";
+import Enroll_Modal from "../modals/Enroll_Modal";
 
 const Banner = () => {
+  const [openmodal, setOpenmodal] = useState(false)
+
+  
   return (
     <>
       <div className="flex bg-[#09335F] bg-opacity-80 mb-20">
@@ -20,6 +25,7 @@ const Banner = () => {
                 variant="filled"
                 color="#f9fff9"
                 className="text-black mr-12 rounded-[30px]"
+                onClick={() => setOpenmodal(true)}
               >
                 Enroll Now
               </Button>
@@ -40,6 +46,7 @@ const Banner = () => {
             className="w-[700px] h-[400px] rounded-xl"
           />
         </div>
+    <Enroll_Modal openmodal ={openmodal} setOpenmodal={setOpenmodal}/>
       </div>
     </>
   );
