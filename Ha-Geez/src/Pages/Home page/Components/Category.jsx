@@ -11,7 +11,6 @@ import finance from "../../../assets/images/Category/finance.jpg";
 import photography from "../../../assets/images/Category/photography.jpg";
 
 const Category = () => {
-  // const [isBlurred, setIsBlurred] = useState(false);
   const [blurredCard, setBlurredCard] = useState(null);
 
   const handleMouseEnter = (cardId) => {
@@ -24,7 +23,7 @@ const Category = () => {
 
   return (
     <>
-      <div className="mb-96">
+      <div className="">
         <div className="flex">
           <h1 className="flex mx-auto font-bold text-3xl mb-10">
             Course Category
