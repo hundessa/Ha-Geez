@@ -1,8 +1,7 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Button } from '@mantine/core';
 import { FaStar } from "react-icons/fa";
 import { FaRegCirclePlay } from "react-icons/fa6";
-import Slider from"react-slick";
+import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import  "./popular.css";
@@ -88,6 +87,7 @@ slidesToScroll: 1
         <Slider {...settings}>
 
         {data.map((d) =>(
+          // eslint-disable-next-line react/jsx-key
           <div className=" h-[650px]">
             <div className='h-[470px] w-[265px] border-[3px]  justify-center items-center '>
               <p>{d.top}</p>

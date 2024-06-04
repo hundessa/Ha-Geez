@@ -1,6 +1,5 @@
-import React from "react";
 import { Button } from "@mantine/core";
-import styled from "styled-components";
+// import styled from "styled-components";
 const AboutUs = () => {
   return (
     <>
@@ -10,7 +9,7 @@ const AboutUs = () => {
         </div>
 
         
-          <div class="flex w[500px] h[1000px] ml-[730px]">
+          <div className="flex w[500px] h[1000px] ml-[730px]">
             <div className="size[300px]">
             <img
               src="src/assets/images/About_Us/charlesdeluvio-Lks7vei-eAg-unsplash.jpg"

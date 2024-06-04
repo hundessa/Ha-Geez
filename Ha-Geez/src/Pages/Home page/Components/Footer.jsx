@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <>
       <div className="h-60">
-        <hr className="flex bg-gray-900 mx-auto h-2 drop-shadow-sm w-[1240px] rounded-b-3xl shadow-md shadow-black" />
+        <hr className="flex bg-gray-900 mx-auto h-[4px] drop-shadow-sm w-[1240px] rounded-b-3xl shadow-md shadow-black" />
         <div className="flex">
           <div className="flex my-auto justify-center items-center">
             <div className="font-bold ml-10">

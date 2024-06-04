@@ -2,11 +2,12 @@ import book from "../../../assets/images/Banner/book-anime.jpg";
 import { Button } from "@mantine/core";
 import { useState } from "react";
 import Enroll_Modal from "../modals/Enroll_Modal";
+import { useNavigate } from "react-router-dom";
 
 const Banner = () => {
-  const [openmodal, setOpenmodal] = useState(false)
+  const [openmodal, setOpenmodal] = useState(false);
+  const navigate = useNavigate();
 
-  
   return (
     <>
       <div className="flex bg-[#09335F] bg-opacity-80 mb-20">
@@ -33,6 +34,7 @@ const Banner = () => {
                 variant="filled"
                 color="#1E5389"
                 className="text-[#FFFDFD] font-medium border-white rounded-[30px]"
+                onClick={() => navigate("/course_overview")}
               >
                 Explore Courses
               </Button>
@@ -46,7 +48,7 @@ const Banner = () => {
             className="w-[700px] h-[400px] rounded-xl"
           />
         </div>
-    <Enroll_Modal openmodal ={openmodal} setOpenmodal={setOpenmodal}/>
+        <Enroll_Modal openmodal={openmodal} setOpenmodal={setOpenmodal} />
       </div>
     </>
   );

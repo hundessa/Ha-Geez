@@ -91,12 +91,14 @@ const Forms = () => {
           mb="md"
         />
         <PasswordInput
+        withAsterisk
           label="Password"
           placeholder="input password"
           {...form.getInputProps("password")}
           mb="md"
         />
         <PasswordInput
+        withAsterisk
           label="Confirm Password"
           placeholder="confirm password"
           {...form.getInputProps("confirmpassword")}
@@ -104,7 +106,7 @@ const Forms = () => {
         />
 
         <Group justify="flex-end" mt="md">
-          <Button type="submit" className="bg-[#09335F] rounded-3xl">
+          <Button type="submit" className="bg-[#09335F] rounded-3xl w-full">
             Sign Up
           </Button>
         </Group>
