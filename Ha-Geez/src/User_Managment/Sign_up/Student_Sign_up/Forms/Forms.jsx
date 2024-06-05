@@ -50,7 +50,20 @@ const Forms = () => {
           : null,
     },
   });
-
+  // <div>
+  //     {
+  //       for (const item of conf) {
+  //         switch (item.name) {
+  //           case textfield:
+  //             return <TextInput ...item>
+  //             break ;
+          
+  //           default:
+  //             break;
+  //         }
+  //       }
+  //     }
+  // </div>
   return (
     <>
       <form onSubmit={form.onSubmit((values) => console.log(values))}>

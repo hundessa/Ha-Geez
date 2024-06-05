@@ -36,7 +36,7 @@ const Header = () => {
             Home
           </NavLink>
           <NavLink
-            to="/about_us"
+            // to="/about_us"
             className={({ isActive }) =>
               isActive ? 'mx-6 cursor-pointer border-b-[3px]' : 'mx-6 cursor-pointer hover:border-b-[3px]'
             }
@@ -44,7 +44,7 @@ const Header = () => {
             About Us
           </NavLink>
           <NavLink
-            to="/courses"
+            // to="/courses"
             className={({ isActive }) =>
               isActive ? 'mx-6 cursor-pointer border-b-[3px]' : 'mx-6 cursor-pointer hover:border-b-[3px]'
             }
@@ -61,9 +61,17 @@ const Header = () => {
           </NavLink>
           </div>
           <div className="flex justify-center items-center ml-28">
-            <Button variant="outline" className="text-white border-white">
+          <NavLink
+            to="/Login"
+            className={({ isActive }) =>
+              isActive ? 'mx-6 cursor-pointer border-b-[3px]' : 'mx-6 cursor-pointer hover:border-b-[3px]'
+            }
+          >
+            <Button variant="outline" className="text-white border-white" onClick={navigate("/login")}>
               Login
             </Button>
+          </NavLink>
+          
           </div>
           <div className="flex justify-center items-center ml-8">
             
