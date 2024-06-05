@@ -105,8 +105,8 @@ const Forms = () => {
           mb="md"
         />
 
-        <Group justify="flex-end" mt="md">
-          <Button type="submit" className="bg-[#09335F] rounded-3xl w-full">
+        <Group justify="flex-end" mt="xl">
+          <Button type="submit" className="bg-[#09335F] rounded-3xl w-full mt4">
             Sign Up
           </Button>
         </Group>

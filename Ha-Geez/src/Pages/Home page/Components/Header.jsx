@@ -15,7 +15,7 @@ const Header = () => {
 
   return (
     <>
-      <nav className="bg-[#09335F] bg-opacity-80 flex">
+      <header className="bg-[#09335F] bg-opacity-80 flex">
         <div className="flex mr-96"  onClick={() => navigate("/")}>
           <div className="size-14 mr-2 cursor-pointer">
             <img src={logo} alt="logo" />
@@ -61,7 +61,7 @@ const Header = () => {
           </NavLink>
           </div>
           <div className="flex justify-center items-center ml-28">
-            <Button variant="outline" className="text-white border-white">
+            <Button variant="outline" className="text-white border-white" onClick={() => navigate("/student_landingpage")}>
               Login
             </Button>
           </div>
@@ -72,7 +72,7 @@ const Header = () => {
            
           </div>
         </div>
-      </nav>
+      </header>
     </>
   );
 };

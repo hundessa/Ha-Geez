@@ -13,6 +13,7 @@ import Student_Signup from "./User_Managment/Sign_up/Student_Sign_up/Student_Sig
 import Instructor_SignUp from "./User_Managment/Sign_up/Instructor_Sign_up/Instructor_SignUp";
 import Contact_Us from "./Pages/Home page/Contact_Us/Contact_Us";
 import Course_Overview from "./Pages/Home page/Course_Overview/Course_Overview";
+import Student_LandinPage from './User_Managment/DashBoard/Student_DashBoard/Student_Landing_Page/Student_LandinPage';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/instructor_signup" element={<Instructor_SignUp/>}/>
           <Route path="/contact_us" element={<Contact_Us/>}/>
           <Route path="/course_overview" element={<Course_Overview/>}/>
+          <Route path="/student_landingpage" element={<Student_LandinPage/>}/>
         </Routes>
       </Router>
     </MantineProvider>
