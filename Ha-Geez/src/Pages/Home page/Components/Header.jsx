@@ -15,7 +15,7 @@ const Header = () => {
 
   return (
     <>
-      <nav className="bg-[#09335F] bg-opacity-80 flex">
+      <header className="bg-[#09335F] bg-opacity-80 flex">
         <div className="flex mr-96"  onClick={() => navigate("/")}>
           <div className="size-14 mr-2 cursor-pointer">
             <img src={logo} alt="logo" />
@@ -80,7 +80,7 @@ const Header = () => {
            
           </div>
         </div>
-      </nav>
+      </header>
     </>
   );
 };
