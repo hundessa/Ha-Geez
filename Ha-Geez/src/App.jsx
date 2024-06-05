@@ -14,21 +14,31 @@ import Instructor_SignUp from "./User_Managment/Sign_up/Instructor_Sign_up/Instr
 import Contact_Us from "./Pages/Home page/Contact_Us/Contact_Us";
 import Course_Overview from "./Pages/Home page/Course_Overview/Course_Overview";
 import Student_LandinPage from './User_Managment/DashBoard/Student_DashBoard/Student_Landing_Page/Student_LandinPage';
+import { MantineProvider } from "@mantine/core";
+import Login from "./User_Managment/Login/Login";
+import Forgot_Password from "./User_Managment/Password_Recovery/Forgot_password/Forgot_Password";
+import OTP from "./User_Managment/Password_Recovery/OTP/OTP";
+import Reset_Password from "./User_Managment/Password_Recovery/Reset_password/Reset_Password";
+
 
 function App() {
   return (
     <MantineProvider>
       <Router>
         <Routes>
-          <Route index path="/" element={<Home_Page/>} />
-          <Route path="/student_signup" element={<Student_Signup/>}/>
-          <Route path="/instructor_signup" element={<Instructor_SignUp/>}/>
-          <Route path="/contact_us" element={<Contact_Us/>}/>
-          <Route path="/course_overview" element={<Course_Overview/>}/>
-          <Route path="/student_landingpage" element={<Student_LandinPage/>}/>
+          <Route path="/" element={<Home_Page />} />
+          <Route path="/student_signup" element={<Student_Signup />} />
+          <Route path="/instructor_signup" element={<Instructor_SignUp />} />
+          <Route path="/contact_us" element={<Contact_Us />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/forgot_password" element={<Forgot_Password />} />
+          <Route path="/otp" element={<OTP/>}/>
+          <Route path="/reset_password" element={<Reset_Password/>}/>
+          
         </Routes>
       </Router>
     </MantineProvider>
+   
   );
 }
 
