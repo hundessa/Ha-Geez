@@ -1,14 +1,10 @@
-<<<<<<< HEAD
-// import React from 'react'
-=======
-import React, { useState } from "react";
+import { useState } from "react";
 import { Button } from "@mantine/core";
 import { FaUser } from "react-icons/fa";
 import { FaLock } from "react-icons/fa";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
 import Enroll_Modal from "../../Pages/Home page/modals/Enroll_Modal";
->>>>>>> GEEZ-12-Developing-Popular-courses-section
 
 const Login = () => {
 
@@ -56,6 +52,7 @@ const [openmodal, setOpenmodal] = useState(false)
                 color="#09335F"
                 size="md"
                 radius="xl"
+                onClick={() => navigate("/student_landingpage")}
               >
                 Login
               </Button>

@@ -8,10 +8,12 @@ import {
   MdOutlineDarkMode,
   MdOutlineLightMode,
 } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 const Student_side_navbar = () => {
   const [clicked, setClicked] = useState(false);
   //   const [toggleclicked, setToggleClicked] = useState()
+  const navigate = useNavigate()
   const onClick = () => {
     setClicked(!clicked);
   };
@@ -92,6 +94,7 @@ const Student_side_navbar = () => {
           <Button
             variant="transparent"
             className="ml-4 p-0 mt-32 space-x-2 font-bold text-red-500"
+            onClick={() => navigate("/")}
           >
             <MdLogout className="flex items-center my-auto size-6 mr-2 active:text-red-500" />
             <h1 className={`hidden group-hover:block`}>Log out</h1>

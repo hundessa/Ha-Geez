@@ -15,9 +15,6 @@ const Home_Page = () => {
       <AboutUs />
       <Popular_Courses />
       <Testimonials />
-      <AboutUs />
-      <Popular_Courses />
-      <Testimonials />
       <Footer />
     </>
   );
