@@ -18,8 +18,7 @@ import OTP from "./User_Managment/Password_Recovery/OTP/OTP";
 import Reset_Password from "./User_Managment/Password_Recovery/Reset_password/Reset_Password";
 import Course_Overview from './Pages/Home page/Course_Overview/Course_Overview';
 import Student_LandinPage from './User_Managment/DashBoard/Student_DashBoard/Student_Landing_Page/Student_LandinPage';
-// import Student_profile_page from './User_Managment/DashBoard/Student_DashBoard/Student_Profile_page/Student_profile_page';
-
+import Student_profile_page from './User_Managment/DashBoard/Student_DashBoard/Student_Profile_page/Student_profile_page';
 
 function App() {
   return (
@@ -32,12 +31,11 @@ function App() {
           <Route path="/contact_us" element={<Contact_Us />} />
           <Route path="/course_overview" element={<Course_Overview />} />
           <Route path="/student_landingpage" element={<Student_LandinPage/>}/>
-          {/* <Route path='/student_profile' element={<Student_profile_page/>}/> */}
+          <Route path="/student_profile" element={<Student_profile_page/>}/>
           <Route path="/login" element={<Login />} />
           <Route path="/forgot_password" element={<Forgot_Password />} />
           <Route path="/otp" element={<OTP/>}/>
           <Route path="/reset_password" element={<Reset_Password/>}/>
-          
         </Routes>
       </Router>
     </MantineProvider>
