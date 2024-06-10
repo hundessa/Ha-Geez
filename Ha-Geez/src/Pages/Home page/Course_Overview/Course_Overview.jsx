@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Header from "../Components/Header";
 import course from "../../../assets/images/Courses/Course_Overview/course-1.jpg";
 import { Button } from "@mantine/core";
@@ -14,8 +15,13 @@ import {
   FaRegLightbulb,
 } from "react-icons/fa";
 import { BiSolidLike, BiSolidDislike } from "react-icons/bi";
-import { Reviews, items } from "./Reviews/Reviews";
+import { Reviews, items, courses } from "./Reviews/Reviews";
 import Preview_modal from "./Previews/Preview_modal/Preview_modal";
+import Course_Card from "../Components/styled-components/Course_Card";
+// import Slider from "react-slick";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
+// import "../../Home page/Components/popular.css"
 
 const Course_Overview = () => {
   const [openmodal, setOpenmodal] = useState(false);
@@ -23,10 +29,10 @@ const Course_Overview = () => {
   const [reviewStatus, setReviewStatus] = useState(
     Array(Reviews.length).fill({ like: false, dislike: false })
   );
+  const navigate = useNavigate();
   const contentClickedHandler = (index) => {
     setActiveIndex((prevIndex) => (prevIndex === index ? null : index));
   };
-
   const likeButtonHandler = (index) => {
     setReviewStatus((prevStatus) => {
       const newStatus = [...prevStatus];
@@ -51,11 +57,22 @@ const Course_Overview = () => {
     });
   };
 
+  // const settings = {
+  //   dots: true,
+  //   infinite: true,
+  //   speed: 500,
+  //   slidesToShow: 4,
+  //   slidesToScroll: 3,
+  // };
 
   return (
     <>
       <Header />
-      <Button variant="outline" className="text-black border-none ml-4">
+      <Button
+        variant="outline"
+        className="text-black border-none ml-4"
+        onClick={() => navigate("/")}
+      >
         <FaArrowLeft size="25px" />
       </Button>
       <div className=" flex ml-10">
@@ -68,7 +85,6 @@ const Course_Overview = () => {
                   alt="course"
                   className="w-96 wfull mr-40 h-72 rounded-2xl blur-[2px]"
                 />
-
                 <div className="absolute top-48 ml-16 top flex flex-col items-center justify-center space-y-4">
                   <Button
                     variant="default"
@@ -223,7 +239,6 @@ const Course_Overview = () => {
                   </div>
                 </div>
               ))}
-              
             </div>
             <div>
               <div className="flex justify-center items-center mx-auto mt-6">
@@ -290,12 +305,51 @@ const Course_Overview = () => {
           </div>
         </div>
       </div>
-      <Preview_modal openmodal={openmodal} setOpenmodal={setOpenmodal}/>
+        <div className="flex justify-center">
+      {/* <Slider {...settings}> */}
+          {courses.map((course, index) => {
+            return (
+              <div key={index} className="flex">
+                <Course_Card
+                  image={course.image}
+                  title={course.title}
+                  description={course.description}
+                  instructorName={course.instructorName}
+                  level={course.level}
+                  duration={course.duration}
+                />
+                <Course_Card
+                  image={course.image}
+                  title={course.title}
+                  description={course.description}
+                  instructorName={course.instructorName}
+                  level={course.level}
+                  duration={course.duration}
+                />
+                <Course_Card
+                  image={course.image}
+                  title={course.title}
+                  description={course.description}
+                  instructorName={course.instructorName}
+                  level={course.level}
+                  duration={course.duration}
+                />
+                <Course_Card
+                  image={course.image}
+                  title={course.title}
+                  description={course.description}
+                  instructorName={course.instructorName}
+                  level={course.level}
+                  duration={course.duration}
+                />
+              </div>
+            );
+          })}
+      {/* </Slider> */}
+        </div>
+      <Preview_modal openmodal={openmodal} setOpenmodal={setOpenmodal} />
     </>
   );
 };
 
 export default Course_Overview;
-
-
-

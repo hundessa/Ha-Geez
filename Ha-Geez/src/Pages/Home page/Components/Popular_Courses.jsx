@@ -5,6 +5,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./popular.css";
+import { useNavigate } from "react-router-dom";
 
 const data = [
   {
@@ -62,6 +63,9 @@ const data = [
 ];
 
 const Popular_Courses = () => {
+
+  const navigate = useNavigate();
+
   const settings = {
     dots: true,
     infinite: true,
@@ -118,6 +122,7 @@ const Popular_Courses = () => {
                       color="rgba(0, 0, 0, 1)"
                       size="md"
                       className="mt-2"
+                      onClick={() => navigate("/course_overview")}
                     >
                       Enroll Now
                     </Button>
