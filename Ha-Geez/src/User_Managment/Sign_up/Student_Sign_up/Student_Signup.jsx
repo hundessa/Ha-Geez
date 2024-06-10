@@ -41,7 +41,7 @@ const Student_Signup = () => {
                   <h1 className="mt-2 font-semibold">
                     Already have an account ?{" "}
                   </h1>
-                  <Button variant="transparent" className="pt-[6px] px-0 ml-4 font-bold">
+                  <Button variant="transparent" className="pt-[6px] px-0 ml-4 font-bold" onClick={() => navigate("/login")}>
                     Sign In
                   </Button>
                 </div>

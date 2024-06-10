@@ -40,7 +40,7 @@ const Student_profile_page = () => {
         <Student_side_navbar setSidebarExpanded={setSidebarExpanded} />
         <div
           className={`transition-all duration-300 p-4 ${
-            sidebarExpanded ? "ml-[150px]" : "ml-[50px]"
+            sidebarExpanded ? "ml-[130px] mt-12" : "ml-[30px] mt-12"
           }`}
         >
           <div>
@@ -79,6 +79,13 @@ const Student_profile_page = () => {
             </div>
             <div className="bg-[#D9D9D9] bg-opacity-[30%] w-[500px] ml-28 mt-[-30px]">
               <div className="px-28 py-20 space-y-6">
+                <TextInput
+                    value={editedProfile.email}
+                    label="Email"
+                    placeholder="Email"
+                    className="w-full"
+                    disabled
+                  />
                 <div className="flex">
                   <TextInput
                     value={editedProfile.firstname}

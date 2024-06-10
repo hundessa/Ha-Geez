@@ -12,7 +12,9 @@ const Home_Page = () => {
       <Header />
       <Banner />
       <Category />
-      <AboutUs />
+      <div id="about-us-section">
+        <AboutUs />
+      </div>
       <Popular_Courses />
       <Testimonials />
       <Footer />
