@@ -36,7 +36,7 @@ const Header = () => {
             Home
           </NavLink>
           <NavLink
-            // to="/about_us"
+            to="/about_us"
             className={({ isActive }) =>
               isActive ? 'mx-6 cursor-pointer border-b-[3px]' : 'mx-6 cursor-pointer hover:border-b-[3px]'
             }
@@ -44,7 +44,7 @@ const Header = () => {
             About Us
           </NavLink>
           <NavLink
-            // to="/courses"
+            to="/cart"
             className={({ isActive }) =>
               isActive ? 'mx-6 cursor-pointer border-b-[3px]' : 'mx-6 cursor-pointer hover:border-b-[3px]'
             }

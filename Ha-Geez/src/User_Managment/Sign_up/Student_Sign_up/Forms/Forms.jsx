@@ -1,8 +1,9 @@
 import { Button, Group, PasswordInput, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
+import { useNavigate } from "react-router-dom";
 
 const Forms = () => {
-
+  const navigate = useNavigate();
   const form = useForm({
     mode: "uncontrolled",
     initialValues: {
@@ -119,7 +120,7 @@ const Forms = () => {
         />
 
         <Group justify="flex-end" mt="xl">
-          <Button type="submit" className="bg-[#09335F] rounded-3xl w-full mt4">
+          <Button type="submit" className="bg-[#09335F] rounded-3xl w-full mt4" onClick={() => navigate("/student_landingpage")}>
             Sign Up
           </Button>
         </Group>

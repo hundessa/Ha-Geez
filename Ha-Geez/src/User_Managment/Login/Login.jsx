@@ -12,10 +12,9 @@ const navigate = useNavigate();
 const [openmodal, setOpenmodal] = useState(false)
   return (
     <div className="flex">
-      <Button variant="white" color="rgba(8, 8, 8, 1)" size="md" onClick={() => navigate("/")}>
+      <Button variant="white" color="rgba(8, 8, 8, 1)" size="md" className="w-[100px]" onClick={() => navigate("/")}>
         Back
       </Button>
-
       <div className="wrap">
         <h1 className="mt-40 ml-64 font-medium">Login</h1>
         <form action="">

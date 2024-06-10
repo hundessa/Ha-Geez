@@ -12,6 +12,8 @@ import Login from "./User_Managment/Login/Login";
 import Forgot_Password from "./User_Managment/Password_Recovery/Forgot_password/Forgot_Password";
 import OTP from "./User_Managment/Password_Recovery/OTP/OTP";
 import Reset_Password from "./User_Managment/Password_Recovery/Reset_password/Reset_Password";
+import Course_List from "./Pages/Home page/Course List/Course_List";
+import Cart from "./User_Managment/DashBoard/Student_DashBoard/Student_Landing_Page/Cart";
 
 
 function App() {
@@ -20,12 +22,9 @@ function App() {
       <Router>
         <Routes>
           <Route index path="/" element={<Home_Page/>} />
-          <Route path="/student_signup" element={<Student_Signup/>}/>
-          <Route path="/instructor_signup" element={<Instructor_SignUp/>}/>
           <Route path="/contact_us" element={<Contact_Us/>}/>
           <Route path="/course_overview" element={<Course_Overview/>}/>
           <Route path="/student_landingpage" element={<Student_LandinPage/>}/>
-          <Route path="/" element={<Home_Page />} />
           <Route path="/student_signup" element={<Student_Signup />} />
           <Route path="/instructor_signup" element={<Instructor_SignUp />} />
           <Route path="/contact_us" element={<Contact_Us />} />
@@ -33,6 +32,8 @@ function App() {
           <Route path="/forgot_password" element={<Forgot_Password />} />
           <Route path="/otp" element={<OTP/>}/>
           <Route path="/reset_password" element={<Reset_Password/>}/>
+          <Route path="/course_list" element ={<Course_List/>}/>
+          <Route path="/cart" element ={<Cart/>}/>
           
         </Routes>
       </Router>
