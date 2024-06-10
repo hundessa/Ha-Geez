@@ -6,6 +6,7 @@ import AboutUs from "./Components/AboutUs";
 import Popular_Courses from "./Components/Popular_Courses";
 import Testimonials from "./Components/Testimonials";
 
+
 const Home_Page = () => {
   return (
     <>
