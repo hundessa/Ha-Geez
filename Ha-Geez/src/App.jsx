@@ -14,6 +14,7 @@ import OTP from "./User_Managment/Password_Recovery/OTP/OTP";
 import Reset_Password from "./User_Managment/Password_Recovery/Reset_password/Reset_Password";
 import Course_List from "./Pages/Home page/Course List/Course_List";
 import Cart from "./User_Managment/DashBoard/Student_DashBoard/Student_Landing_Page/Cart";
+import Student_profile_page from "./User_Managment/DashBoard/Student_DashBoard/Student_Profile_page/Student_profile_page";
 
 
 function App() {
