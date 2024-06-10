@@ -51,6 +51,7 @@ const [openmodal, setOpenmodal] = useState(false)
                 color="#09335F"
                 size="md"
                 radius="xl"
+                onClick={() => navigate("/student_landingpage")}
               >
                 Login
               </Button>

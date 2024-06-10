@@ -21,13 +21,13 @@ function App() {
     <MantineProvider>
       <Router>
         <Routes>
-          <Route index path="/" element={<Home_Page/>} />
-          <Route path="/contact_us" element={<Contact_Us/>}/>
-          <Route path="/course_overview" element={<Course_Overview/>}/>
-          <Route path="/student_landingpage" element={<Student_LandinPage/>}/>
+          <Route path="/" element={<Home_Page />} />
           <Route path="/student_signup" element={<Student_Signup />} />
           <Route path="/instructor_signup" element={<Instructor_SignUp />} />
           <Route path="/contact_us" element={<Contact_Us />} />
+          <Route path="/course_overview" element={<Course_Overview />} />
+          <Route path="/student_landingpage" element={<Student_LandinPage/>}/>
+          <Route path="/student_profile" element={<Student_profile_page/>}/>
           <Route path="/login" element={<Login />} />
           <Route path="/forgot_password" element={<Forgot_Password />} />
           <Route path="/otp" element={<OTP/>}/>

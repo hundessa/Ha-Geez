@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { Button } from "@mantine/core";
 import { useState } from "react";
 import { FaRegUserCircle, FaHeadset } from "react-icons/fa";
@@ -9,9 +10,11 @@ import {
   MdOutlineLightMode,
 } from "react-icons/md";
 
-const Student_side_navbar = () => {
+/* eslint-disable react/prop-types */
+const Student_side_navbar = ({ setSidebarExpanded }) => {
   const [clicked, setClicked] = useState(false);
   //   const [toggleclicked, setToggleClicked] = useState()
+  const navigate = useNavigate()
   const onClick = () => {
     setClicked(!clicked);
   };
@@ -19,12 +22,15 @@ const Student_side_navbar = () => {
   return (
     <>
       <nav
-        className={`bg-[#E7F3FF] absolute pt-6 w-[56px] h-[100vh] pb-4 hover:w-[150px] group hover:ease-out hover:transition-transform hover:duration-[30000s]`}
+        className={`bg-[#E7F3FF] pt-6 w-[56px] h-[100vh] pb-4 hover:w-[150px] group transition-all duration-300 absolute`}
+        onMouseEnter={() => setSidebarExpanded(true)}
+      onMouseLeave={() => setSidebarExpanded(false)}
       >
         <div className="space-y-6 ml-4">
           <Button
             variant="transparent"
             className="flex font-semibold text-gray-500 active:text-black p-0"
+            onClick= {() => navigate("/student_profile")}
           >
             <FaRegUserCircle className="flex items-center my-auto size-6 mr-2" />
             <h1 className={`hidden group-hover:block`}>Profile</h1>
@@ -92,6 +98,7 @@ const Student_side_navbar = () => {
           <Button
             variant="transparent"
             className="ml-4 p-0 mt-32 space-x-2 font-bold text-red-500"
+            onClick={() => navigate("/")}
           >
             <MdLogout className="flex items-center my-auto size-6 mr-2 active:text-red-500" />
             <h1 className={`hidden group-hover:block`}>Log out</h1>

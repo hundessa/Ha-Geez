@@ -6,7 +6,6 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { CiStar } from "react-icons/ci";
-import { space } from "postcss/lib/list";
 // import "./popular.css";
 
 const data = [
@@ -71,7 +70,7 @@ const testimonials = () => {
       <div className=" mb-32">
         <Slider {...settings}>
           {data.map((d) => (
-            <div className="px-0.5 h-[750px]">
+            <div key={d} className="px-0.5 h-[750px]">
               <div className="h-96 bg-[#09335F] ">
                 <div className="flex">
                   <img

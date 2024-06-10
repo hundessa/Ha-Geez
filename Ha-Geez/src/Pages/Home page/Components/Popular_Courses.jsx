@@ -93,7 +93,7 @@ const navigate = useNavigate();
       <div className=" slick-slider mt-20">
         <Slider {...settings}>
           {data.map((d) => (
-            <div className=" h-[650px]">
+            <div key={d} className=" h-[650px]">
               <div className="h-[490px] w-[265px] border-[3px]  justify-center items-center ">
                 <p className="p-2 bg-[#C7C2C2] absolute">{d.top}</p>
                 <img src={d.img} alt="" className="h-44 w-150 " />

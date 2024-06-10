@@ -1,5 +1,6 @@
 import student_1 from "../../../../assets/images/Courses/Course_Overview/students/student-1.jpg"
 import student_2 from "../../../../assets/images/Courses/Course_Overview/students/student-2.jpg"
+import student_3 from "../../../../assets/images/Student_profile/student_1.jpg"
 
 export const Reviews = [
 {
@@ -24,3 +25,12 @@ export const items = [
     { title: "Getting Started", lecture: "1 lecture", time: "2min" },
     { title: "Getting Started", lecture: "1 lecture", time: "2min" },
   ];
+
+export  const profile = [
+    {image: student_3,
+        firstname: "Hundessa",
+        lastname: "Serbessa",
+        username: "hund",
+        phonenumber: "090909099"
+    }
+]
