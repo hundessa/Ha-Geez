@@ -1,6 +1,10 @@
+import React from "react";
 import { Button } from "@mantine/core";
-// import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
+
 const AboutUs = () => {
+const navigate = useNavigate();
+
   return (
     <div className="mx-40">
       <div className="m-auto items-center justify-center">
@@ -8,7 +12,7 @@ const AboutUs = () => {
           <h2 className=" mx-auto font-bold text-3xl m-10">About Us</h2>
         </div>
 
-        <div className=" gap-20 ml60 flex">
+        <div className=" gap-20  flex">
           <div>
             <p className="w-[450px] text-align">
               Lorem ipsum dolor sit, amet consectetur adipisicing elit.
@@ -26,7 +30,7 @@ const AboutUs = () => {
               odio consequuntur, harum natus ex aliquam incidunt!
             </p>
 
-            <Button className="mt-10" variant="filled" color="#09335F">
+            <Button className="mt-10" variant="filled" color="#09335F" onClick={() => navigate("/cart")}>
               Readmore
             </Button>
           </div>

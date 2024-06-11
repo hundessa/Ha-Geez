@@ -34,7 +34,7 @@ const Banner = () => {
                 variant="filled"
                 color="#1E5389"
                 className="text-[#FFFDFD] font-medium border-white rounded-[30px]"
-                onClick={() => navigate("/course_overview")}
+                onClick={() => navigate("/course_list")}
               >
                 Explore Courses
               </Button>
