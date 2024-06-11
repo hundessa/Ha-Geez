@@ -18,7 +18,7 @@
     "@mantine/carousel": "^7.9.2",
     "@mantine/charts": "^7.9.2",
     "@mantine/code-highlight": "^7.9.2",
-    "@mantine/core": "^7.9.2",
+    "@mantine/core": "^7.10.1",
     "@mantine/dates": "^7.9.2",
     "@mantine/dropzone": "^7.9.2",
     "@mantine/form": "^7.10.0",
@@ -35,6 +35,7 @@
     "dayjs": "^1.11.11",
     "embla-carousel-react": "^8.1.3",
     "react": "^18.2.0",
+    "react-data-table-component": "^7.6.2",
     "react-dom": "^18.2.0",
     "react-icons": "^5.2.1",
     "react-multi-carousel": "^2.8.5",
@@ -44,7 +45,8 @@
     "react-slick": "^0.30.2",
     "recharts": "^2.12.7",
     "slick-carousel": "^1.8.1",
-    "styled-components": "^6.1.11"
+    "styled-components": "^6.1.11",
+    "swiper": "^11.1.4"
   },
   "devDependencies": {
     "@types/react": "^18.2.66",
