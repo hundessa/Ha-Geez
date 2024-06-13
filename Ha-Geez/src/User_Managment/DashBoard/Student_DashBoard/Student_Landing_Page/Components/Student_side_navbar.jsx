@@ -34,7 +34,7 @@ const Student_side_navbar = ({ setSidebarExpanded }) => {
           <Button
             variant="transparent"
             className="flex font-semibold text-gray-500 active:text-black p-0"
-            onClick={() => navigate("/student_learning")}
+            onClick={() => navigate("/my_learning")}
           >
             <MdLaptopChromebook className="flex items-center my-auto size-6 mr-2" />
             <h1 className={`hidden group-hover:block`}>My Learning</h1>
@@ -42,9 +42,11 @@ const Student_side_navbar = ({ setSidebarExpanded }) => {
           <Button
             variant="transparent"
             className="flex font-semibold text-gray-500 active:text-black p-0"
+             onClick= {() => navigate("/course_list_for_student")}
           >
             <HiOutlineBookOpen  className="flex items-center my-auto size-6 mr-2 textblack" />
-            <h1 className={`hidden group-hover:block`}>Courses</h1>
+            <h1 className={`hidden group-hover:block`} >Courses</h1>
+           
           </Button>
           {/* <Button
             variant="transparent"

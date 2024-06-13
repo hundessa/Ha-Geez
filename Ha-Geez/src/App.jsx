@@ -12,13 +12,12 @@ import Login from "./User_Managment/Login/Login";
 import Forgot_Password from "./User_Managment/Password_Recovery/Forgot_password/Forgot_Password";
 import OTP from "./User_Managment/Password_Recovery/OTP/OTP";
 import Reset_Password from "./User_Managment/Password_Recovery/Reset_password/Reset_Password";
-import Course_Overview from './Pages/Home page/Course_Overview/Course_Overview';
-import Student_LandinPage from './User_Managment/DashBoard/Student_DashBoard/Student_Landing_Page/Student_LandinPage';
-import Student_profile_page from './User_Managment/DashBoard/Student_DashBoard/Student_Profile_page/Student_profile_page';
 import Student_Learning from './User_Managment/DashBoard/Student_DashBoard/Student_Learning_Page/Student_Learning';
 import Course_List from "./Pages/Home page/Course List/Course_List";
 import Cart from "./User_Managment/DashBoard/Student_DashBoard/Student_Landing_Page/Cart";
 import Student_profile_page from "./User_Managment/DashBoard/Student_DashBoard/Student_Profile_page/Student_profile_page";
+import Course_List_for_student from "./Pages/Home page/Course List/Course_List_for_student";
+import My_Learning from "./User_Managment/DashBoard/Student_DashBoard/Student_MyLearning_Page/My_Learning";
 
 
 function App() {
@@ -40,7 +39,9 @@ function App() {
           <Route path="/student_learning" element={<Student_Learning/>}/>
           <Route path="/course_list" element ={<Course_List/>}/>
           <Route path="/cart" element ={<Cart/>}/>
-          
+          <Route path="/course_list_for_student" element={<Course_List_for_student/>}/>
+          <Route path="/my_learning" element={<My_Learning/>}/>
+
         </Routes>
       </Router>
     </MantineProvider>

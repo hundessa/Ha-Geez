@@ -6,7 +6,7 @@ import { FaTrash } from "react-icons/fa6";
 import { FaStar } from "react-icons/fa";
 import { IoArrowBackSharp } from "react-icons/io5";
 import image from "../../../../assets/images/Cart/ilya-pavlov-OqtafYT5kTw-unsplash.jpg";
-import img from"../../../../assets/images/Cart/oskar-yildiz-cOkpTiJMGzA-unsplash.jpg";
+import img from "../../../../assets/images/Cart/oskar-yildiz-cOkpTiJMGzA-unsplash.jpg";
 import { useNavigate } from "react-router-dom";
 
 const data = [
@@ -50,16 +50,18 @@ const Cart = () => {
           variant="transparent"
           color="#13569D"
           size="md"
-          className="ml-20"
+          className="ml-20 mt-20"
           onClick={() => navigate("/student_landingpage")}
         >
           <IoArrowBackSharp className="size-8" />
         </Button>
+
         <Button
           variant="filled"
           color="#BADBFF"
           radius="xl"
-          className="text-black ml-[1000px] mt-2 "
+          className="text-black ml-[1000px] mt-20 "
+          onClick={() => navigate("/my_learning")}
         >
           My Learning
         </Button>
@@ -67,36 +69,40 @@ const Cart = () => {
 
       <div className="ml-20 flex">
         <div className="mt-10">
-          <h1 className="font-bold text-[20px] w-[220px]">Shopping Cart</h1>
+          <h1 className="font-bold text-[30px] w-[220px]">Shopping Cart</h1>
           <h3 className="mt-2">2 courses in cart</h3>
         </div>
 
-        <div className="ml-[800px] w-[200px] ml-3 h-[150px] bg-[#5A94D0] mt-8">
-          <h2>Summary</h2>
-          <hr />
-          <p>Subtotal:</p>
+        <div className="ml-[800px] w-[200px] ml-3 h-[150px] rounded-lg bg-blue-100 mt-8">
+          <h2 className="font-bold">Summary</h2>
+          <hr className="size-2" />
+          <div className="ml-6">
+             <p>Subtotal:</p>
           <p>Birr 400</p>
-          <Button variant="filled" color="#13569D" size="md" radius="md">
+          </div>
+         
+          <Button className="mt-4" variant="filled" color="#13569D" size="md" radius="md">
             Go To Checkout
           </Button>
         </div>
       </div>
 
       {data.map((d) => (
-        <div className="ml-20 flex">
+        <div className="gap-2 mb-10 ml-20 flex">
           <div className="flex border-2 w-[400px] h-[100px]">
             <img src={d.img} className="w-[100px] h-[100px]" />
 
             <div className="align ml-4">
               <h2 className="font-bold">{d.title}</h2>
-              <p>{d.instructor}</p>
+
+              <p className="text-sm text-gray-700">{d.instructor}</p>
               <div className="flex">
-                <p>{d.rating}</p>
-                <p>{d.rating2}</p>
+                <p className="text-sm text-gray-700">{d.rating}</p>
+                <p className="text-sm text-gray-700">{d.rating2}</p>
               </div>
               <div className="flex gap-4">
-                <p>{d.duration}</p>
-                <p>{d.lecture}</p>
+                <p className="text-sm text-gray-700">{d.duration}</p>
+                <p className="text-sm text-gray-700">{d.lecture}</p>
               </div>
             </div>
           </div>
@@ -104,7 +110,7 @@ const Cart = () => {
             <p>{d.price}</p>
             <div className="mt-5 flex">
               <p>{d.icon}</p>
-              <p>{d.remove}</p>
+              <p className="text-red-500">{d.remove}</p>
             </div>
           </div>
         </div>

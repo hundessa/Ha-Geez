@@ -30,7 +30,7 @@ const navigate = useNavigate();
               odio consequuntur, harum natus ex aliquam incidunt!
             </p>
 
-            <Button className="mt-10" variant="filled" color="#09335F" onClick={() => navigate("/cart")}>
+            <Button className="mt-10" variant="filled" color="#09335F" >
               Readmore
             </Button>
           </div>

@@ -5,42 +5,75 @@ import { FaLock } from "react-icons/fa";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
 import Enroll_Modal from "../../Pages/Home page/modals/Enroll_Modal";
+import { useForm } from "@mantine/form";
+import {PasswordInput, TextInput } from "@mantine/core";
+
 
 const Login = () => {
+  const navigate = useNavigate();
+  const [openmodal, setOpenmodal] = useState(false);
+  const form = useForm({
+    mode: "uncontrolled",
+    initialValues: { email: "", password: "" },
 
-const navigate = useNavigate();
-const [openmodal, setOpenmodal] = useState(false)
+    validate: {
+      password: (value) => (value.length < 6 ? 'Password must be at least 6' : null),
+      email: (value) => (/^\S+@\S+$/.test(value) ? null : "Invalid email"),
+    },
+  });
+
   return (
     <div className="flex">
-      <Button variant="white" color="rgba(8, 8, 8, 1)" size="md" className="w-[100px]" onClick={() => navigate("/")}>
+      <Button
+        variant="white"
+        color="rgba(8, 8, 8, 1)"
+        size="md"
+        className="w-[100px]"
+        onClick={() => navigate("/")}
+      >
         Back
       </Button>
       <div className="wrap">
         <h1 className="mt-40 ml-64 font-medium">Login</h1>
-        <form action="">
-          <div className="border-2 w-[400px] h-[300px] mt-10 ml-64 rounded-[20px]">
+        <form onSubmit={form.onSubmit(() => console.log())}>
+          <div className="border-2 w-[400px] h-[350px] mt-10 ml-64 rounded-[20px]">
             <div className="mt-10 ml-16">
               <div className="input-box flex ">
-                <input
-                  type="text"
-                  placeholder="Enter Your Username"
+
+                <TextInput
+                  mt="sm"
+                  // label="Email"
+                  placeholder="Enter Your Email"
                   required
-                  className="border-b-[4px] font-size-[2px] border-[#09335F] w-[250px]"
+                  variant="unstyled"
+                  className=" border-b-[4px] font-size-[2px] border-[#09335F] w-[250px]"
+                  {...form.getInputProps("email")}
                 />
-                <FaUser className="ml-[-30px]" />
+
+                <FaUser className="ml-[-30px] mt-5" />
               </div>
               <div className="input-box flex  mt-7">
-                <input
-                  type="password"
+
+                <PasswordInput
+                  // label="Password"
                   placeholder="Enter Your Password"
                   required
+                  variant="unstyled"
+                  key={form.key('password')}
+                  {...form.getInputProps('password')}
                   className="border-b-[4px] border-[#09335F] w-[250px]"
                 />
-                <FaLock className="ml-[-30px]" />
+
+                {/* <FaLock className="ml-[-30px]" /> */}
               </div>
 
               <div className="mt-5">
-                <Button variant="transparent" href="#" className="text-[#09335F] font-medium" onClick={() => navigate("/forgot_password")}>
+                <Button
+                  variant="transparent"
+                  href="#"
+                  className="text-[#09335F] font-medium"
+                  onClick={() => navigate("/forgot_password")}
+                >
                   Forgot Password?
                 </Button>
               </div>
@@ -51,7 +84,8 @@ const [openmodal, setOpenmodal] = useState(false)
                 color="#09335F"
                 size="md"
                 radius="xl"
-                onClick={() => navigate("/student_landingpage")}
+                type="submit"
+                // onClick={() => navigate("/student_landingpage")}
               >
                 Login
               </Button>
@@ -68,13 +102,16 @@ const [openmodal, setOpenmodal] = useState(false)
         />
         <div className="flex ml-32  ">
           <p>Not a member?</p>
-          <a href="#" className="text-[#09335F] font-bold ml-32" onClick={() => setOpenmodal(true)}>
+          <a
+            href="#"
+            className="text-[#09335F] font-bold ml-32"
+            onClick={() => setOpenmodal(true)}
+          >
             Register
           </a>
         </div>
-      
-      </div>  
-      <Enroll_Modal openmodal ={openmodal} setOpenmodal={setOpenmodal}/>
+      </div>
+      <Enroll_Modal openmodal={openmodal} setOpenmodal={setOpenmodal} />
     </div>
   );
 };

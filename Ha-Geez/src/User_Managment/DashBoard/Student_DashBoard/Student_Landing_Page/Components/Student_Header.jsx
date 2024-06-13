@@ -13,15 +13,6 @@ import student_1 from "../../../../../assets/images/Student_profile/student_1.jp
 
 const Student_Header = () => {
   const navigate = useNavigate();
-  // const [clicked, setClicked] = useState(false);
-  // const [toggleClicked, setToggleClicked] = useState();
-
-  // const ToggleClicked = () => {
-  //   setToggleClicked(!toggleClicked);
-  // };
-  // const handleClick = () => {
-  //   setClicked(!clicked);
-  // };
 
   const [menuVisible, setMenuVisible] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -64,7 +55,7 @@ const Student_Header = () => {
                   variant="transparent"
                   className="flex text-gray-200 p-0 active:text-gray-400"
                 >
-                  <MdOutlineShoppingCart className="size-8" />
+                  <MdOutlineShoppingCart className="size-8" onClick={() => navigate("/cart")} />
                 </Button>
                 <Button
                   variant="transparent"
