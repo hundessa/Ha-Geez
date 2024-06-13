@@ -42,7 +42,7 @@ const Header = () => {
   return (
     <>
       <header 
-      className={`duration-1000 ease-in-out transition-all ${navbar ? "bg-[#09335F] bg-opacity-50 w-full z-10 flex fixed transition-all duration-300 ease-in" : "bg-[#09335F] bg-opacity-80 flex"}`}
+      className={`duration-1000 ease-in-out transition-all ${navbar ? "bg-[#09335F] bg-opacity-90 w-full z-10 flex fixed transition-all duration-300 ease-in" : "bg-[#09335F] bg-opacity-80 flex"}`}
       >
         <div className="flex mr-96" onClick={() => navigate("/")}>
           <div className="size-14 mr-2 cursor-pointer">

@@ -81,6 +81,198 @@ export const courses = [
     instructorName: "Hundessa",
     level: "Begginer",
     duration: "10hr",
+    price: "200",
+    rating: "4"
+  },
+  {
+    image: course_2,
+    title: "Business fundamentals",
+    description: "Learn the basic of business to start your own business",
+    instructorName: "Hundessa",
+    level: "Begginer",
+    duration: "10hr",
+    price: "200",
+    rating: "4"
+  },
+  {
+    image: course_3,
+    title: "Business fundamentals",
+    description: "Learn the basic of business to start your own business",
+    instructorName: "Hundessa",
+    level: "Begginer",
+    duration: "10hr",
+    price: "200",
+    rating: "4"
+  },
+  {
+    image: course_4,
+    title: "Business fundamentals",
+    description: "Learn the basic of business to start your own business",
+    instructorName: "Hundessa",
+    level: "Begginer",
+    duration: "10hr",
+    price: "200",
+    rating: "4"
+  },
+  {
+    image: course_1,
+    title: "Business fundamentals",
+    description: "Learn the basic of business to start your own business",
+    instructorName: "Hundessa",
+    level: "Begginer",
+    duration: "10hr",
+    price: "200",
+    rating: "4"
+  },
+  {
+    image: course_2,
+    title: "Business fundamentals",
+    description: "Learn the basic of business to start your own business",
+    instructorName: "Hundessa",
+    level: "Begginer",
+    duration: "10hr",
+    price: "200",
+    rating: "4"
+  },
+  {
+    image: course_3,
+    title: "Business fundamentals",
+    description: "Learn the basic of business to start your own business",
+    instructorName: "Hundessa",
+    level: "Begginer",
+    duration: "10hr",
+    price: "200",
+    rating: "4"
+  },
+  {
+    image: course_4,
+    title: "Business fundamentals",
+    description: "Learn the basic of business to start your own business",
+    instructorName: "Hundessa",
+    level: "Begginer",
+    duration: "10hr",
+    price: "200",
+    rating: "4"
+  },
+  {
+    image: course_1,
+    title: "Business fundamentals",
+    description: "Learn the basic of business to start your own business",
+    instructorName: "Hundessa",
+    level: "Begginer",
+    duration: "10hr",
+    price: "200",
+    rating: "4"
+  },
+  {
+    image: course_2,
+    title: "Business fundamentals",
+    description: "Learn the basic of business to start your own business",
+    instructorName: "Hundessa",
+    level: "Begginer",
+    duration: "10hr",
+    price: "200",
+    rating: "4"
+  },
+  {
+    image: course_3,
+    title: "Business fundamentals",
+    description: "Learn the basic of business to start your own business",
+    instructorName: "Hundessa",
+    level: "Begginer",
+    duration: "10hr",
+    price: "200",
+    rating: "4"
+  },
+  {
+    image: course_4,
+    title: "Business fundamentals",
+    description: "Learn the basic of business to start your own business",
+    instructorName: "Hundessa",
+    level: "Begginer",
+    duration: "10hr",
+    price: "200",
+    rating: "4"
+  },
+  {
+    image: course_1,
+    title: "Business fundamentals",
+    description: "Learn the basic of business to start your own business",
+    instructorName: "Hundessa",
+    level: "Begginer",
+    duration: "10hr",
+    price: "200",
+    rating: "4"
+  },
+  {
+    image: course_2,
+    title: "Business fundamentals",
+    description: "Learn the basic of business to start your own business",
+    instructorName: "Hundessa",
+    level: "Begginer",
+    duration: "10hr",
+    price: "200",
+    rating: "4"
+  },
+  {
+    image: course_3,
+    title: "Business fundamentals",
+    description: "Learn the basic of business to start your own business",
+    instructorName: "Hundessa",
+    level: "Begginer",
+    duration: "10hr",
+    price: "200",
+    rating: "4"
+  },
+  {
+    image: course_4,
+    title: "Business fundamentals",
+    description: "Learn the basic of business to start your own business",
+    instructorName: "Hundessa",
+    level: "Begginer",
+    duration: "10hr",
+    price: "200",
+    rating: "4"
+  },
+  {
+    image: course_1,
+    title: "Business fundamentals",
+    description: "Learn the basic of business to start your own business",
+    instructorName: "Hundessa",
+    level: "Begginer",
+    duration: "10hr",
+    price: "200",
+    rating: "4"
+  },
+  {
+    image: course_2,
+    title: "Business fundamentals",
+    description: "Learn the basic of business to start your own business",
+    instructorName: "Hundessa",
+    level: "Begginer",
+    duration: "10hr",
+    price: "200",
+    rating: "4"
+  },
+  {
+    image: course_3,
+    title: "Business fundamentals",
+    description: "Learn the basic of business to start your own business",
+    instructorName: "Hundessa",
+    level: "Begginer",
+    duration: "10hr",
+    price: "200",
+    rating: "4"
+  },
+  {
+    image: course_4,
+    title: "Business fundamentals",
+    description: "Learn the basic of business to start your own business",
+    instructorName: "Hundessa",
+    level: "Begginer",
+    duration: "10hr",
+    price: "200",
+    rating: "4"
   },
   {
     image: course_2,

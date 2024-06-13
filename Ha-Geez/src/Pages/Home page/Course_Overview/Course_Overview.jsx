@@ -18,10 +18,12 @@ import { BiSolidLike, BiSolidDislike } from "react-icons/bi";
 import { Reviews, items, courses } from "./Reviews/Reviews";
 import Preview_modal from "./Previews/Preview_modal/Preview_modal";
 import Course_Card from "../Components/styled-components/Course_Card";
-// import Slider from "react-slick";
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
-// import "../../Home page/Components/popular.css"
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Virtual, Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import Footer from "../Components/Footer";
 
 const Course_Overview = () => {
   const [openmodal, setOpenmodal] = useState(false);
@@ -30,6 +32,10 @@ const Course_Overview = () => {
     Array(Reviews.length).fill({ like: false, dislike: false })
   );
   const navigate = useNavigate();
+  // const [slides, setSlides] = useState(
+  //   Array.from({ length: 500 }).map((_, index) => `Slide ${index + 1}`)
+  // );
+
   const contentClickedHandler = (index) => {
     setActiveIndex((prevIndex) => (prevIndex === index ? null : index));
   };
@@ -305,48 +311,43 @@ const Course_Overview = () => {
           </div>
         </div>
       </div>
-        <div className="flex justify-center">
-      {/* <Slider {...settings}> */}
-          {courses.map((course, index) => {
-            return (
-              <div key={index} className="flex">
-                <Course_Card
-                  image={course.image}
-                  title={course.title}
-                  description={course.description}
-                  instructorName={course.instructorName}
-                  level={course.level}
-                  duration={course.duration}
-                />
-                <Course_Card
-                  image={course.image}
-                  title={course.title}
-                  description={course.description}
-                  instructorName={course.instructorName}
-                  level={course.level}
-                  duration={course.duration}
-                />
-                <Course_Card
-                  image={course.image}
-                  title={course.title}
-                  description={course.description}
-                  instructorName={course.instructorName}
-                  level={course.level}
-                  duration={course.duration}
-                />
-                <Course_Card
-                  image={course.image}
-                  title={course.title}
-                  description={course.description}
-                  instructorName={course.instructorName}
-                  level={course.level}
-                  duration={course.duration}
-                />
-              </div>
-            );
-          })}
-      {/* </Slider> */}
+      <div className="bg-[#DDD] bg-opacity-30 mt-4 mb-44 pb-10">
+        <div className="ml-10 mb-10 pt-4">
+          <h1 className="font-bold text-2xl mb-2">Related Courses</h1>
+          {/* <h1 className="text-sm font-light">Based on your learning activity we have curated a course just for you</h1> */}
+          <div className="flex justify-end ml-auto mr-8">
+            <Button>View All</Button>
+          </div>
         </div>
+        <div className="flex justify-center ml-4">
+          <Swiper
+            modules={[Virtual, Navigation, Pagination]}
+            slidesPerView={4}
+            spaceBetween={-30}
+            navigation={true}
+          >
+            {courses.map((course, index) => {
+              return (
+                <div key={index} className="flex">
+                  <SwiperSlide key={index}>
+                    <Course_Card
+                      image={course.image}
+                      title={course.title}
+                      description={course.description}
+                      instructorName={course.instructorName}
+                      level={course.level}
+                      duration={course.duration}
+                      price={course.price}
+                      rating={course.rating}
+                    />
+                  </SwiperSlide>
+                </div>
+              );
+            })}
+          </Swiper>
+        </div>
+      </div>
+      <Footer/>
       <Preview_modal openmodal={openmodal} setOpenmodal={setOpenmodal} />
     </>
   );

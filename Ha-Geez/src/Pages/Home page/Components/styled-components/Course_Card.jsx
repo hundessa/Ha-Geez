@@ -1,22 +1,12 @@
 import { Button } from "@mantine/core";
-// import Slider from "react-slick";
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
+import { FaStar } from "react-icons/fa";
 
 /* eslint-disable react/prop-types */
 const Course_Card = (props) => {
-//   const settings = {
-//     dots: true,
-    
-//     speed: 500,
-//     slidesToShow: 3,
-//     slidesToScroll: 1,
-//   };
 
   return (
     <>
-      {/* <Slider {...settings}> */}
-        <div className="border-gray-500 border-[1px] w-[240px] mx-2 flex justify-center rounded-lg pb-2">
+        <div className="border-gray-500 border-[1px] w-[240px] ml-12  flex justify-center rounded-lg pb-2">
           <div className="space-y-4">
             <div>
               <img
@@ -41,6 +31,10 @@ const Course_Card = (props) => {
               <h1 className="font-light text-xs bg-[#D9D9D9] bg-opacity-55 p-1">
                 {props.duration}
               </h1>
+            </div>
+            <div className="flex">
+              <h1 className="flex mx-2"><FaStar className="mt-1 mr-2 text-yellow-500"/>{props.rating}</h1>
+              <h1 className="flex justify-center mx-auto">{props.price} Birr</h1>
             </div>
             <div className="justify-center flex">
               <Button

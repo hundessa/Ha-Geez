@@ -18,6 +18,8 @@ import Cart from "./User_Managment/DashBoard/Student_DashBoard/Student_Landing_P
 import Student_profile_page from "./User_Managment/DashBoard/Student_DashBoard/Student_Profile_page/Student_profile_page";
 import Course_List_for_student from "./Pages/Home page/Course List/Course_List_for_student";
 import My_Learning from "./User_Managment/DashBoard/Student_DashBoard/Student_MyLearning_Page/My_Learning";
+import Course_List from "./Pages/Home page/Course List/Course_List";
+import Cart from "./User_Managment/DashBoard/Student_DashBoard/Student_Landing_Page/Cart";
 
 
 function App() {
