@@ -1,4 +1,6 @@
 import { FaRegUserCircle, FaChalkboardTeacher, FaUserGraduate, FaRegListAlt } from "react-icons/fa";
+import { FaPeopleGroup } from "react-icons/fa6";
+import { MdApproval } from "react-icons/md";
 import { HiOutlineBookOpen } from "react-icons/hi";
 import Side_Nav_Bar from "../../Navigation/Side_Nav_Bar";
 import { useLocation } from "react-router-dom";
@@ -59,6 +61,26 @@ const Admin_Side_NavBar = ({setSidebarExpanded}) => {
         icon: HiOutlineBookOpen,
         name: "Courses",
         route: "/list_of_courses",
+        variant: "transparent",
+        style: {
+        active: "bg-[#5A94D0] text-white group-hover:px2 pl-2 ml-[-14px] w-[50px] group-hover:w-[130px]",
+        inactive: "bg-transparent text-gray-500",
+      },
+      },
+      {
+        icon: FaPeopleGroup,
+        name: "Applicants",
+        route: "/applicants_list",
+        variant: "transparent",
+        style: {
+        active: "bg-[#5A94D0] text-white group-hover:px2 pl-2 ml-[-14px] w-[50px] group-hover:w-[130px]",
+        inactive: "bg-transparent text-gray-500",
+      },
+      },
+      {
+        icon: MdApproval,
+        name: "Course Approval",
+        route: "/list_of_courses_tobe_approved",
         variant: "transparent",
         style: {
         active: "bg-[#5A94D0] text-white group-hover:px2 pl-2 ml-[-14px] w-[50px] group-hover:w-[130px]",
