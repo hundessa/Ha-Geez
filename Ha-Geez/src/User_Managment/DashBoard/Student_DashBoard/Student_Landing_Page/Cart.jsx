@@ -1,4 +1,3 @@
-import React from "react";
 import Student_Header from "./Components/Student_Header";
 import Student_side_navbar from "./Components/Student_side_navbar";
 import { Button } from "@mantine/core";
@@ -82,8 +81,8 @@ const Cart = () => {
         </div>
       </div>
 
-      {data.map((d) => (
-        <div className="ml-20 flex">
+      {data.map((d, index) => (
+        <div key={index} className="ml-20 flex">
           <div className="flex border-2 w-[400px] h-[100px]">
             <img src={d.img} className="w-[100px] h-[100px]" />
 

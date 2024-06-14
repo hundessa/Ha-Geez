@@ -79,8 +79,8 @@ const Student_LandinPage = () => {
       <div className="slick-slider">
 
          <Slider {...settings}>
-      {data.map((d) => (
-        <div className=" mt-10 ml-20">
+      {data.map((d, index) => (
+        <div key={index} className=" mt-10 ml-20">
           <img className="w-[200px] h-[100px]" src={d.img}/>
           <h2>{d.title}</h2>
           <p className="text-sm mt-1">{d.instructor}</p>
