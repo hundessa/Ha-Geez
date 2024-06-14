@@ -1,6 +1,6 @@
-import React, { useState } from "react";
 import Header from "../Components/Header";
 import Footer from "../Components/Footer";
+import { useState } from "react";
 
 const Course_List = () => {
   // Sample course data

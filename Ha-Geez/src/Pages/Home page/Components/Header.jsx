@@ -7,7 +7,7 @@ import { Link as ScrollLink } from "react-scroll";
 
 const Header = () => {
   const [clicked, setClicked] = useState(false);
-  const [activeLink, setActiveLink] = useState('');
+  const [activeLink, setActiveLink] = useState("");
   const onClick = () => {
     setClicked(!clicked);
   };
@@ -26,23 +26,27 @@ const Header = () => {
   window.addEventListener("scroll", changeBackground);
 
   useEffect(() => {
-    if (location.pathname !== '/') {
-      if (location.pathname === '/about_us') {
-        setActiveLink('about_us');
-      } else if (location.pathname === '/courses') {
-        setActiveLink('courses');
-      } else if (location.pathname === '/contact_us') {
-        setActiveLink('contact_us');
+    if (location.pathname !== "/") {
+      if (location.pathname === "/about_us") {
+        setActiveLink("about_us");
+      } else if (location.pathname === "/courses") {
+        setActiveLink("courses");
+      } else if (location.pathname === "/contact_us") {
+        setActiveLink("contact_us");
       } else {
-        setActiveLink('');
+        setActiveLink("");
       }
     }
   }, [location.pathname]);
 
   return (
     <>
-      <header 
-      className={`duration-1000 ease-in-out transition-all ${navbar ? "bg-[#09335F] bg-opacity-90 w-full z-10 flex fixed transition-all duration-300 ease-in" : "bg-[#09335F] bg-opacity-80 flex"}`}
+      <header
+        className={`duration-1000 ease-in-out transition-all ${
+          navbar
+            ? "bg-[#09335F] bg-opacity-90 w-full z-10 flex fixed transition-all duration-300 ease-in"
+            : "bg-[#09335F] bg-opacity-80 flex"
+        }`}
       >
         <div className="flex mr-96" onClick={() => navigate("/")}>
           <div className="size-14 mr-2 cursor-pointer">
@@ -64,22 +68,23 @@ const Header = () => {
               //     ? "mx-4 cursor-pointer border-b-[3px]"
               //     : "mx-4 cursor-pointer hover:border-b-[3px]"
               // }
-              className={`mx-4 cursor-pointer hover:border-b-[3px] ${activeLink === 'home' ? 'border-b-[3px]' : ''}`}
-              onClick={() => setActiveLink('home')}
+              className={`mx-4 cursor-pointer hover:border-b-[3px] ${
+                activeLink === "home" ? "border-b-[3px]" : ""
+              }`}
+              onClick={() => setActiveLink("home")}
             >
               Home
             </NavLink>
-            
+
             <ScrollLink
               to="about-us-section"
               smooth={true}
               duration={500}
-              
               className="mx-6 cursor-pointer hover:border-b-[3px]"
               activeClass="border-b-[3px]"
               // className={`mx-6 cursor-pointer hover:border-b-[3px] ${activeLink === 'about_us' ? 'border-b-[3px]' : ''}`}
               // onClick={() => setActiveLink('about_us')}
-            >            
+            >
               About Us
             </ScrollLink>
             <NavLink

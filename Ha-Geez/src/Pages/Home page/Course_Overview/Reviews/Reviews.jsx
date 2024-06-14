@@ -68,7 +68,7 @@ export const profile = [
     email: "hund@gmail.com",
     firstname: "Hundessa",
     lastname: "Serbessa",
-    username: "hund",
+  username: "hund",
     phonenumber: "090909099",
   },
 ];
@@ -275,3 +275,443 @@ export const courses = [
     rating: "4"
   },
 ];
+
+
+export const listOfApplicants = [
+  {
+    name: "Hundessa Serbessa",
+    appliedDate: "20/04/2022",
+    status: "Active"
+  },
+  {
+    name: "Hundessa Serbessa",
+    appliedDate: "20/04/2022",
+    status: "Active"
+  },
+  {
+    name: "Hundessa Serbessa",
+    appliedDate: "20/04/2022",
+    status: "Active"
+  },
+  {
+    name: "Hundessa Serbessa",
+    appliedDate: "20/04/2022",
+    status: "Approved"
+  },
+  {
+    name: "Hundessa Serbessa",
+    appliedDate: "20/04/2022",
+    status: "Approved"
+  },
+  {
+    name: "Hundessa Serbessa",
+    appliedDate: "20/04/2022",
+    status: "Approved"
+  },
+  {
+    name: "Hundessa Serbessa",
+    appliedDate: "20/04/2022",
+    status: "Approved"
+  },
+  {
+    name: "Hundessa Serbessa",
+    appliedDate: "20/04/2022",
+    status: "Approved"
+  },
+  {
+    name: "Hundessa Serbessa",
+    appliedDate: "20/04/2022",
+    status: "Approved"
+  },
+  {
+    name: "Hundessa Serbessa",
+    appliedDate: "20/04/2022",
+    status: "Approved"
+  },
+  {
+    name: "Hundessa Serbessa",
+    appliedDate: "20/04/2022",
+    status: "Approved"
+  },
+  {
+    name: "Hundessa Serbessa",
+    appliedDate: "20/04/2022",
+    status: "Approved"
+  },
+  {
+    name: "Hundessa Serbessa",
+    appliedDate: "20/04/2022",
+    status: "Approved"
+  },
+  {
+    name: "Hundessa Serbessa",
+    appliedDate: "20/04/2022",
+    status: "Approved"
+  },
+  {
+    name: "Hundessa Serbessa",
+    appliedDate: "20/04/2022",
+    status: "Approved"
+  },
+  {
+    name: "Hundessa Serbessa",
+    appliedDate: "20/04/2022",
+    status: "Approved"
+  },
+]
+
+export const listOfStudents = [
+  {
+    name: "Hundessa Serbessa",
+    instructorName: "Angela Yu",
+    numberofCourses: "3",
+    status: "Active"
+  },
+  {
+    name: "Hundessa Serbessa",
+    instructorName: "Angela Yu",
+    numberofCourses: "3",
+    status: "Active"
+  },
+  {
+    name: "Hundessa Serbessa",
+    instructorName: "Angela Yu",
+    numberofCourses: "3",
+    status: "Inactive"
+  },
+  {
+    name: "Hundessa Serbessa",
+    instructorName: "Angela Yu",
+    numberofCourses: "3",
+    status: "Active"
+  },
+  {
+    name: "Hundessa Serbessa",
+    instructorName: "Angela Yu",
+    numberofCourses: "3",
+    status: "Active"
+  },
+  {
+    name: "Hundessa Serbessa",
+    instructorName: "Angela Yu",
+    numberofCourses: "3",
+    status: "Active"
+  },
+  {
+    name: "Hundessa Serbessa",
+    instructorName: "Angela Yu",
+    numberofCourses: "3",
+    status: "Active"
+  },
+  {
+    name: "Hundessa Serbessa",
+    instructorName: "Angela Yu",
+    numberofCourses: "3",
+    status: "Inactive"
+  },
+  {
+    name: "Hundessa Serbessa",
+    instructorName: "Angela Yu",
+    numberofCourses: "3",
+    status: "Active"
+  },
+  {
+    name: "Hundessa Serbessa",
+    instructorName: "Angela Yu",
+    numberofCourses: "3",
+    status: "Active"
+  },
+  {
+    name: "Hundessa Serbessa",
+    instructorName: "Angela Yu",
+    numberofCourses: "3",
+    status: "Active"
+  },
+]
+
+export const listOfCourses = [
+  {
+    name: "Hundessa Serbessa",
+    instructorName: "Angela Yu",
+    numberofStudents: "3",
+    status: "Active"
+  },
+  {
+    name: "Hundessa Serbessa",
+    instructorName: "Angela Yu",
+    numberofStudents: "3",
+    status: "Active"
+  },
+  {
+    name: "Hundessa Serbessa",
+    instructorName: "Angela Yu",
+    numberofStudents: "3",
+    status: "Inactive"
+  },
+  {
+    name: "Hundessa Serbessa",
+    instructorName: "Angela Yu",
+    numberofStudents: "3",
+    status: "Active"
+  },
+  {
+    name: "Hundessa Serbessa",
+    instructorName: "Angela Yu",
+    numberofStudents: "3",
+    status: "Active"
+  },
+  {
+    name: "Hundessa Serbessa",
+    instructorName: "Angela Yu",
+    numberofStudents: "3",
+    status: "Active"
+  },
+  {
+    name: "Hundessa Serbessa",
+    instructorName: "Angela Yu",
+    numberofStudents: "3",
+    status: "Active"
+  },
+  {
+    name: "Hundessa Serbessa",
+    instructorName: "Angela Yu",
+    numberofStudents: "3",
+    status: "Inactive"
+  },
+  {
+    name: "Hundessa Serbessa",
+    instructorName: "Angela Yu",
+    numberofStudents: "3",
+    status: "Active"
+  },
+  {
+    name: "Hundessa Serbessa",
+    instructorName: "Angela Yu",
+    numberofStudents: "3",
+    status: "Active"
+  },
+  {
+    name: "Hundessa Serbessa",
+    instructorName: "Angela Yu",
+    numberofStudents: "3",
+    status: "Active"
+  },
+]
+
+export const listOfCoursestobApproved = [
+  {
+    name: "Hundessa Serbessa",
+    courseName: "Angela Yu",
+    courseUploadedDate: "12/05/2022",
+    coursename: "Introduction to web development",
+    status: "Approved"
+  },
+  {
+    name: "Hundessa Serbessa",
+    instructorName: "Angela Yu",
+    courseUploadedDate: "12/05/2022",
+    coursename: "Introduction to web development",
+    status: "Approved"
+  },
+  {
+    name: "Hundessa Serbessa",
+    instructorName: "Angela Yu",
+    courseUploadedDate: "12/05/2022",
+    coursename: "Introduction to web development",
+    status: "Rejected"
+  },
+  {
+    name: "Hundessa Serbessa",
+    instructorName: "Angela Yu",
+    courseUploadedDate: "12/05/2022",
+    coursename: "Introduction to web development",
+    status: "Approved"
+  },
+  {
+    name: "Hundessa Serbessa",
+    instructorName: "Angela Yu",
+    courseUploadedDate: "12/05/2022",
+    coursename: "Introduction to web development",
+    status: "Approved"
+  },
+  {
+    name: "Hundessa Serbessa",
+    instructorName: "Angela Yu",
+    courseUploadedDate: "12/05/2022",
+    coursename: "Introduction to web development",
+    status: "Approved"
+  },
+  {
+    name: "Hundessa Serbessa",
+    instructorName: "Angela Yu",
+    courseUploadedDate: "12/05/2022",
+    coursename: "Introduction to web development",
+    status: "Pending"
+  },
+  {
+    name: "Hundessa Serbessa",
+    instructorName: "Angela Yu",
+    courseUploadedDate: "12/05/2022",
+    coursename: "Introduction to web development",
+    status: "Rejected"
+  },
+  {
+    name: "Hundessa Serbessa",
+    instructorName: "Angela Yu",
+    courseUploadedDate: "12/05/2022",
+    coursename: "Introduction to web development",
+    status: "Approved"
+  },
+  {
+    name: "Hundessa Serbessa",
+    instructorName: "Angela Yu",
+    courseUploadedDate: "12/05/2022",
+    coursename: "Introduction to web development",
+    status: "Pending"
+  },
+  {
+    name: "Hundessa Serbessa",
+    instructorName: "Angela Yu",
+    courseUploadedDate: "12/05/2022",
+    coursename: "Introduction to web development",
+    status: "Approved"
+  },
+]
+
+export const listOfCategories = [
+  {
+    name: "Development",
+    numberofCourses: "22",
+    numberofStudents: "230",
+    status: "Active"
+  },
+  {
+    name: "Development",
+    numberofCourses: "22",
+    numberofStudents: "230",
+    status: "Active"
+  },
+  {
+    name: "Development",
+    numberofCourses: "22",
+    numberofStudents: "230",
+    status: "Inactive"
+  },
+  {
+    name: "Development",
+    numberofCourses: "22",
+    numberofStudents: "230",
+    status: "Active"
+  },
+  {
+    name: "Development",
+    numberofCourses: "22",
+    numberofStudents: "230",
+    status: "Active"
+  },
+  {
+    name: "Development",
+    numberofCourses: "22",
+    numberofStudents: "230",
+    status: "Active"
+  },
+  {
+    name: "Development",
+    numberofCourses: "22",
+    numberofStudents: "230",
+    status: "Inactive"
+  },
+  {
+    name: "Development",
+    numberofCourses: "22",
+    numberofStudents: "230",
+    status: "Inactive"
+  },
+  {
+    name: "Development",
+    numberofCourses: "22",
+    numberofStudents: "230",
+    status: "Active"
+  },
+  {
+    name: "Development",
+    numberofCourses: "22",
+    numberofStudents: "230",
+    status: "Inactive"
+  },
+  {
+    name: "Development",
+    numberofCourses: "22",
+    numberofStudents: "230",
+    status: "Active"
+  },
+]
+
+export const listOfInstructors = [
+  {
+    name: "Angela Yu",
+    numberofCourses: "22",
+    numberofStudents: "230",
+    status: "Active"
+  },
+  {
+    name: "Angela Yu",
+    numberofCourses: "22",
+    numberofStudents: "230",
+    status: "Active"
+  },
+  {
+    name: "Angela Yu",
+    numberofCourses: "22",
+    numberofStudents: "230",
+    status: "Inactive"
+  },
+  {
+    name: "Angela Yu",
+    numberofCourses: "22",
+    numberofStudents: "230",
+    status: "Active"
+  },
+  {
+    name: "Angela Yu",
+    numberofCourses: "22",
+    numberofStudents: "230",
+    status: "Active"
+  },
+  {
+    name: "Angela Yu",
+    numberofCourses: "22",
+    numberofStudents: "230",
+    status: "Active"
+  },
+  {
+    name: "Angela Yu",
+    numberofCourses: "22",
+    numberofStudents: "230",
+    status: "Inactive"
+  },
+  {
+    name: "Angela Yu",
+    numberofCourses: "22",
+    numberofStudents: "230",
+    status: "Inactive"
+  },
+  {
+    name: "Angela Yu",
+    numberofCourses: "22",
+    numberofStudents: "230",
+    status: "Active"
+  },
+  {
+    name: "Angela Yu",
+    numberofCourses: "22",
+    numberofStudents: "230",
+    status: "Inactive"
+  },
+  {
+    name: "Angela Yu",
+    numberofCourses: "22",
+    numberofStudents: "230",
+    status: "Active"
+  },
+]
