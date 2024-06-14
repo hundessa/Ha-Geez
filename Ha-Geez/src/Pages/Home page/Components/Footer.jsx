@@ -20,7 +20,7 @@ const Footer = () => {
           </div>
 
           <div className="flex flex-col justify-end space-y-2 ml-auto mr-32 font-semibold cursor-pointer first:hover:text-[20px]">
-            <NavLink to="/" className="hover:text-[#4176e7] hover:text-[17px]">
+            <NavLink to="/applicants_list" className="hover:text-[#4176e7] hover:text-[17px]">
               Home
             </NavLink>
             <NavLink

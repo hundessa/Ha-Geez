@@ -1,12 +1,13 @@
+import Admin_Side_NavBar from "./Admin_Side_NavBar/Admin_Side_NavBar";
 import Student_Header from "./Components/Student_Header";
-import Student_side_navbar from "./Components/Student_side_navbar";
-import { Button } from "@mantine/core";
+import { Button } from '@mantine/core';
+
 
 const Applicant_Details = () => {
   return (
     <div>
       <Student_Header />
-      <Student_side_navbar />
+        <Admin_Side_NavBar />
 
       <div>
         <Button>Pending</Button>
