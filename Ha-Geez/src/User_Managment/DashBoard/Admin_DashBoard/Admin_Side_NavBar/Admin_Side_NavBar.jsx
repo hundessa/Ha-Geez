@@ -83,8 +83,8 @@ const Admin_Side_NavBar = ({setSidebarExpanded}) => {
         route: "/list_of_courses_tobe_approved",
         variant: "transparent",
         style: {
-        active: "bg-[#5A94D0] text-white group-hover:px2 pl-2 ml-[-14px] w-[50px] group-hover:w-[130px]",
-        inactive: "bg-transparent text-gray-500",
+        active: "bg-[#5A94D0] text-white group-hover:px2 pl-2 ml-[-14px] group-hover:w-[130px] flex flex-col items-center",
+        inactive: "bg-transparent text-gray-500 max-w[100px]",
       },
       },
   ];

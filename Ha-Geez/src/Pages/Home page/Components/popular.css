@@ -1,3 +1,18 @@
-.slick-slider > div{
-    margin: 0 10px;
+
+/* .slick-slider {
+    margin-bottom: 0px !important; 
+} */
+
+/* .slick-slider .slick-dots {
+    margin-top: 0px !important;
+    padding-top: 0px !important; 
+    bottom: 70px !important; 
+} */
+
+.slick-dots li button:before {
+    font-size: 8px; 
 }
+
+/* .custom-slider .slick-slide > div {
+    margin: 0 10px; 
+} */

@@ -63,7 +63,7 @@ const testimonials = () => {
   return (
     <div className=" w-3/4 m-auto ">
       <div className="">
-        <h1 className=" mx-auto font-bold text-3xl m-20">
+        <h1 className="flex justify-center mx-auto font-bold text-3xl m-20">
           What Our Students Say About Us
         </h1>
       </div>

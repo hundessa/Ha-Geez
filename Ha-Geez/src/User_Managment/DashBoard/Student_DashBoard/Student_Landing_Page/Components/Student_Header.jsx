@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "../../../../../assets/images/Logo/logo-3.png";
 import { Button, TextInput } from "@mantine/core";
@@ -8,7 +8,9 @@ import {
   MdOutlineDarkMode,
   MdOutlineLightMode,
   MdLogout,
+  MdSettings,
 } from "react-icons/md";
+import { FaExchangeAlt } from "react-icons/fa";
 import student_1 from "../../../../../assets/images/Student_profile/student_1.jpg";
 
 const Student_Header = () => {
@@ -16,6 +18,13 @@ const Student_Header = () => {
 
   const [menuVisible, setMenuVisible] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [settingVisible, setSettingVisible] = useState(false);
+  const dropdownRef = useRef(null);
+  const settingsRef = useRef(null);
+
+  const settingMenu = () => {
+    setSettingVisible(!settingVisible);
+  };
 
   const toggleMenu = () => {
     setMenuVisible(!menuVisible);
@@ -24,6 +33,25 @@ const Student_Header = () => {
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
   };
+
+  const handleClickOutside = (event) => {
+    if (
+      dropdownRef.current &&
+      !dropdownRef.current.contains(event.target) &&
+      settingsRef.current &&
+      !settingsRef.current.contains(event.target)
+    ) {
+      setMenuVisible(false);
+      setSettingVisible(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <>
@@ -55,7 +83,10 @@ const Student_Header = () => {
                   variant="transparent"
                   className="flex text-gray-200 p-0 active:text-gray-400"
                 >
-                  <MdOutlineShoppingCart className="size-8" onClick={() => navigate("/cart")} />
+                  <MdOutlineShoppingCart
+                    className="size-8"
+                    onClick={() => navigate("/cart")}
+                  />
                 </Button>
                 <Button
                   variant="transparent"
@@ -63,7 +94,14 @@ const Student_Header = () => {
                 >
                   <MdNotifications className="size-8" />
                 </Button>
-                <div className={` `} onClick={toggleMenu}>
+                <Button
+                  variant="transparent"
+                  className="flex text-gray-200 p-0 active:text-gray-400"
+                  onClick={settingMenu}
+                >
+                  <MdSettings className="size-8" />
+                </Button>
+                <div className={` `} ref={dropdownRef} onClick={toggleMenu}>
                   <img
                     src={student_1}
                     alt="profile"
@@ -75,36 +113,55 @@ const Student_Header = () => {
           </div>
         </nav>
         <div
+        ref={settingsRef}
+          className={`fixed right-0 mt-14 bg-[#E7F3FF] w-[150px] flx justify-center mx-auto ${
+            settingVisible ? "block" : "hidden"
+          }`}
+        >
+          <div className="flex justify-start mx-2">
+            <Button
+              variant="transparent"
+              onClick={toggleDarkMode}
+              className={`flex justifycenter items-center text-gray-500 active:text-black p-0`}
+            >
+              {isDarkMode ? (
+                <>
+                  <MdOutlineDarkMode
+                    className={`size-[20px] cursor-pointer mr-1 text-[12px]`}
+                  />
+                  <h1 className={`text-[12px]`}>Dark mode</h1>
+                </>
+              ) : (
+                <>
+                  <MdOutlineLightMode
+                    className={`size-[20px] cursor-pointer mr-1 text-[12px]`}
+                  />
+                  <h1 className="text-[12px]">Light mode</h1>
+                </>
+              )}
+            </Button>
+          </div>
+          <Button
+            variant="transparent"
+            className="text-gray-500 active:text-black text-[12px] ml-[-4px]"
+            onClick={() => navigate("/change_password")}
+          >
+            <FaExchangeAlt className="mr-1" />
+            Change Password
+          </Button>
+        </div>
+        <div
+        ref={dropdownRef}
           className={`fixed right-0 mt-14 bg-[#E7F3FF] w-[170px] flex justify-center mx-auto ${
             menuVisible ? "block" : "hidden"
           }`}
         >
           <div className="space-y-4 my-2">
-          <div className="text-sm">
-            <h1>Hundessa Serbessa</h1>
-            <h1 className="text-xs font-light">hund@gmail.com</h1>
-          </div>
-            <Button
-              variant="transparent"
-              onClick={toggleDarkMode}
-              className={`flex justify-center items-center text-gray-500 active:text-black p-0 ml-[-4px] `}
-            >
-              {isDarkMode ? (
-                <>
-                  <MdOutlineDarkMode
-                    className={`size-6 cursor-pointer mr-2 text-sm`}
-                  />
-                  <h1 className={`text-sm`}>Dark mode</h1>
-                </>
-              ) : (
-                <>
-                  <MdOutlineLightMode
-                    className={`size-6 cursor-pointer mr-2 `}
-                  />
-                  <h1 className="text-sm">Light mode</h1>
-                </>
-              )}
-            </Button>
+            <div className="text-sm">
+              <h1>Hundessa Serbessa</h1>
+              <h1 className="text-xs font-light">hund@gmail.com</h1>
+            </div>
+
             <div>
               <Button
                 variant="transparent"

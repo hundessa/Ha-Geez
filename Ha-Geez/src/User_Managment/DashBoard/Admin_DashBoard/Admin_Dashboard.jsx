@@ -1,5 +1,5 @@
+import Student_Header from "../Student_DashBoard/Student_Landing_Page/Components/Student_Header";
 import Admin_Side_NavBar from "./Admin_Side_NavBar/Admin_Side_NavBar";
-import Student_Header from "./Components/Student_Header";
 import { Button } from '@mantine/core';
 
 const Admin_Dashboard = () => {

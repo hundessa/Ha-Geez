@@ -30,8 +30,11 @@ const Side_Nav_Bar = ({ setSidebarExpanded, buttons, activeButton, setActiveButt
               {button.icon && (
                 <button.icon className="flex items-center my-auto size-6 mr-4" />
               )}
-              <h1 className={`hidden group-hover:inline-block whitespace-nowrap grouphover:block text-[14px]`}>
-                {button.name}
+              
+              <h1 className={`hidden group-hover:block text-[14px]`}>
+              {button.name.split(" ").map((word, index) => (
+                <span key={index} className="block">{word}</span>
+              ))}
               </h1>
             </Button>
           ))}

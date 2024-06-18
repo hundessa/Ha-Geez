@@ -63,14 +63,6 @@ const Course_Overview = () => {
     });
   };
 
-  // const settings = {
-  //   dots: true,
-  //   infinite: true,
-  //   speed: 500,
-  //   slidesToShow: 4,
-  //   slidesToScroll: 3,
-  // };
-
   return (
     <>
       <Header />
@@ -313,25 +305,26 @@ const Course_Overview = () => {
       </div>
       <div className="bg-[#DDD] bg-opacity-30 mt-4 mb-44 pb-10">
         <div className="ml-10 mb-10 pt-4">
-          <h1 className="font-bold text-2xl mb-2">Related Courses</h1>
+          <h1 className="font-bold text-3xl mb-2">Related Courses</h1>
           {/* <h1 className="text-sm font-light">Based on your learning activity we have curated a course just for you</h1> */}
           <div className="flex justify-end ml-auto mr-8">
-            <Button>View All</Button>
+            <Button onClick={() => navigate("/course_list")}>View All</Button>
           </div>
         </div>
-        <div className="flex justify-center ml-4">
+        <div className="flex justify-center ml-[-10px]">
           <Swiper
             modules={[Virtual, Navigation, Pagination]}
             slidesPerView={4}
-            spaceBetween={-30}
+            spaceBetween={-49}
             navigation={true}
           >
             {courses.map((course, index) => {
               return (
-                <div key={index} className="flex">
+                <div key={index} className="">
                   <SwiperSlide key={index}>
                     <Course_Card
                       image={course.image}
+                      category={course.category}
                       title={course.title}
                       description={course.description}
                       instructorName={course.instructorName}

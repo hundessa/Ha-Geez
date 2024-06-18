@@ -4,8 +4,29 @@ import DataTable from "react-data-table-component";
 import { listOfStudents } from "../../../../Pages/Home page/Course_Overview/Reviews/Reviews";
 import { FaEye, FaUserGraduate } from "react-icons/fa";
 import Admin_Side_NavBar from "../Admin_Side_NavBar/Admin_Side_NavBar";
+import { useMemo, useState } from "react";
 
 const List_of_Students = () => {
+  const [categoryFilter, setCategoryFilter] = useState("");
+  const [statusFilter, setStatusFilter] = useState("");
+
+  const handleCategoryFilter = (event) => {
+    setCategoryFilter(event);
+  };
+
+  const handleStatusFilter = (event) => {
+    setStatusFilter(event);
+  };
+
+  const filteredData = useMemo(() => {
+    return listOfStudents.filter((student) => {
+      return (
+        (categoryFilter ? student.category === categoryFilter : true) &&
+        (statusFilter ? student.status === statusFilter : true)
+      );
+    });
+  }, [categoryFilter, statusFilter]);
+
 
   const handleButtonClick = (row) => {
     console.log("Button clicked for row:", row);
@@ -97,7 +118,7 @@ const List_of_Students = () => {
               Students
             </h1>
           </div>
-          <div className="flex justify-end ml-auto mr-10">
+          <div className="flex justify-end ml-auto mr-10 space-x-6">
             <Select
               label="Category"
               placeholder="Please Select"
@@ -109,13 +130,24 @@ const List_of_Students = () => {
                 "Design",
               ]}
               className="w-[200px]"
+              onChange={handleCategoryFilter}
+            />
+            <Select
+              label="Status"
+              placeholder="Please Select"
+              data={[
+                "Active",
+                "Inactive",
+              ]}
+              className="w-[200px]"
+              onChange={handleStatusFilter}
             />
           </div>
         </div>
         <div className=" w-[1100px] mx-14 rounded-xl mt-6 bg-[#E5F1FC] overflow-auto">
           <DataTable
             columns={columns}
-            data={listOfStudents}
+            data={filteredData}
             fixedHeader
             pagination
             customStyles={customStyles}

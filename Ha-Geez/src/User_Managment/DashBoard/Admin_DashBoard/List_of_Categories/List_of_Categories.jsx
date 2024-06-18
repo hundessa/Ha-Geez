@@ -1,12 +1,22 @@
+import { useMemo, useState } from "react";
 import Student_Header from "../../Student_DashBoard/Student_Landing_Page/Components/Student_Header";
 import { listOfCategories } from "../../../../Pages/Home page/Course_Overview/Reviews/Reviews";
-import { Button } from "@mantine/core";
+import { Button, Select } from "@mantine/core";
 import { FaEye, FaRegListAlt, FaPlus } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import DataTable from "react-data-table-component";
 import Admin_Side_NavBar from "../Admin_Side_NavBar/Admin_Side_NavBar";
 
 const List_of_Categories = () => {
+
+  const [filter, setFilter] = useState()
+  const courseFilter = (event) =>{
+setFilter(event)
+  }
+  const filteredData = useMemo(() => {
+      if (!filter) return listOfCategories;
+      return listOfCategories.filter(category => category.status === filter);
+    }, [filter]);
   const navigate = useNavigate();
 
   const columns = [
@@ -94,20 +104,18 @@ const List_of_Categories = () => {
               Categories
             </h1>
           </div>
-          {/* <div className="flex justify-end ml-auto mr-10">
+          <div className="flex justify-end ml-auto mr-10">
       <Select
       label="Category"
       placeholder="Please Select"
         data={[
-            "Marketing",
-          "Business",
-          "Development",
-          "Finance",
-          "Design",
+            "Active",
+          "Inactive",
         ]}
         className="w-[200px]"
+        onChange={courseFilter}
         />
-    </div> */}
+    </div>
         </div>
     <div className="flex justify-end ml-auto mr-10 mt-4">
       <Button className="" onClick={() => navigate("/category_creation")}>
@@ -117,7 +125,7 @@ const List_of_Categories = () => {
         <div className="w-[1100px] mx-14 rounded-xl mt-6 bg-[#E5F1FC] overflow-auto">
           <DataTable
             columns={columns}
-            data={listOfCategories}
+            data={filteredData}
             fixedHeader
             pagination
             customStyles={customStyles}

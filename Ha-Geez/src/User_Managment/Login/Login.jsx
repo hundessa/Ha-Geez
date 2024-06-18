@@ -1,23 +1,76 @@
-import React, { useState } from "react";
+import { useRef, useState } from "react";
 import { Button } from "@mantine/core";
 import { FaUser } from "react-icons/fa";
-import { FaLock } from "react-icons/fa";
+// import { FaLock } from "react-icons/fa";
 import "./Login.css";
 import { useNavigate } from "react-router-dom";
 import Enroll_Modal from "../../Pages/Home page/modals/Enroll_Modal";
 import { useForm } from "@mantine/form";
-import {PasswordInput, TextInput } from "@mantine/core";
-
+import { PasswordInput, TextInput } from "@mantine/core";
 
 const Login = () => {
   const navigate = useNavigate();
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const handleLogin = () => {
+    // localStorage.setItem()
+    // if (
+    //   email.current.value === "hund@gmail.com" &&
+    //   password.current.value === "123456"
+    // ) {
+    //   navigate("/student_landingpage");
+    //   if (email.current.value !== "hund@gmail.com") {
+    //     alert("Incorrect email");
+    //   } else if (email.current.value === "hund@gmail.com" && password.current.value !== "123456") {
+    //     alert("Incorrect password");
+    //   }
+    // } else if (
+    //   email.current.value === "admin@gmail.com" &&
+    //   password.current.value === "admin12"
+    // ) {
+    //   navigate("/admin_dashboard");
+    //   if (email.current.value !== "admin@gmail.com") {
+    //     alert("Incorrect email");
+    //   } else if (email.current.value === "admin@gmail.com" && password.current.value !== "admin12") {
+    //     alert("Incorrect password");
+    //   }
+    // } else {
+    //   alert("Data not found");
+    // }
+    const formData = JSON.parse(localStorage.getItem('formData')) || [];
+
+    const user = formData.find(
+      (user) =>
+        user.email === emailRef.current.value &&
+        user.password === passwordRef.current.value
+    );
+  
+    if (user) {
+      alert('Login successful');
+      console.log('User Found:', user);
+      if (user.email === 'admin@mail.com') {
+        console.log('Navigating to Admin Dashboard');
+        navigate('/admin_dashboard');
+      } else if (user.email === 'inst@mail.com') {
+        console.log('Navigating to Student Landing Page');
+        navigate('/instructor_landingpage');
+      }else {
+        console.log('Navigating to Student Landing Page');
+        navigate('/student_landingpage');
+      }
+    } else {
+      alert('Invalid email or password');
+      console.log('No matching user found');
+    }
+    console.log(JSON.parse(localStorage.getItem('formData')));
+  };
   const [openmodal, setOpenmodal] = useState(false);
   const form = useForm({
     mode: "uncontrolled",
     initialValues: { email: "", password: "" },
-
     validate: {
-      password: (value) => (value.length < 6 ? 'Password must be at least 6' : null),
+      password: (value) =>
+        value.length < 6 ? "Password must be at least 6" : null,
       email: (value) => (/^\S+@\S+$/.test(value) ? null : "Invalid email"),
     },
   });
@@ -39,10 +92,10 @@ const Login = () => {
           <div className="border-2 w-[400px] h-[350px] mt-10 ml-64 rounded-[20px]">
             <div className="mt-10 ml-16">
               <div className="input-box flex ">
-
                 <TextInput
                   mt="sm"
                   // label="Email"
+                  ref={emailRef}
                   placeholder="Enter Your Email"
                   required
                   variant="unstyled"
@@ -53,14 +106,14 @@ const Login = () => {
                 <FaUser className="ml-[-30px] mt-5" />
               </div>
               <div className="input-box flex  mt-7">
-
                 <PasswordInput
                   // label="Password"
+                  ref={passwordRef}
                   placeholder="Enter Your Password"
                   required
                   variant="unstyled"
-                  key={form.key('password')}
-                  {...form.getInputProps('password')}
+                  key={form.key("password")}
+                  {...form.getInputProps("password")}
                   className="border-b-[4px] border-[#09335F] w-[250px]"
                 />
 
@@ -85,7 +138,7 @@ const Login = () => {
                 size="md"
                 radius="xl"
                 type="submit"
-                // onClick={() => navigate("/student_landingpage")}
+                onClick={handleLogin}
               >
                 Login
               </Button>

@@ -1,9 +1,15 @@
 import { Button, Group, PasswordInput, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
-import { useNavigate } from "react-router-dom";
+// import { useRef } from "react";
+// import { useNavigate } from "react-router-dom";
 
 const Forms = () => {
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
+  // const name = useRef()
+  // const email = useRef();
+  // const password = useRef();
+  
+  
   const form = useForm({
     mode: "uncontrolled",
     initialValues: {
@@ -28,29 +34,39 @@ const Forms = () => {
           : null,
       lastname: (value) =>
          value.length == 0
-          ? "last name can't be empty" :!/^[A-Za-z]+$/.test(value)
+          ? "last name can't be empty" : !/^[A-Za-z]+$/.test(value)
           ? "Last name must contain only alphabets"
           : value.length < 4
           ? "Name must have at least 4 letters"
           : null,
-      username: (value) =>
-      value.length == 0
+          username: (value) =>
+            value.length == 0
           ? "user name can't be empty" : !/^[A-Za-z]+$/.test(value)
           ? "User name must contain only alphabets"
           : value.length < 4
           ? "Name must have at least 4 letters"
           : null,
-      email: (value) => (/^\S+@\S+$/.test(value) ? null : "Invalid email"),
-      password: (value) =>
-        value.length == 0 ? "password  can't be empty" : null,
-      confirmpassword: (value, values) =>
-        value.length == 0
+          email: (value) => (/^\S+@\S+$/.test(value) ? null : "Invalid email"),
+          password: (value) =>
+            value.length == 0 ? "password  can't be empty" : null,
+          confirmpassword: (value, values) =>
+            value.length == 0
           ? "password can't be empty"
           : value !== values.password
           ? "Passwords did not match"
           : null,
-    },
-  });
+        },
+      });
+      const handleSignup = (values) => {
+        const formData = JSON.parse(localStorage.getItem('formData')) || [];
+        formData.push({
+          name: values.firstname,
+          email: values.email,
+          password: values.password
+        });
+        localStorage.setItem('formData', JSON.stringify(formData));
+        alert('Signup successful');    
+      }
   // <div>
   //     {
   //       for (const item of conf) {
@@ -67,7 +83,10 @@ const Forms = () => {
   // </div>
   return (
     <>
-      <form onSubmit={form.onSubmit((values) => console.log(values))}>
+      <form onSubmit={form.onSubmit((values) => {
+        handleSignup(values);
+        console.log(values);
+      })}>
         <TextInput
           withAsterisk
           label = "First Name"
@@ -120,7 +139,7 @@ const Forms = () => {
         />
 
         <Group justify="flex-end" mt="xl">
-          <Button type="submit" className="bg-[#09335F] rounded-3xl w-full mt4" onClick={() => navigate("/student_landingpage")}>
+          <Button type="submit" className="bg-[#09335F] rounded-3xl w-full mt4" >
             Sign Up
           </Button>
         </Group>

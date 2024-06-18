@@ -1,3 +1,4 @@
+import { useMemo, useState } from "react";
 import { Button, Select } from "@mantine/core";
 import Student_Header from "../../Student_DashBoard/Student_Landing_Page/Components/Student_Header";
 import DataTable from "react-data-table-component";
@@ -7,6 +8,27 @@ import Admin_Side_NavBar from "../Admin_Side_NavBar/Admin_Side_NavBar";
 
 const List_of_Courses_tobe_Approved = () => {
     const navigate = useNavigate();
+
+    const [categoryFilter, setCategoryFilter] = useState("");
+  const [statusFilter, setStatusFilter] = useState("");
+
+  const handleCategoryFilter = (event) => {
+    setCategoryFilter(event);
+  };
+
+  const handleStatusFilter = (event) => {
+    setStatusFilter(event);
+  };
+
+  const filteredData = useMemo(() => {
+    return listOfCoursestobApproved.filter((course) => {
+      return (
+        (categoryFilter ? course.category === categoryFilter : true) &&
+        (statusFilter ? course.status === statusFilter : true)
+      );
+    });
+  }, [categoryFilter, statusFilter]);
+
   const columns = [
     {
       name: "Instructor Name",
@@ -32,6 +54,16 @@ const List_of_Courses_tobe_Approved = () => {
     {
         name: "Status",
         selector: (row) => row.status,
+        cell: (row) => (
+          <span
+            style={{
+              color: row.status === "Approved" ? "green" : row.status === "Pending" ?  "blue" : "red",
+              fontWeight: "bold",
+            }}
+          >
+            {row.status}
+          </span>
+        ),
       },
       {
         name: "Actions",
@@ -83,6 +115,7 @@ const List_of_Courses_tobe_Approved = () => {
                 "Design",
               ]}
               className="w-[200px]"
+              onChange={handleCategoryFilter}
             />
             <div className="flex ml-28">
             <Select
@@ -90,6 +123,7 @@ const List_of_Courses_tobe_Approved = () => {
               placeholder="Please Select"
               data={["Approved", "Rejected", "Pending"]}
               className="w-[200px]"
+              onChange={handleStatusFilter}
             />
           </div>
           </div>
@@ -100,7 +134,7 @@ const List_of_Courses_tobe_Approved = () => {
         <div className="w-[1100px] mx-20 rounded-xl mt-6 bg-[#E5F1FC] overflow-auto">
           <DataTable
             columns={columns}
-            data={listOfCoursestobApproved}
+            data={filteredData}
             fixedHeader
             pagination
             customStyles={customStyles}

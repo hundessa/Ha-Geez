@@ -3,8 +3,20 @@ import { listOfApplicants } from "../../../../Pages/Home page/Course_Overview/Re
 import Student_Header from "../../Student_DashBoard/Student_Landing_Page/Components/Student_Header";
 import DataTable from "react-data-table-component";
 import Admin_Side_NavBar from "../Admin_Side_NavBar/Admin_Side_NavBar";
+import { useMemo, useState } from "react";
 
 const List_of_Applicants = () => {
+
+  const [filter, setFilter] = useState()
+    const courseFilter = (event) =>{
+setFilter(event)
+console.log(filter);
+    }
+    const filteredData = useMemo(() => {
+        if (!filter) return listOfApplicants;
+        return listOfApplicants.filter(aplicant => aplicant.status === filter);
+      }, [filter]);
+
 
   const handleButtonClick = (row) => {
     console.log("Button clicked for row:", row);
@@ -22,6 +34,16 @@ const List_of_Applicants = () => {
     {
       name: "Status",
       selector: (row) => row.status,
+      cell: (row) => (
+        <span
+          style={{
+            color: row.status === "Approved" ? "green" : row.status === "Pending" ?  "blue" : "red",
+            fontWeight: "bold",
+          }}
+        >
+          {row.status}
+        </span>
+      ),
     },
     {
       name: "Actions",
@@ -66,6 +88,7 @@ const List_of_Applicants = () => {
               placeholder="Please Select"
               data={["Approved", "Rejected", "Pending"]}
               className="w-[200px]"
+              onChange={courseFilter}
             />
           </div>
           <Button className="flex justify-end ml-auto mr-1 bg-[#1E5389] active:bg-[#1E5389]">
@@ -75,7 +98,7 @@ const List_of_Applicants = () => {
           <div className=" w-[1000px] mx-28 rounded-xl mt-6">
             <DataTable
               columns={columns}
-              data={listOfApplicants}
+              data={filteredData}
               fixedHeader
               pagination
               customStyles={customStyles}

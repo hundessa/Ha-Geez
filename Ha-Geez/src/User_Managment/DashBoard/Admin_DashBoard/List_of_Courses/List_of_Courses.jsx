@@ -1,3 +1,4 @@
+import { useMemo, useState } from "react";
 import { Button, Select } from "@mantine/core";
 import Student_Header from "../../Student_DashBoard/Student_Landing_Page/Components/Student_Header";
 import DataTable from "react-data-table-component";
@@ -7,6 +8,26 @@ import { SlBookOpen } from "react-icons/sl";
 import Admin_Side_NavBar from "../Admin_Side_NavBar/Admin_Side_NavBar";
 
 const List_of_Courses = () => {
+
+  const [categoryFilter, setCategoryFilter] = useState("");
+  const [statusFilter, setStatusFilter] = useState("");
+
+  const handleCategoryFilter = (event) => {
+    setCategoryFilter(event);
+  };
+
+  const handleStatusFilter = (event) => {
+    setStatusFilter(event);
+  };
+
+  const filteredData = useMemo(() => {
+    return listOfCourses.filter((course) => {
+      return (
+        (categoryFilter ? course.category === categoryFilter : true) &&
+        (statusFilter ? course.status === statusFilter : true)
+      );
+    });
+  }, [categoryFilter, statusFilter]);
 
 
     const handleButtonClick = (row) => {
@@ -99,25 +120,36 @@ const List_of_Courses = () => {
         Courses
       </h1>
     </div>
-    <div className="flex justify-end ml-auto mr-10">
-      <Select
-        label="Category"
-        placeholder="Please Select"
-        data={[
-          "Marketing",
-          "Business",
-          "Development",
-          "Finance",
-          "Design",
-        ]}
-        className="w-[200px]"
-      />
+    <div className="flex justify-end ml-auto mr-10 space-x-6">
+    <Select
+              label="Category"
+              placeholder="Please Select"
+              data={[
+                "Marketing",
+                "Business",
+                "Development",
+                "Finance",
+                "Design",
+              ]}
+              className="w-[200px]"
+              onChange={handleCategoryFilter}
+            />
+            <Select
+              label="Status"
+              placeholder="Please Select"
+              data={[
+                "Active",
+                "Inactive",
+              ]}
+              className="w-[200px]"
+              onChange={handleStatusFilter}
+            />
     </div>
   </div>
   <div className=" w-[1100px] mx-14 rounded-xl mt-6 bg-[#E5F1FC] overflow-auto">
     <DataTable
       columns={columns}
-      data={listOfCourses}
+      data={filteredData}
       fixedHeader
       pagination
       customStyles={customStyles}
