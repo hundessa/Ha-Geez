@@ -1,9 +1,8 @@
-import React from "react";
 import { Button } from "@mantine/core";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 const AboutUs = () => {
-const navigate = useNavigate();
+// const navigate = useNavigate();
 
   return (
     <div className="mx-40">

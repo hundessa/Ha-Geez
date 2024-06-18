@@ -1,13 +1,13 @@
-import React from "react";
-import Student_Header from "../Student_DashBoard/Student_Landing_Page/Components/Student_Header";
-import Student_side_navbar from "../Student_DashBoard/Student_Landing_Page/Components/Student_side_navbar";
-import { Button } from "@mantine/core";
+import Admin_Side_NavBar from "./Admin_Side_NavBar/Admin_Side_NavBar";
+import Student_Header from "./Components/Student_Header";
+import { Button } from '@mantine/core';
+
 
 const Applicant_Details = () => {
   return (
     <div>
-    <Student_Header />
-    <Student_side_navbar />
+      <Student_Header />
+        <Admin_Side_NavBar />
 
     <div className="button-group">
       <Button variant="filled" style={{ backgroundColor: '#13569D' }}>

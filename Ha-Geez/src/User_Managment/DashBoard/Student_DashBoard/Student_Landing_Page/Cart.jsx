@@ -1,4 +1,3 @@
-import React from "react";
 import Student_Header from "./Components/Student_Header";
 import Student_side_navbar from "./Components/Student_side_navbar";
 import { Button } from "@mantine/core";
@@ -73,7 +72,7 @@ const Cart = () => {
           <h3 className="mt-2">2 courses in cart</h3>
         </div>
 
-        <div className="ml-[800px] w-[200px] ml-3 h-[150px] rounded-lg bg-blue-100 mt-8">
+        <div className="ml-[800px] w-[200px] ml3 h-[150px] rounded-lg bg-blue-100 mt-8">
           <h2 className="font-bold">Summary</h2>
           <hr className="size-2" />
           <div className="ml-6">
@@ -87,8 +86,8 @@ const Cart = () => {
         </div>
       </div>
 
-      {data.map((d) => (
-        <div className="gap-2 mb-10 ml-20 flex">
+      {data.map((d, index) => (
+        <div key={index} className="gap-2 mb-10 ml-20 flex">
           <div className="flex border-2 w-[400px] h-[100px]">
             <img src={d.img} className="w-[100px] h-[100px]" />
 
