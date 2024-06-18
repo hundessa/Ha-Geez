@@ -1,3 +1,6 @@
 .slick-slider > div{
     margin: 0 10px;
 }
+.card-container {
+    margin-right: 20px; /* Adjust this value as needed */
+  }

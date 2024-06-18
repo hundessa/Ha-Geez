@@ -109,7 +109,7 @@ const Course_List = () => {
     );
   });
 
-  const chunkedCourses = chunkArray(filteredCourses, 3);
+  const chunkedCourses = chunkArray(filteredCourses, 4);
 
   return (
     <>
@@ -157,11 +157,11 @@ const Course_List = () => {
         </select>
       </div>
 
-      <div className="flex flex-col mt-10 m-0">
+      <div className="flex flex-col mt-10 ">
         {chunkedCourses.map((courseRow, rowIndex) => (
           <div key={rowIndex} className="flex justify-center mb-10">
             {courseRow.map((course, index) => (
-              <div key={index} className="ml-20 flex">
+              <div key={index} className="ml-7 flex">
                 <Course_Card
                   image={course.image}
                   title={course.title}

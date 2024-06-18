@@ -83,7 +83,8 @@ const Header = () => {
               About Us
             </ScrollLink>
             <NavLink
-              to="/courses"
+              to="/admin_dashboard"
+              // course_list
               className={({ isActive }) =>
                 isActive
                   ? "mx-6 cursor-pointer border-b-[3px]"

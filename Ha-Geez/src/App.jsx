@@ -18,8 +18,11 @@ import Cart from "./User_Managment/DashBoard/Student_DashBoard/Student_Landing_P
 import Student_profile_page from "./User_Managment/DashBoard/Student_DashBoard/Student_Profile_page/Student_profile_page";
 import Course_List_for_student from "./Pages/Home page/Course List/Course_List_for_student";
 import My_Learning from "./User_Managment/DashBoard/Student_DashBoard/Student_MyLearning_Page/My_Learning";
-import Course_List from "./Pages/Home page/Course List/Course_List";
-import Cart from "./User_Managment/DashBoard/Student_DashBoard/Student_Landing_Page/Cart";
+import ProgressBar from "./Pages/Home page/Components/styled-components/ProgressBar";
+import Admin_Dashboard from "./User_Managment/DashBoard/Admin_DashBoard/Admin_Dashboard/Admin_Dashboard";
+import Applicant_Details from "./User_Managment/DashBoard/Admin_DashBoard/Applicant_Details";
+import Instructor_Profile_View from "./User_Managment/DashBoard/Instructor_DashBoard/Instructor_Profile_View";
+
 
 
 function App() {
@@ -43,11 +46,15 @@ function App() {
           <Route path="/cart" element ={<Cart/>}/>
           <Route path="/course_list_for_student" element={<Course_List_for_student/>}/>
           <Route path="/my_learning" element={<My_Learning/>}/>
+          <Route path="/progressbar" element={<ProgressBar/>}/>
+          <Route path="/admin_dashboard" element={<Admin_Dashboard/>}/>
+          <Route path="/applicant_details" element={<Applicant_Details/>}/>
+          <Route path="/instructor_profile_view" element={<Instructor_Profile_View/>}/>
 
         </Routes>
       </Router>
     </MantineProvider>
-   
+  
   );
 }
 
