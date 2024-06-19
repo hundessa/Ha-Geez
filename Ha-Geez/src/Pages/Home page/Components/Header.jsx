@@ -88,7 +88,7 @@ const Header = () => {
               About Us
             </ScrollLink>
             <NavLink
-              to="/admin_dashboard"
+              // to="/admin_dashboard"
               // course_list
               to="/course_list"
               className={({ isActive }) =>
