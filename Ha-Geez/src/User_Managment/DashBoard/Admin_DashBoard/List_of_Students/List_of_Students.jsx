@@ -4,6 +4,7 @@ import DataTable from "react-data-table-component";
 import { listOfStudents } from "../../../../Pages/Home page/Course_Overview/Reviews/Reviews";
 import { FaEye, FaUserGraduate } from "react-icons/fa";
 import Admin_Side_NavBar from "../Admin_Side_NavBar/Admin_Side_NavBar";
+import Admin_Header from "../Admin_Header";
 
 const List_of_Students = () => {
 
@@ -87,7 +88,7 @@ const List_of_Students = () => {
 
   return (
     <>
-      <Student_Header />
+      <Admin_Header />
 <Admin_Side_NavBar/>
       <div className="absolute mt-20 ml-10">
         <div className="flex justify-center mx-auto w-[900px] bg-[#E5F1FC] pl-4 py-2 rounded-xl">

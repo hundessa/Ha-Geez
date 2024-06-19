@@ -42,7 +42,7 @@ const Admin_Header = () => {
             </div>
           </div>
          
-          <div className="flex">
+          <div className=" ml-[1050px] flex">
             <div className="flex ">
               <div className="flex justify-end items-center ml-auto mr-4 space-x-6">
                 

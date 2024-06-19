@@ -30,6 +30,7 @@ import List_of_Courses_tobe_Approved from "./User_Managment/DashBoard/Admin_Dash
 import List_of_Courses from "./User_Managment/DashBoard/Admin_DashBoard/List_of_Courses/List_of_Courses";
 import List_of_Categories from "./User_Managment/DashBoard/Admin_DashBoard/List_of_Categories/List_of_Categories";
 import List_of_Instructors from "./User_Managment/DashBoard/Admin_DashBoard/List_of_Instructors/List_of_Instructors";
+import Instructor_Course_Creation from "./User_Managment/DashBoard/Instructor_DashBoard/Instructor_Course_Creation/Instructor_Course_Creation";
 
 
 function App() {
@@ -64,6 +65,9 @@ function App() {
           <Route path="/list_of_courses" element={<List_of_Courses/>} />
           <Route path="/list_of_categories" element={<List_of_Categories/>} />
           <Route path="/list_of_instructors" element={<List_of_Instructors/>} />
+          <Route path="/instructor_course_creation" element={<Instructor_Course_Creation/>}/>
+
+
         </Routes>
       </Router>
     </MantineProvider>

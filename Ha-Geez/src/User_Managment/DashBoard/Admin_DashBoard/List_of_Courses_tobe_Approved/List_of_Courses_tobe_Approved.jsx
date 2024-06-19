@@ -4,6 +4,7 @@ import DataTable from "react-data-table-component";
 import { listOfCoursestobApproved } from "../../../../Pages/Home page/Course_Overview/Reviews/Reviews";
 import { useNavigate } from "react-router-dom";
 import Admin_Side_NavBar from "../Admin_Side_NavBar/Admin_Side_NavBar";
+import Admin_Header from "../Admin_Header";
 
 const List_of_Courses_tobe_Approved = () => {
     const navigate = useNavigate();
@@ -67,7 +68,7 @@ const List_of_Courses_tobe_Approved = () => {
 
   return (
     <>
-      <Student_Header />
+      <Admin_Header />
 <Admin_Side_NavBar/>
       <div className="absolute mt-20">
         <div className="flex ml-32">

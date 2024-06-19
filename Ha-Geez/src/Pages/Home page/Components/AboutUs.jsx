@@ -1,8 +1,8 @@
 import { Button } from "@mantine/core";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const AboutUs = () => {
-// const navigate = useNavigate();
+const navigate = useNavigate();
 
   return (
     <div className="mx-40">
@@ -29,7 +29,7 @@ const AboutUs = () => {
               odio consequuntur, harum natus ex aliquam incidunt!
             </p>
 
-            <Button className="mt-10" variant="filled" color="#09335F"  onClick={() => navigate("/instructor_profile_view")}>applicant_details
+            <Button className="mt-10" variant="filled" color="#09335F"  onClick={() => navigate("/instructor_course_creation")}>instructor_profile_view applicant_details
               Readmore
             </Button>
           </div>

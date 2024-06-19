@@ -1,12 +1,12 @@
 import React from "react";
-import Admin_Header from "../../../../Pages/Home page/Components/Admin_Header";
-import Student_side_navbar from "../../Student_DashBoard/Student_Landing_Page/Components/Student_side_navbar";
+import Admin_Header from "../Admin_Header";
 import { Button } from "@mantine/core";
 import "./Admin.css";
 import { useState } from "react";
 import Home from "./Home";
 import Footer from "../../../../Pages/Home page/Components/Footer";
 import image from "../../../../assets/images/Admin/joshua-reddekopp-SyYmXSDnJ54-unsplash.jpg";
+import Admin_Side_NavBar from "../Admin_Side_NavBar/Admin_Side_NavBar";
 
 const Admin_Dashboard = () => {
   // const [openSidebarToggle, setOpenSidebarToggle] = useState(false);
@@ -14,7 +14,7 @@ const Admin_Dashboard = () => {
   return (
     <div>
       <Admin_Header />
-      <Student_side_navbar />
+      <Admin_Side_NavBar />
       <Home />
 
       <div className="mt-10 ml-32">
