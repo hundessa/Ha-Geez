@@ -1,0 +1,17 @@
+/* src/ProgressBar.css */
+.progress-bar-container {
+    /* width: 100%; */
+    /* background-color: #e0e0df; */
+    border-radius: 5px;
+    /* overflow: hidden; */
+    margin: 20px 0;
+  }
+  
+  .progress-bar {
+    height: 30px;
+    background-color: #13569D;
+    /* text-align: center; */
+    /* line-height: 30px; To center the text vertically */
+    color: white;
+    transition: width 0.5s ease-in-out;
+  }

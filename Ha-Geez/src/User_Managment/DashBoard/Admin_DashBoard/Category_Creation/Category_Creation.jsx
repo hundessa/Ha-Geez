@@ -4,6 +4,7 @@ import { FaFileImage } from "react-icons/fa6";
 import Student_Header from "../../Student_DashBoard/Student_Landing_Page/Components/Student_Header";
 import Admin_Side_NavBar from "../Admin_Side_NavBar/Admin_Side_NavBar";
 import { useNavigate } from "react-router-dom";
+import Admin_Header from "../Admin_Header";
 
 const Category_Creation = () => {
   // const openRef = useRef(null);
@@ -20,7 +21,7 @@ const Category_Creation = () => {
 
   return (
     <>
-      <Student_Header />
+      <Admin_Header />
       <Admin_Side_NavBar/>
       <div className="flex justify-center">
         <div className="absolute mt-20 space-y-8 bg-[#DDD] py-4 px-6 rounded-xl">

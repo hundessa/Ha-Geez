@@ -6,6 +6,7 @@ import { listOfCourses } from "../../../../Pages/Home page/Course_Overview/Revie
 import { FaEye } from "react-icons/fa";
 import { SlBookOpen } from "react-icons/sl";
 import Admin_Side_NavBar from "../Admin_Side_NavBar/Admin_Side_NavBar";
+import Admin_Header from "../Admin_Header";
 
 const List_of_Courses = () => {
 
@@ -110,7 +111,7 @@ const List_of_Courses = () => {
 
   return (
     <>
-    <Student_Header />
+    <Admin_Header />
 <Admin_Side_NavBar/>
 <div className="absolute mt-20 ml-10">
   <div className="flex justify-center mx-auto w-[900px] bg-[#E5F1FC] pl-4 py-2 rounded-xl">

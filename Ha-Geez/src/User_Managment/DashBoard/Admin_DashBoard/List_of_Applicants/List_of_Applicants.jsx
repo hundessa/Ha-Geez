@@ -4,6 +4,7 @@ import Student_Header from "../../Student_DashBoard/Student_Landing_Page/Compone
 import DataTable from "react-data-table-component";
 import Admin_Side_NavBar from "../Admin_Side_NavBar/Admin_Side_NavBar";
 import { useMemo, useState } from "react";
+import Admin_Header from "../Admin_Header";
 
 const List_of_Applicants = () => {
 
@@ -78,7 +79,7 @@ console.log(filter);
 
   return (
     <>
-      <Student_Header />
+      <Admin_Header />
       <Admin_Side_NavBar/>
       <div className="mt-16 absolute">
         <div className="flex">

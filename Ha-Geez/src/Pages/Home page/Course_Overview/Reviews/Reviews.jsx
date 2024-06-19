@@ -349,6 +349,43 @@ export const courses = [
   },
 ];
 
+export const New_Card = [
+  {
+    image: course_3,
+    title: "Introduction to networking",
+    Name: "Angela Yu",
+  },
+  {
+    image: course_3,
+    title: "Introduction to networking",
+    Name: "Angela Yu",
+  },
+  {
+    image: course_3,
+    title: "Introduction to networking",
+    Name: "Angela Yu",
+  },
+  {
+    image: course_3,
+    title: "Introduction to networking",
+    Name: "Angela Yu",
+  },
+  {
+    image: course_3,
+    title: "Introduction to networking",
+    Name: "Angela Yu",
+  },
+  {
+    image: course_3,
+    title: "Introduction to networking",
+    Name: "Angela Yu",
+  },
+  {
+    image: course_3,
+    title: "Introduction to networking",
+    Name: "Angela Yu",
+  },
+];
 
 export const listOfApplicants = [
   {
