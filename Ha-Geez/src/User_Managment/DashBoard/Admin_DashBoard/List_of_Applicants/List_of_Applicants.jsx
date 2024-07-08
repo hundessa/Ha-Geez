@@ -5,9 +5,10 @@ import DataTable from "react-data-table-component";
 import Admin_Side_NavBar from "../Admin_Side_NavBar/Admin_Side_NavBar";
 import { useMemo, useState } from "react";
 import Admin_Header from "../Admin_Header";
+import { useNavigate } from "react-router-dom";
 
 const List_of_Applicants = () => {
-
+  const navigate = useNavigate();
   const [filter, setFilter] = useState()
     const courseFilter = (event) =>{
 setFilter(event)
@@ -50,9 +51,10 @@ console.log(filter);
       name: "Actions",
       cell: () => (
         <Button
-          onClick={(row) => handleButtonClick(row)}
+          // onClick={(row) => handleButtonClick(row)}
           variant="filled"
           color="#1E5389"
+          onClick={() => navigate("/applicant_details")}
         >
           Open
         </Button>

@@ -30,7 +30,7 @@ const Admin_Header = () => {
         <nav className="bg-[#09335F] bg-opacity90 flex fixed w-full">
           <div
             className="flex mr96"
-            onClick={() => navigate("/student_landingpage")}
+            onClick={() => navigate("/admin_dashboard")}
           >
             <div className="size-14 mr-2 cursor-pointer">
               <img src={logo} alt="logo" />

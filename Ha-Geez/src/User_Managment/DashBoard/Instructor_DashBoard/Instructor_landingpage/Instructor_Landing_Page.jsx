@@ -1,5 +1,5 @@
 import { Button } from "@mantine/core";
-import Student_Header from "../../Student_DashBoard/Student_Landing_Page/Components/Student_Header";
+// import Student_Header from "../../Student_DashBoard/Student_Landing_Page/Components/Student_Header";
 import Instructor_Sidebar from "./Components/Instructor_Sidebar";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { PiBookOpenText } from "react-icons/pi";
@@ -8,17 +8,17 @@ import course_1 from "../../../../assets/images/Course List/Course List image.jp
 import { useState } from "react";
 import StarRating from "../../../../Pages/Home page/Components/styled-components/StarRating";
 import { useNavigate } from "react-router-dom";
+import Instructor_Header from "./Components/Instructor_Header";
 
 const Instructor_Landing_Page = () => {
   // eslint-disable-next-line no-unused-vars
-  const [progress, setProgress] = useState(20);
+  const [progress, setProgress] = useState(70);
   const navigate = useNavigate();
 
   return (
     <>
-      <Student_Header />
+      <Instructor_Header />
       <Instructor_Sidebar />
-
       <div className="absolute mt-20">
         <div className="flex bg-[#5A94D0] ml-[300px] bg-opacity-10 shadow-lg p-[15px] rounded-xl">
           <div className="mr-4 ">
@@ -70,7 +70,7 @@ const Instructor_Landing_Page = () => {
                       }}
                     />
                     <h1 className="text-right text-sm mt-[-4px]">
-                      {progress}
+                      {progress}%
                     </h1>
                   </div>
                 </div>

@@ -5,6 +5,7 @@ import { Select } from "@mantine/core";
 import { listOfStudentInstructor } from "../../../../Pages/Home page/Course_Overview/Reviews/Reviews";
 import { FaUserGraduate } from "react-icons/fa";
 import { useMemo, useState } from "react";
+import Instructor_Header from "../Instructor_landingpage/Components/Instructor_Header";
 
 const Instructor_Student_List = () => {
 const [filter, setFilter] = useState()
@@ -71,7 +72,7 @@ console.log(filter);
   
   return (
     <>
-    <Student_Header/>
+    <Instructor_Header/>
     <Instructor_Sidebar/>
 
     <div className="absolute mt-20 ml-10">

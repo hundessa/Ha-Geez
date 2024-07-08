@@ -3,12 +3,13 @@ import Student_Header from "../../Student_DashBoard/Student_Landing_Page/Compone
 import Instructor_Sidebar from "../Instructor_landingpage/Components/Instructor_Sidebar"
 import Course_Creation_Sidebar from "./Instructor_Course_Creation/Component/Course_Creation_Sidebar"
 import { HiPlus } from "react-icons/hi";
+import Instructor_Header from "../Instructor_landingpage/Components/Instructor_Header";
 
 
 const Instructor_Course_Creation = () => {
   return (
     <>
-    <Student_Header/>
+    <Instructor_Header/>
     <Instructor_Sidebar/>
     <Course_Creation_Sidebar/>
 

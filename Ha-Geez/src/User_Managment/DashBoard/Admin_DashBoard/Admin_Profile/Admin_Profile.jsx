@@ -5,6 +5,7 @@ import Student_Header from "../../Student_DashBoard/Student_Landing_Page/Compone
 import Admin_Side_NavBar from "../Admin_Side_NavBar/Admin_Side_NavBar";
 import { Button, Group, TextInput } from "@mantine/core";
 import { FaArrowLeft, FaPen } from "react-icons/fa";
+import Admin_Header from "../Admin_Header";
 
 const Admin_Profile = () => {
   const [clicked, setClicked] = useState(false);
@@ -35,7 +36,7 @@ const Admin_Profile = () => {
 
   return (
     <>
-      <Student_Header />
+      <Admin_Header />
       <Admin_Side_NavBar />
 
       <div className="absolute mt-16">

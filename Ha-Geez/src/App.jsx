@@ -30,17 +30,19 @@ import List_of_Courses_tobe_Approved from "./User_Managment/DashBoard/Admin_Dash
 import List_of_Courses from "./User_Managment/DashBoard/Admin_DashBoard/List_of_Courses/List_of_Courses";
 import List_of_Categories from "./User_Managment/DashBoard/Admin_DashBoard/List_of_Categories/List_of_Categories";
 import List_of_Instructors from "./User_Managment/DashBoard/Admin_DashBoard/List_of_Instructors/List_of_Instructors";
-import Admin_Dashboard from "./User_Managment/DashBoard/Admin_DashBoard/Admin_Dashboard";
+// import Admin_Dashboard from "./User_Managment/DashBoard/Admin_DashBoard/Admin_Dashboard";
 import Change_Password from "./User_Managment/Password_Recovery/Change_password/Change_Password";
 import Instructor_Landing_Page from "./User_Managment/DashBoard/Instructor_DashBoard/Instructor_landingpage/Instructor_Landing_Page";
 import Instructor_Course_List from "./User_Managment/DashBoard/Instructor_DashBoard/Instructor_Course_List/Instructor_Course_List";
 import Instructor_Student_List from "./User_Managment/DashBoard/Instructor_DashBoard/Instructor_Student_List/Instructor_Student_List";
 import Admin_Profile from "./User_Managment/DashBoard/Admin_DashBoard/Admin_Profile/Admin_Profile";
 import Instructor_Course_Creation from "./User_Managment/DashBoard/Instructor_DashBoard/Instructor_Course_Creation/Instructor_Course_Creation"
+import Instructor_course_edit from "./User_Managment/DashBoard/Instructor_DashBoard/Instructor_Course_Edit/Instructor_course_edit";
 
 function App() {
+  
   return (
-    <MantineProvider>
+    <MantineProvider withGlobalStyle>
       <Router>
         <Routes>
           <Route path="/" element={<Home_Page />} />
@@ -76,6 +78,8 @@ function App() {
           <Route path="/instructor_student_list" element={<Instructor_Student_List/>}/>
           <Route path="/admin_profile" element={<Admin_Profile/>} />
           <Route path="/instructor_course_creation" element={<Instructor_Course_Creation/>}/>
+          <Route path='/instructor_course_edit/:coursename' element={<Instructor_course_edit/>}/>
+
         </Routes>
       </Router>
     </MantineProvider>

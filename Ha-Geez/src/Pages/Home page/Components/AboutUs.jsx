@@ -29,7 +29,7 @@ const navigate = useNavigate();
               odio consequuntur, harum natus ex aliquam incidunt!
             </p>
 
-            <Button className="mt-10" variant="filled" color="#09335F"  onClick={() => navigate("/instructor_course_creation")}>instructor_profile_view applicant_details
+            <Button className="mt-10" variant="filled" color="#09335F"  onClick={() => navigate("/applicant_details")}>
               Readmore
             </Button>
           </div>

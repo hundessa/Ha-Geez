@@ -29,7 +29,7 @@ const Student_side_navbar = ({setSidebarExpanded}) => {
     {
       icon: MdLaptopChromebook,
       name: "My Learning",
-      route: "/student_learning",
+      route: "/my_learning",
       variant: "outline",
       style: {
         active: "bg-[#5A94D0] text-white group-hover:px-2 pl-2 ml-[-14px] w-[50px] group-hover:w-[130px]",
@@ -39,7 +39,7 @@ const Student_side_navbar = ({setSidebarExpanded}) => {
     {
       icon: HiOutlineBookOpen,
       name: "Courses",
-      route: "/courselist",
+      route: "/course_list_for_student",
       variant: "outline",
       style: {
         active: "bg-[#5A94D0] text-white group-hover:px-2 pl-2 ml-[-14px] w-[50px] group-hover:w-[130px]",

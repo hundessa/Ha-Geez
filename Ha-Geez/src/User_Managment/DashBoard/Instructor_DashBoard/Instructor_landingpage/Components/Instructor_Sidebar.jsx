@@ -18,7 +18,7 @@ const Instructor_Sidebar = ({setSidebarExpanded}) => {
         {
           icon: FaRegUserCircle,
           name: "Profile",
-          route: "/admin_profile",
+          route: "/instructor_profile_view",
           variant: "transparent",
           style: {
             active: "bg-[#5A94D0] text-white group-hover:px-2 pl-2 ml-[-14px] w-[50px] group-hover:w-[130px]",

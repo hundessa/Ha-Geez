@@ -11,19 +11,21 @@ import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
 import image from "../../../assets/images/Instructor_Profile_View/prince-akachi-4Yv84VgQkRM-unsplash.jpg";
+import Instructor_Sidebar from "./Instructor_landingpage/Components/Instructor_Sidebar";
+import Instructor_Header from "./Instructor_landingpage/Components/Instructor_Header";
 
 const Instructor_Profile_View = () => {
   const navigate = useNavigate();
   return (
     <div>
-      <Admin_Header />
-      {/* <Side_Nav_Bar /> */}
+      <Instructor_Header />
+      <Instructor_Sidebar />
       <Button
         variant="transparent"
         color="#13569D"
         size="md"
         className="ml-20 mt-20"
-        onClick={() => navigate("/")}
+        onClick={() => navigate("/instructor_landingpage")}
       >
         <IoArrowBackSharp className="size-8" />
       </Button>

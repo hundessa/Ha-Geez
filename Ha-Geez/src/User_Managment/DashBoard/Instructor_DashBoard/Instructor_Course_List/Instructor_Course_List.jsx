@@ -5,6 +5,7 @@ import Student_Header from "../../Student_DashBoard/Student_Landing_Page/Compone
 import Instructor_Sidebar from "../Instructor_landingpage/Components/Instructor_Sidebar";
 import { instructorCoursesList } from "../../../../Pages/Home page/Course_Overview/Reviews/Reviews";
 import Instructor_Course_Card from "./Component/Instructor_Course_Card";
+import Instructor_Header from "../Instructor_landingpage/Components/Instructor_Header";
 
 const ITEMS_PER_PAGE = 9;
 
@@ -54,7 +55,7 @@ const Instructor_Course_List = () => {
   return (
   
     <>
-      <Student_Header />
+      <Instructor_Header />
       <Instructor_Sidebar />
 
       <div className="absolute mt-20">

@@ -958,7 +958,7 @@ export const instructorCoursesList = [
     level: "Beginer"
   },
   {
-    name: "Introduction to Web Development",
+    name: "Introduction to DataScience",
     image: course_2,
     category: "Design",
     description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta suscipit, sapiente tempore.",
@@ -970,7 +970,7 @@ export const instructorCoursesList = [
     level: "Beginer"
   },
   {
-    name: "Introduction to Web Development",
+    name: "Web Design",
     image: course_3,
     category: "Design",
     description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta suscipit, sapiente tempore.",
@@ -982,7 +982,7 @@ export const instructorCoursesList = [
     level: "Intermidiate"
   },
   {
-    name: "Introduction to Web Development",
+    name: "Graphics Design",
     image: course_4,
     category: "Design",
     description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta suscipit, sapiente tempore.",
@@ -994,7 +994,7 @@ export const instructorCoursesList = [
     level: "Advanced"
   },
   {
-    name: "Introduction to Web Development",
+    name: "Marketing",
     image: course_1,
     category: "Marketing",
     description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta suscipit, sapiente tempore.",
@@ -1006,7 +1006,7 @@ export const instructorCoursesList = [
     level: "Beginer"
   },
   {
-    name: "Introduction to Web Development",
+    name: "UI/UX Design",
     image: course_2,
     category: "Marketing",
     description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta suscipit, sapiente tempore.",
@@ -1018,7 +1018,7 @@ export const instructorCoursesList = [
     level: "Beginer"
   },
   {
-    name: "Introduction to Web Development",
+    name: "Backend Development",
     image: course_3,
     category: "Marketing",
     description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta suscipit, sapiente tempore.",
@@ -1030,7 +1030,7 @@ export const instructorCoursesList = [
     level: "Intermidiate"
   },
   {
-    name: "Introduction to Web Development",
+    name: "Front End Development",
     image: course_4,
     category: "Marketing",
     description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta suscipit, sapiente tempore.",
@@ -1042,7 +1042,7 @@ export const instructorCoursesList = [
     level: "Advanced"
   },
   {
-    name: "Introduction to Web Development",
+    name: "Introduction to Quality Assurance",
     image: course_1,
     category: "Marketing",
     description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta suscipit, sapiente tempore.",
@@ -1054,7 +1054,7 @@ export const instructorCoursesList = [
     level: "Beginer"
   },
   {
-    name: "Introduction to Web Development",
+    name: "Business Fundamentals",
     image: course_2,
     category: "Business",
     description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta suscipit, sapiente tempore.",
@@ -1066,7 +1066,7 @@ export const instructorCoursesList = [
     level: "Beginer"
   },
   {
-    name: "Introduction to Web Development",
+    name: "Introduction to React",
     image: course_3,
     category: "Business",
     description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta suscipit, sapiente tempore.",
@@ -1172,6 +1172,248 @@ export const instructorCoursesList = [
     quiz: "10",
     duration: "10",
     level: "Intermidiate"
+  },
+  {
+    name: "Introduction to Web Development",
+    image: course_4,
+    category: "Development",
+    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta suscipit, sapiente tempore.",
+    rating: 4,
+    numberofStudents: "32",
+    numberofLessons: "21",
+    quiz: "10",
+    duration: "10",
+    level: "Advanced"
+  },
+]
+export const instructorCourseDetail = [
+  {
+    name: "Introduction to Web Development",
+    image: course_1,
+    category: "Design",
+    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta suscipit, sapiente tempore.",
+    rating: 3.5,
+    numberofStudents: "32",
+    numberofLessons: "23",
+    quiz: "10",
+    duration: "10",
+    level: "Beginer"
+  },
+  {
+    name: "Introduction to DataScience",
+    image: course_2,
+    category: "Design",
+    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta suscipit, sapiente tempore.",
+    rating: 4,
+    numberofStudents: "37",
+    numberofLessons: "34",
+    quiz: "10",
+    duration: "10",
+    level: "Beginer"
+  },
+  {
+    name: "Web Design",
+    image: course_3,
+    category: "Design",
+    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta suscipit, sapiente tempore.",
+    rating: 4,
+    numberofStudents: "53",
+    numberofLessons: "43",
+    quiz: "10",
+    duration: "10",
+    level: "Intermidiate"
+  },
+  {
+    name: "Graphics Design",
+    image: course_4,
+    category: "Design",
+    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta suscipit, sapiente tempore.",
+    rating: 4,
+    numberofStudents: "32",
+    numberofLessons: "21",
+    quiz: "10",
+    duration: "10",
+    level: "Advanced"
+  },
+  {
+    name: "Marketing",
+    image: course_1,
+    category: "Marketing",
+    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta suscipit, sapiente tempore.",
+    rating: 4,
+    numberofStudents: "32",
+    numberofLessons: "23",
+    quiz: "10",
+    duration: "10",
+    level: "Beginer"
+  },
+  {
+    name: "UI/UX Design",
+    image: course_2,
+    category: "Marketing",
+    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta suscipit, sapiente tempore.",
+    rating: 4,
+    numberofStudents: "37",
+    numberofLessons: "34",
+    quiz: "10",
+    duration: "10",
+    level: "Beginer"
+  },
+  {
+    name: "Backend Development",
+    image: course_3,
+    category: "Marketing",
+    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta suscipit, sapiente tempore.",
+    rating: 4,
+    numberofStudents: "53",
+    numberofLessons: "43",
+    quiz: "10",
+    duration: "10",
+    level: "Intermidiate"
+  },
+  {
+    name: "Front End Development",
+    image: course_4,
+    category: "Marketing",
+    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta suscipit, sapiente tempore.",
+    rating: 4,
+    numberofStudents: "32",
+    numberofLessons: "21",
+    quiz: "10",
+    duration: "10",
+    level: "Advanced"
+  },
+  {
+    name: "Introduction to Quality Assurance",
+    image: course_1,
+    category: "Marketing",
+    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta suscipit, sapiente tempore.",
+    rating: 4,
+    numberofStudents: "32",
+    numberofLessons: "23",
+    quiz: "10",
+    duration: "10",
+    level: "Beginer"
+  },
+  {
+    name: "Business Fundamentals",
+    image: course_2,
+    category: "Business",
+    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta suscipit, sapiente tempore.",
+    rating: 4,
+    numberofStudents: "37",
+    numberofLessons: "34",
+    quiz: "10",
+    duration: "10",
+    level: "Beginer"
+  },
+  {
+    name: "Introduction to React",
+    image: course_3,
+    category: "Business",
+    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta suscipit, sapiente tempore.",
+    rating: 4,
+    numberofStudents: "53",
+    numberofLessons: "43",
+    quiz: "10",
+    duration: "10",
+    level: "Intermidiate"
+  },
+  {
+    name: "Introduction to Web Development",
+    image: course_4,
+    category: "Business",
+    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta suscipit, sapiente tempore.",
+    rating: 4,
+    numberofStudents: "32",
+    numberofLessons: "21",
+    quiz: "10",
+    duration: "10",
+    level: "Advanced"
+  },
+  {
+    name: "Introduction to Web Development",
+    image: course_1,
+    category: "Finance",
+    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta suscipit, sapiente tempore.",
+    rating: 4,
+    numberofStudents: "32",
+    numberofLessons: "23",
+    quiz: "10",
+    duration: "10",
+    level: "Beginner"
+  },
+  {
+    name: "Introduction to Web Development",
+    image: course_2,
+    category: "Finance",
+    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta suscipit, sapiente tempore.",
+    rating: 4,
+    numberofStudents: "37",
+    numberofLessons: "34",
+    quiz: "10",
+    duration: "10",
+    level: "Beginner"
+  },
+  {
+    name: "Introduction to Web Development",
+    image: course_3,
+    category: "Finance",
+    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta suscipit, sapiente tempore.",
+    rating: 4,
+    numberofStudents: "53",
+    numberofLessons: "43",
+    quiz: "10",
+    duration: "10",
+    level: "Intermediate"
+  },
+  {
+    name: "Introduction to Web Development",
+    image: course_4,
+    category: "Development",
+    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta suscipit, sapiente tempore.",
+    rating: 4,
+    numberofStudents: "32",
+    numberofLessons: "21",
+    quiz: "10",
+    duration: "10",
+    level: "Advanced"
+  },
+  {
+    name: "Introduction to Web Development",
+    image: course_1,
+    category: "Development",
+    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta suscipit, sapiente tempore.",
+    rating: 4,
+    numberofStudents: "32",
+    numberofLessons: "23",
+    quiz: "10",
+    duration: "10",
+    level: "Beginner"
+  },
+  {
+    name: "Introduction to Web Development",
+    image: course_2,
+    category: "Development",
+    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta suscipit, sapiente tempore.",
+    rating: 4,
+    numberofStudents: "37",
+    numberofLessons: "34",
+    quiz: "10",
+    duration: "10",
+    level: "Beginner"
+  },
+  {
+    name: "Introduction to Web Development",
+    image: course_3,
+    category: "Development",
+    description: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dicta suscipit, sapiente tempore.",
+    rating: 4,
+    numberofStudents: "53",
+    numberofLessons: "43",
+    quiz: "10",
+    duration: "10",
+    level: "Intermediate"
   },
   {
     name: "Introduction to Web Development",
