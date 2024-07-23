@@ -1,19 +1,33 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { TextInput, Button, Group } from "@mantine/core";
 import { FaArrowLeft, FaPen } from "react-icons/fa";
 import Student_Header from "../Student_Landing_Page/Components/Student_Header";
 import Student_side_navbar from "../Student_Landing_Page/Components/Student_side_navbar";
-import { profile } from "../../../../Pages/Home page/Course_Overview/Reviews/Reviews";
+// import { profile } from "../../../../Pages/Home page/Course_Overview/Reviews/Reviews";
 import { useNavigate } from "react-router-dom";
 
 const Student_profile_page = () => {
   const [sidebarExpanded, setSidebarExpanded] = useState(false);
   const [clicked, setClicked] = useState(false);
-  const [editedProfile, setEditedProfile] = useState(profile[0]); // Initialize with first profile
+  // const [editedProfile, setEditedProfile] = useState(); // Initialize with first profile
   const [editClicked, setEditClicked] = useState(false);
   const [activeInput, setActiveInput] = useState("");
-
+  const [user, setUser] = useState([]);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const storedUser =  localStorage.getItem("user");
+    if(storedUser){
+      try{
+
+        const userData = JSON.parse(storedUser);
+        setUser(userData);
+      }catch(err){
+        console.error('Failed to parse user from localStorage:', err);
+        localStorage.removeItem('user'); // Remove the invalid item from localStorage
+      }
+    }
+  }, [])
 
   const handleClick = () => {
     setClicked(!clicked);
@@ -21,12 +35,10 @@ const Student_profile_page = () => {
 
   const handleChange = (event, field) => {
     const { value } = event.target;
-    if (editClicked) {
-      setEditedProfile((prevProfile) => ({
-        ...prevProfile,
-        [field]: value,
-      }));
-    }
+    setUser((prevUser) => ({
+      ...prevUser,
+      [field]: value,
+    }));
   };
 
   const editbuttonhandler = (field) => {
@@ -55,7 +67,7 @@ const Student_profile_page = () => {
           <div className="ml-40 flex">
             <div className="size32 ">
               <img
-                src={editedProfile.image}
+                src={user.image}
                 alt="profile"
                 className="size-32 rounded-full"
               />
@@ -80,7 +92,7 @@ const Student_profile_page = () => {
             <div className="bg-[#D9D9D9] bg-opacity-[30%] w-[500px] ml-28 mt-[-30px]">
               <div className="px-28 py-20 space-y-6">
                 <TextInput
-                    value={editedProfile.email}
+                    value={user.email}
                     label="Email"
                     placeholder="Email"
                     className="w-full"
@@ -88,7 +100,7 @@ const Student_profile_page = () => {
                   />
                 <div className="flex">
                   <TextInput
-                    value={editedProfile.firstname}
+                    value={user.firstname}
                     label="First Name"
                     placeholder="First Name"
                     className="w-full"
@@ -105,7 +117,7 @@ const Student_profile_page = () => {
                 </div>
                 <div className="flex">
                   <TextInput
-                    value={editedProfile.lastname}
+                    value={user.lastname}
                     label="Last Name"
                     placeholder="Last Name"
                     className="w-full"
@@ -122,7 +134,7 @@ const Student_profile_page = () => {
                 </div>
                 <div className="flex">
                   <TextInput
-                    value={editedProfile.username}
+                    value={user.username}
                     label="User Name"
                     placeholder="User Name"
                     className="w-full"
@@ -139,7 +151,7 @@ const Student_profile_page = () => {
                 </div>
                 <div className="flex">
                   <TextInput
-                    value={editedProfile.phonenumber}
+                    value={user.phonenumber}
                     label="Phone Number"
                     placeholder="Phone Number"
                     className="w-full"

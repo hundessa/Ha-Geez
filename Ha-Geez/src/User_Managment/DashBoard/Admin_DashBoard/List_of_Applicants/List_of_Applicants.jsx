@@ -30,6 +30,7 @@ console.log(filter);
     {
       name: "Applied When",
       selector: (row) => row.appliedDate,
+      sortable: true
     },
     {
       name: "Status",

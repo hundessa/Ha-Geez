@@ -438,35 +438,35 @@ export const listOfStudents = [
     name: "Hundessa Serbessa",
     instructorName: "Angela Yu",
     category: "Marketing",
-    numberofCourses: 3,
+    numberofCourses: 4,
     status: "Active"
   },
   {
     name: "Hundessa Serbessa",
     instructorName: "Angela Yu",
     category: "Marketing",
-    numberofCourses: "3",
+    numberofCourses: "4",
     status: "Active"
   },
   {
     name: "Hundessa Serbessa",
     instructorName: "Angela Yu",
     category: "Business",
-    numberofCourses: "3",
+    numberofCourses: "4",
     status: "Inactive"
   },
   {
     name: "Hundessa Serbessa",
     instructorName: "Angela Yu",
     category: "Business",
-    numberofCourses: "3",
+    numberofCourses: "4",
     status: "Active"
   },
   {
     name: "Hundessa Serbessa",
     instructorName: "Angela Yu",
     category: "Business",
-    numberofCourses: "3",
+    numberofCourses: "4",
     status: "Active"
   },
   {
@@ -487,28 +487,28 @@ export const listOfStudents = [
     name: "Hundessa Serbessa",
     instructorName: "Angela Yu",
     category: "Development",
-    numberofCourses: "3",
+    numberofCourses: "1",
     status: "Inactive"
   },
   {
     name: "Hundessa Serbessa",
     instructorName: "Angela Yu",
     category: "Finance",
-    numberofCourses: "3",
+    numberofCourses: "1",
     status: "Active"
   },
   {
     name: "Hundessa Serbessa",
     instructorName: "Angela Yu",
     category: "Finance",
-    numberofCourses: "3",
+    numberofCourses: "2",
     status: "Active"
   },
   {
     name: "Hundessa Serbessa",
     instructorName: "Angela Yu",
     category: "Design",
-    numberofCourses: "3",
+    numberofCourses: "2",
     status: "Active"
   },
 ]
@@ -798,8 +798,8 @@ export const listOfCategories = [
 export const listOfInstructors = [
   {
     name: "Angela Yu",
-    numberofCourses: "22",
-    numberofStudents: "230",
+    numberofCourses: "20",
+    numberofStudents: "220",
     status: "Active"
   },
   {

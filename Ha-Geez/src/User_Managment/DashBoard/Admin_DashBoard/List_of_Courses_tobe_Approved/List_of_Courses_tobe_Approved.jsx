@@ -49,7 +49,8 @@ const List_of_Courses_tobe_Approved = () => {
     },
     {
       name: "Course Uploaded Date",
-      selector: row => row.courseUploadedDate
+      selector: row => row.courseUploadedDate,
+      sortable: true
     },
     {
         name: "Status",

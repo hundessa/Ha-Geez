@@ -1,79 +1,57 @@
-import { useRef, useState } from "react";
-import { Button } from "@mantine/core";
-import { FaUser } from "react-icons/fa";
-// import { FaLock } from "react-icons/fa";
-import "./Login.css";
+import { useState } from "react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Alert, Box, Button, Group } from "@mantine/core";
 import Enroll_Modal from "../../Pages/Home page/modals/Enroll_Modal";
+import Forms from "../Sign_up/Student_Sign_up/Forms/Forms";
 import { useForm } from "@mantine/form";
-import { PasswordInput, TextInput } from "@mantine/core";
+import Cookies from "js-cookie";
 
 const Login = () => {
   const navigate = useNavigate();
-  const emailRef = useRef();
-  const passwordRef = useRef();
-  const handleLogin = () => {
-    // localStorage.setItem()
-    // if (
-    //   email.current.value === "hund@gmail.com" &&
-    //   password.current.value === "123456"
-    // ) {
-    //   navigate("/student_landingpage");
-    //   if (email.current.value !== "hund@gmail.com") {
-    //     alert("Incorrect email");
-    //   } else if (email.current.value === "hund@gmail.com" && password.current.value !== "123456") {
-    //     alert("Incorrect password");
-    //   }
-    // } else if (
-    //   email.current.value === "admin@gmail.com" &&
-    //   password.current.value === "admin12"
-    // ) {
-    //   navigate("/admin_dashboard");
-    //   if (email.current.value !== "admin@gmail.com") {
-    //     alert("Incorrect email");
-    //   } else if (email.current.value === "admin@gmail.com" && password.current.value !== "admin12") {
-    //     alert("Incorrect password");
-    //   }
-    // } else {
-    //   alert("Data not found");
-    // }
-    const formData = JSON.parse(localStorage.getItem('formData')) || [];
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
 
-    const user = formData.find(
-      (user) =>
-        user.email === emailRef.current.value &&
-        user.password === passwordRef.current.value
-    );
-  
-    if (user) {
-      alert('Login successful');
-      console.log('User Found:', user);
-      if (user.email === 'admin@mail.com') {
-        console.log('Navigating to Admin Dashboard');
-        navigate('/admin_dashboard');
-      } else if (user.email === 'inst@mail.com') {
-        console.log('Navigating to Student Landing Page');
-        navigate('/instructor_landingpage');
-      }else {
-        console.log('Navigating to Student Landing Page');
-        navigate('/student_landingpage');
-      }
-    } else {
-      alert('Invalid email or password');
-      console.log('No matching user found');
-    }
-    console.log(JSON.parse(localStorage.getItem('formData')));
+  const validation = {
+    email: (value) => (/^\S+@\S+$/.test(value) ? null : "Invalid email"),
+    password: (value) => (value.length === 0 ? "Password can't be empty" : null),
   };
-  const [openmodal, setOpenmodal] = useState(false);
+
   const form = useForm({
-    mode: "uncontrolled",
-    initialValues: { email: "", password: "" },
-    validate: {
-      password: (value) =>
-        value.length < 6 ? "Password must be at least 6" : null,
-      email: (value) => (/^\S+@\S+$/.test(value) ? null : "Invalid email"),
+    initialValues: {
+      email: "",
+      password: "",
     },
+    validate: validation,
   });
+
+  const handleLogin = async (values) => {
+    try {
+      const response = await axios.post("http://localhost:4000/login", values);
+      const { message, role, firstname, lastname, username, email, phonenumber } = response.data;
+
+      if (message === "Success") {
+        localStorage.setItem("user", JSON.stringify({ role, firstname, lastname, username, email, phonenumber }));
+        Cookies.set("user", JSON.stringify({ role, firstname, lastname, username, email, phonenumber }), { expires: 7 });
+
+        if (role === "Instructor") {
+          navigate("/instructor_landingpage");
+        } else if (role === "Student") {
+          navigate("/student_landingpage");
+        }else if (role === "Admin") {
+          navigate("/admin_dashboard");
+        }
+      } else {
+        setError("Invalid Username or Password");
+      }
+    } catch (error) {
+      console.error("Error during login:", error);
+      setError("An error occurred. Please try again.");
+    }
+  };
+
+  const [openModal, setOpenModal] = useState(false);
 
   return (
     <div className="flex">
@@ -88,83 +66,69 @@ const Login = () => {
       </Button>
       <div className="wrap">
         <h1 className="mt-40 ml-64 font-medium">Login</h1>
-        <form onSubmit={form.onSubmit(() => console.log())}>
-          <div className="border-2 w-[400px] h-[350px] mt-10 ml-64 rounded-[20px]">
-            <div className="mt-10 ml-16">
-              <div className="input-box flex ">
-                <TextInput
-                  mt="sm"
-                  // label="Email"
-                  ref={emailRef}
-                  placeholder="Enter Your Email"
-                  required
-                  variant="unstyled"
-                  className=" border-b-[4px] font-size-[2px] border-[#09335F] w-[250px]"
-                  {...form.getInputProps("email")}
-                />
-
-                <FaUser className="ml-[-30px] mt-5" />
-              </div>
-              <div className="input-box flex  mt-7">
-                <PasswordInput
-                  // label="Password"
-                  ref={passwordRef}
-                  placeholder="Enter Your Password"
-                  required
-                  variant="unstyled"
-                  key={form.key("password")}
-                  {...form.getInputProps("password")}
-                  className="border-b-[4px] border-[#09335F] w-[250px]"
-                />
-
-                {/* <FaLock className="ml-[-30px]" /> */}
-              </div>
-
-              <div className="mt-5">
-                <Button
-                  variant="transparent"
-                  href="#"
-                  className="text-[#09335F] font-medium"
-                  onClick={() => navigate("/forgot_password")}
-                >
-                  Forgot Password?
-                </Button>
-              </div>
-
+        <Box sx={{ maxWidth: 300 }} mx="auto">
+          {error && <Alert title="Error" color="red">{error}</Alert>}
+          <form onSubmit={form.onSubmit(handleLogin)} className="space-y-4">
+            <Forms
+              form={form}
+              withAsterisk
+              type="text"
+              label="Email"
+              placeholder="email"
+              validation={validation}
+              field="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <Forms
+              form={form}
+              withAsterisk
+              type="password"
+              label="Password"
+              placeholder="password"
+              validation={validation}
+              field="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <Button
+              variant="transparent"
+              href="#"
+              className="text-[#09335F] font-medium"
+              onClick={() => navigate("/forgot_password")}
+            >
+              Forgot Password?
+            </Button>
+            <Group justify="flex-end" mt="xl">
               <Button
-                className="mt-12 mr-6 w-[150px]"
-                variant="filled"
-                color="#09335F"
-                size="md"
-                radius="xl"
                 type="submit"
-                onClick={handleLogin}
+                className="bg-[#09335F] rounded-3xl w-full mt-2"
               >
                 Login
               </Button>
-            </div>
-          </div>
-        </form>
+            </Group>
+          </form>
+        </Box>
       </div>
 
       <div className="">
         <img
-          className="mt-24  "
+          className="mt-24"
           src="src/assets/images/Login/Login Image.png"
           alt=""
         />
-        <div className="flex ml-32  ">
+        <div className="flex ml-32">
           <p>Not a member?</p>
           <a
             href="#"
             className="text-[#09335F] font-bold ml-32"
-            onClick={() => setOpenmodal(true)}
+            onClick={() => setOpenModal(true)}
           >
             Register
           </a>
         </div>
       </div>
-      <Enroll_Modal openmodal={openmodal} setOpenmodal={setOpenmodal} />
+      <Enroll_Modal openModal={openModal} setOpenModal={setOpenModal} />
     </div>
   );
 };

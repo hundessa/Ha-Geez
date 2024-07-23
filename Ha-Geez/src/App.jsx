@@ -31,7 +31,9 @@ import Instructor_Landing_Page from "./User_Managment/DashBoard/Instructor_DashB
 import Instructor_Course_List from "./User_Managment/DashBoard/Instructor_DashBoard/Instructor_Course_List/Instructor_Course_List";
 import Instructor_Student_List from "./User_Managment/DashBoard/Instructor_DashBoard/Instructor_Student_List/Instructor_Student_List";
 import Admin_Profile from "./User_Managment/DashBoard/Admin_DashBoard/Admin_Profile/Admin_Profile";
-import Instructor_Course_Creation from "./User_Managment/DashBoard/Instructor_DashBoard/Instructor_Course_Creation/Instructor_Course_Creation"
+import Course_Content from "./User_Managment/DashBoard/Instructor_DashBoard/Instructor_Course_Creation/Instructor_Course_Creation/Course_Content";
+import Instructor_CourseCreation from "./User_Managment/DashBoard/Instructor_DashBoard/Instructor_Course_Creation/Instructor_CourseCreation";
+import Course_Description from "./User_Managment/DashBoard/Instructor_DashBoard/Instructor_Course_Creation/Instructor_Course_Creation/Course_Description";
 
 function App() {
   return (
@@ -51,13 +53,13 @@ function App() {
           <Route path="/student_profile" element={<Student_profile_page/>}/>
           <Route path="/student_learning" element={<Student_Learning/>}/>
           <Route path="/course_list" element ={<Course_List/>}/>
-          <Route path="change_password" element={<Change_Password/>} />
+          <Route path="/change_password" element={<Change_Password/>} />
           <Route path="/cart" element ={<Cart/>}/>
           <Route path="/course_list_for_student" element={<Course_List_for_student/>}/>
           <Route path="/my_learning" element={<My_Learning/>}/>
-          <Route path="admin_dashboard" element={<Admin_Dashboard/>} />
+          <Route path="/admin_dashboard" element={<Admin_Dashboard/>} />
           <Route path="/applicants_list" element={<List_of_Applicants/>}/>
-          <Route path="list_of_students" element={<List_of_Students/>}/>
+          <Route path="/list_of_students" element={<List_of_Students/>}/>
           <Route path="/category_creation" element={<Category_Creation/>} />
           <Route path="/list_of_courses_tobe_approved" element={<List_of_Courses_tobe_Approved/>} />
           <Route path="/list_of_courses" element={<List_of_Courses/>} />
@@ -67,7 +69,9 @@ function App() {
           <Route path="/instructor_course_list" element={<Instructor_Course_List/>}/>
           <Route path="/instructor_student_list" element={<Instructor_Student_List/>}/>
           <Route path="/admin_profile" element={<Admin_Profile/>} />
-          <Route path="/instructor_course_creation" element={<Instructor_Course_Creation/>}/>
+          <Route path="/instructor_course_creation" element={<Instructor_CourseCreation/>}/>
+          <Route path="/instructor_course_creation/course_content" element={<Course_Content/>} />
+          <Route path="/instructor_course_creation/course_detail" element={<Course_Description/>} />
         </Routes>
       </Router>
     </MantineProvider>

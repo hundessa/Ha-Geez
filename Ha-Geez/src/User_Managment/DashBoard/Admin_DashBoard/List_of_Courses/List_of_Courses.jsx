@@ -4,7 +4,7 @@ import Student_Header from "../../Student_DashBoard/Student_Landing_Page/Compone
 import DataTable from "react-data-table-component";
 import { listOfCourses } from "../../../../Pages/Home page/Course_Overview/Reviews/Reviews";
 import { FaEye } from "react-icons/fa";
-import { SlBookOpen } from "react-icons/sl";
+import { PiBookOpenText } from "react-icons/pi";
 import Admin_Side_NavBar from "../Admin_Side_NavBar/Admin_Side_NavBar";
 
 const List_of_Courses = () => {
@@ -42,10 +42,12 @@ const List_of_Courses = () => {
       {
         name: "Instructor Name",
         selector: (row) => row.instructorName,
+        sortable: true
       },
       {
         name: "Number Students",
         selector: (row) => row.numberofStudents,
+        sortable: true
       },
       {
         name: "Status",
@@ -115,7 +117,7 @@ const List_of_Courses = () => {
 <div className="absolute mt-20 ml-10">
   <div className="flex justify-center mx-auto w-[900px] bg-[#E5F1FC] pl-4 py-2 rounded-xl">
     <div className="flex">
-      <SlBookOpen className="size-20 mr-6" />
+      <PiBookOpenText className="size-20 mr-6" />
       <h1 className="font-bold text-2xl justify-center items-center my-auto">
         Courses
       </h1>

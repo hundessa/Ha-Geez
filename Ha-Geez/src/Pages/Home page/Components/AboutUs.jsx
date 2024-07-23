@@ -1,4 +1,5 @@
 import { Button } from "@mantine/core";
+import about_us from "../../../assets/images/About_Us/charlesdeluvio-Lks7vei-eAg-unsplash.jpg"
 // import { useNavigate } from "react-router-dom";
 
 const AboutUs = () => {
@@ -35,7 +36,7 @@ const AboutUs = () => {
           </div>
 
           <img
-            src="src/assets/images/About_Us/charlesdeluvio-Lks7vei-eAg-unsplash.jpg"
+            src={about_us}
             className="w-[500px] h-[500px] "
           />
         </div>

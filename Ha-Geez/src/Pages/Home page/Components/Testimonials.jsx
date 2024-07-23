@@ -1,18 +1,15 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Button } from "@mantine/core";
 import { FaStar } from "react-icons/fa";
-import { FaRegCirclePlay } from "react-icons/fa6";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { CiStar } from "react-icons/ci";
+import user_1 from "../../../assets/images/Popular Courses/jurica-koletic-7YVZYZeITc8-unsplash.jpg"
 // import "./popular.css";
 
 const data = [
   {
     name: "Lidiya Fissha",
-    photo:
-      "src/assets/images/Popular Courses/jurica-koletic-7YVZYZeITc8-unsplash.jpg",
+    photo: user_1,
     title: "Datascientist",
     rating: <FaStar />,
     rating2: <CiStar />,
@@ -21,8 +18,7 @@ const data = [
   },
   {
     name: "Lidiya Fissha",
-    photo:
-      "src/assets/images/Popular Courses/jurica-koletic-7YVZYZeITc8-unsplash.jpg",
+    photo:user_1,
     title: "Datascientist",
     rating: <FaStar />,
     rating2: <CiStar />,
@@ -31,8 +27,7 @@ const data = [
   },
   {
     name: "Lidiya Fissha",
-    photo:
-      "src/assets/images/Popular Courses/jurica-koletic-7YVZYZeITc8-unsplash.jpg",
+    photo:user_1,
     title: "Datascientist",
     rating: <FaStar />,
     rating2: <CiStar />,
@@ -41,8 +36,7 @@ const data = [
   },
   {
     name: "Lidiya Fissha",
-    photo:
-      "src/assets/images/Popular Courses/jurica-koletic-7YVZYZeITc8-unsplash.jpg",
+    photo:user_1,
     title: "Datascientist",
     rating: <FaStar />,
     rating2: <CiStar />,

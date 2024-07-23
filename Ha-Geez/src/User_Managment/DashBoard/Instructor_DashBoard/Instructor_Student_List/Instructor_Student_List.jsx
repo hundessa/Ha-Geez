@@ -2,28 +2,44 @@ import DataTable from "react-data-table-component";
 import Student_Header from "../../Student_DashBoard/Student_Landing_Page/Components/Student_Header"
 import Instructor_Sidebar from "../Instructor_landingpage/Components/Instructor_Sidebar"
 import { Select } from "@mantine/core";
-import { listOfStudentInstructor } from "../../../../Pages/Home page/Course_Overview/Reviews/Reviews";
+// import { listOfStudentInstructor } from "../../../../Pages/Home page/Course_Overview/Reviews/Reviews";
 import { FaUserGraduate } from "react-icons/fa";
-import { useMemo, useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
+
 
 const Instructor_Student_List = () => {
 const [filter, setFilter] = useState()
+const [students, setStudents] = useState([]);
+
     const studentFilter = (event) =>{
 setFilter(event)
 console.log(filter);
     }
-    const filteredData = useMemo(() => {
-        if (!filter) return listOfStudentInstructor;
-        return listOfStudentInstructor.filter(student => student.courseName === filter);
-      }, [filter]);
+    // const filteredData = useMemo(() => {
+    //     if (!filter) return listOfStudentInstructor;
+    //     return listOfStudentInstructor.filter(student => student.courseName === filter);
+    //   }, [filter]);
 
   // eslint-disable-next-line no-unused-vars
-  const [progress, setProgress] = useState();
+  // const [progress, setProgress] = useState();
     
+  useEffect(() => {
+    const fetchStudents = async () => {
+      try {
+        const response = await axios.post("http://localhost:4000/students-list", { role: "Student"});
+        setStudents(response.data.students);
+      } catch (error) {
+        console.error("Error fetching students:", error);
+      }
+    };
+
+    fetchStudents();
+  }, []);
       const columns = [
         {
           name: "Student Name",
-          selector: (row) => row.name,
+          selector: (row) => `${row.firstname} ${row.lastname}`,
         },
         {
           name: "Progress",
@@ -101,7 +117,7 @@ console.log(filter);
   <div className=" w-[1100px] mx-14 rounded-xl mt-6 bg-[#E5F1FC] overflow-auto">
     <DataTable
       columns={columns}
-      data={filteredData}
+      data={students}
       fixedHeader
       pagination
       customStyles={customStyles}

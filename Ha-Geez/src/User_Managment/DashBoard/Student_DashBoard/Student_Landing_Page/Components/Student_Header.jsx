@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Button, TextInput, Tooltip } from "@mantine/core";
+import Cookies from "js-cookie";
 import logo from "../../../../../assets/images/Logo/logo-3.png";
-import { Button, TextInput } from "@mantine/core";
 import {
   MdOutlineShoppingCart,
   MdNotifications,
@@ -21,6 +22,7 @@ const Student_Header = () => {
   const [settingVisible, setSettingVisible] = useState(false);
   const dropdownRef = useRef(null);
   const settingsRef = useRef(null);
+  const [user, setUser] =useState([])
 
   const settingMenu = () => {
     setSettingVisible(!settingVisible);
@@ -45,6 +47,33 @@ const Student_Header = () => {
       setSettingVisible(false);
     }
   };
+
+  useEffect(() => {
+    const storedUser =  localStorage.getItem("user");
+    if(storedUser){
+      try{
+
+        const userData = JSON.parse(storedUser);
+        setUser(userData);
+      }catch(err){
+        console.error('Failed to parse user from localStorage:', err);
+        localStorage.removeItem('user'); // Remove the invalid item from localStorage
+      }
+    }
+  }, [])
+
+  const handleChangePasswordButton = () =>{
+const user = JSON.parse(localStorage.getItem("user"));
+if (user){
+  navigate("/change_password")
+}
+  }
+
+  const handleLogout = () => {
+    localStorage.clear();
+    Cookies.remove("user");
+    navigate("/")
+  }
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
@@ -79,28 +108,34 @@ const Student_Header = () => {
           <div className="flex">
             <div className="flex ">
               <div className="flex justify-end items-center ml-auto mr-4 space-x-6">
-                <Button
-                  variant="transparent"
-                  className="flex text-gray-200 p-0 active:text-gray-400"
-                >
-                  <MdOutlineShoppingCart
-                    className="size-8"
-                    onClick={() => navigate("/cart")}
-                  />
-                </Button>
-                <Button
-                  variant="transparent"
-                  className="flex text-gray-200 p-0 active:text-gray-400"
-                >
-                  <MdNotifications className="size-8" />
-                </Button>
-                <Button
-                  variant="transparent"
-                  className="flex text-gray-200 p-0 active:text-gray-400"
-                  onClick={settingMenu}
-                >
-                  <MdSettings className="size-8" />
-                </Button>
+                <Tooltip label="Cart">
+                  <Button
+                    variant="transparent"
+                    className="flex text-gray-200 p-0 active:text-gray-400"
+                  >
+                    <MdOutlineShoppingCart
+                      className="size-8"
+                      onClick={() => navigate("/cart")}
+                    />
+                  </Button>
+                </Tooltip>
+                <Tooltip label="Notification">
+                  <Button
+                    variant="transparent"
+                    className="flex text-gray-200 p-0 active:text-gray-400"
+                  >
+                    <MdNotifications className="size-8" />
+                  </Button>
+                </Tooltip>
+                <Tooltip label="Setting">
+                  <Button
+                    variant="transparent"
+                    className="flex text-gray-200 p-0 active:text-gray-400"
+                    onClick={settingMenu}
+                  >
+                    <MdSettings className="size-8" />
+                  </Button>
+                </Tooltip>
                 <div className={` `} ref={dropdownRef} onClick={toggleMenu}>
                   <img
                     src={student_1}
@@ -113,7 +148,7 @@ const Student_Header = () => {
           </div>
         </nav>
         <div
-        ref={settingsRef}
+          ref={settingsRef}
           className={`fixed right-0 mt-14 bg-[#E7F3FF] w-[150px] flx justify-center mx-auto ${
             settingVisible ? "block" : "hidden"
           }`}
@@ -144,29 +179,29 @@ const Student_Header = () => {
           <Button
             variant="transparent"
             className="text-gray-500 active:text-black text-[12px] ml-[-4px]"
-            onClick={() => navigate("/change_password")}
+            onClick={handleChangePasswordButton}
           >
             <FaExchangeAlt className="mr-1" />
             Change Password
           </Button>
         </div>
         <div
-        ref={dropdownRef}
+          ref={dropdownRef}
           className={`fixed right-0 mt-14 bg-[#E7F3FF] w-[170px] flex justify-center mx-auto ${
             menuVisible ? "block" : "hidden"
           }`}
         >
           <div className="space-y-4 my-2">
             <div className="text-sm">
-              <h1>Hundessa Serbessa</h1>
-              <h1 className="text-xs font-light">hund@gmail.com</h1>
+              <h1>{user.firstname} {user.lastname}</h1>
+              <h1 className="text-xs font-light">{user.email}</h1>
             </div>
 
             <div>
               <Button
                 variant="transparent"
                 className="ml4 p-0 mt32 space-x-2 font-bold text-red-500"
-                onClick={() => navigate("/")}
+                onClick={handleLogout}
               >
                 <MdLogout className="flex items-center my-auto size-6 mr-2 active:text-red-500" />
                 <h1 className={``}>Log out</h1>
