@@ -9,7 +9,6 @@ import image from "../../../../assets/images/Cart/ilya-pavlov-OqtafYT5kTw-unspla
 import { FaStar } from "react-icons/fa";
 import { FaRegCirclePlay } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
 
 const data2 = [
   {
@@ -97,25 +96,9 @@ const data = [
     instructor: "By Lidiya Fissha",
   },
 ];
-
-
 const Student_LandinPage = () => {
-
+  const progress = 65;
   const navigate = useNavigate();
-  const [user, setUser] = useState({ firstname: "" });
-
-  useEffect(() => {
-    const storedUser = localStorage.getItem('user');
-    if (storedUser) {
-      try {
-        const userData = JSON.parse(storedUser);
-        setUser(userData);
-      } catch (error) {
-        console.error('Failed to parse user from localStorage:', error);
-        localStorage.removeItem('user'); // Remove the invalid item from localStorage
-      }
-    }
-  }, []);
   const settings = {
     dots: false,
     infinite: true,
@@ -131,7 +114,7 @@ const Student_LandinPage = () => {
       <div className="flex">
         <div className="p-2 mx-52 h-[100px] bg-[#A2CBF5] rounded-[10px] flex mt-20 w-[700px]">
           <div className=" ml-20 ">
-            <h1 className="text-2xl font-bold"> Hello, {user.firstname}</h1>
+            <h1 className="text-2xl font-bold"> Hello, Lidiya</h1>
             <p>
               Nice to have you back, what an exciting day! Get ready and
               continue your lesson today.
@@ -155,15 +138,29 @@ const Student_LandinPage = () => {
         Your Courses
       </h2>
 
-      <div className="mt-5  ml-14 bg-blue-100 slick-slider">
+      <div className="mt-5 ml-14 slick-slider">
         <Slider {...settings}>
-          {data.map((d, index) => (
-            <div key={index} className=" mt-10 ml-20">
-              <img className="w-[200px] h-[100px]" src={d.img} />
+          {data.map((d) => (
+            <div className=" card-container border-2 mt-10">
+              <img className="w-[200px] h-[100px]" src={d.img} onClick={() => navigate("/student_learning")} />
               <h2 className="font-bold">{d.title}</h2>
               <p className="text-sm mt-1">{d.instructor}</p>
-              {/* <p>{d.icon}</p> */}
-              <p className="mt-3">{d.progress}</p>
+              
+          <div className="App">
+            <div className="flex mt-4 ">
+              <progress
+                className="w-[150px] h-3 appearance-none mr-4"
+                value={progress}
+                style={{
+                  overflow: "hidden",
+                  borderRadius: "5px",
+                  backgroundColor: "gray",
+                }}
+              />
+              <h1>{progress}%</h1>
+            </div>
+          </div>
+              {/* <p className="mt-3">{d.progress}</p> */}
             </div>
           ))}
         </Slider>
@@ -171,7 +168,7 @@ const Student_LandinPage = () => {
 
       
 
-<div className="bg-[#D9D9D9] h-[700px] w-[1300px] mt-20">
+<div className="bg-[#D9D9D9] bg-opacity-30 h-[700px] w-[1300px] mt-20">
   <div className="flex">
         <div>
           <h2 className="mt-10 ml-20 font-bold text-xl ">Recommended Courses</h2>
