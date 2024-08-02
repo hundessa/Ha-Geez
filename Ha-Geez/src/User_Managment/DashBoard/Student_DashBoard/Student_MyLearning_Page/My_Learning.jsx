@@ -1,4 +1,3 @@
-import React from "react";
 import { Button } from "@mantine/core";
 import { useNavigate } from "react-router-dom";
 import Student_Header from "../Student_Landing_Page/Components/Student_Header";
