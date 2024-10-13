@@ -1,5 +1,4 @@
 // src/App.js
-import React from 'react';
 import ProgressBar from './ProgressBar';
 
 const App = () => {

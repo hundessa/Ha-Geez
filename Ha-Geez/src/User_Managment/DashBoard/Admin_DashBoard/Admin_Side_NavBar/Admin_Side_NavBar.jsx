@@ -20,7 +20,7 @@ const Admin_Side_NavBar = ({setSidebarExpanded}) => {
     {
       icon: FaRegUserCircle,
       name: "Profile",
-      route: "/admin_profile",
+      route: "/admin/profile",
       variant: "transparent",
       style: {
         active: "bg-[#5A94D0] text-white group-hover:px-2 pl-2 ml-[-14px] w-[50px] group-hover:w-[130px]",
@@ -30,7 +30,7 @@ const Admin_Side_NavBar = ({setSidebarExpanded}) => {
     {
         icon: FaChalkboardTeacher,
         name: "Instructors",
-        route: "/list_of_instructors",
+        route: "/admin/list_of_instructors",
         variant: "transparent",
         style: {
         active: "bg-[#5A94D0] text-white group-hover:px-2 pl-2 ml-[-14px] w-[50px] group-hover:w-[130px]",
@@ -40,7 +40,7 @@ const Admin_Side_NavBar = ({setSidebarExpanded}) => {
       {
         icon: FaUserGraduate,
         name: "Students",
-        route: "/list_of_students",
+        route: "/admin/list_of_students",
         variant: "transparent",
         style: {
         active: "bg-[#5A94D0] text-white group-hover:px-2 pl-2 ml-[-14px] w-[50px] group-hover:w-[130px]",
@@ -50,7 +50,7 @@ const Admin_Side_NavBar = ({setSidebarExpanded}) => {
       {
         icon: FaRegListAlt,
         name: "Categories",
-        route: "/list_of_categories",
+        route: "/admin/list_of_categories",
         variant: "transparent",
         style: {
             active: "bg-[#5A94D0] text-white group-hover:px-2 pl-2 ml-[-14px] w-[50px] group-hover:w-[130px]",
@@ -60,7 +60,7 @@ const Admin_Side_NavBar = ({setSidebarExpanded}) => {
       {
         icon: HiOutlineBookOpen,
         name: "Courses",
-        route: "/list_of_courses",
+        route: "/admin/list_of_courses",
         variant: "transparent",
         style: {
         active: "bg-[#5A94D0] text-white group-hover:px2 pl-2 ml-[-14px] w-[50px] group-hover:w-[130px]",
@@ -70,7 +70,7 @@ const Admin_Side_NavBar = ({setSidebarExpanded}) => {
       {
         icon: FaPeopleGroup,
         name: "Applicants",
-        route: "/applicants_list",
+        route: "/admin/applicants_list",
         variant: "transparent",
         style: {
         active: "bg-[#5A94D0] text-white group-hover:px2 pl-2 ml-[-14px] w-[50px] group-hover:w-[130px]",
@@ -80,7 +80,7 @@ const Admin_Side_NavBar = ({setSidebarExpanded}) => {
       {
         icon: MdApproval,
         name: "Course Approval",
-        route: "/list_of_courses_tobe_approved",
+        route: "/admin/list_of_courses_tobe_approved",
         variant: "transparent",
         style: {
         active: "bg-[#5A94D0] text-white group-hover:px2 pl-2 ml-[-14px] group-hover:w-[130px] flex flex-col items-center",

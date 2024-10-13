@@ -25,7 +25,6 @@ import List_of_Courses_tobe_Approved from "./User_Managment/DashBoard/Admin_Dash
 import List_of_Courses from "./User_Managment/DashBoard/Admin_DashBoard/List_of_Courses/List_of_Courses";
 import List_of_Categories from "./User_Managment/DashBoard/Admin_DashBoard/List_of_Categories/List_of_Categories";
 import List_of_Instructors from "./User_Managment/DashBoard/Admin_DashBoard/List_of_Instructors/List_of_Instructors";
-import Admin_Dashboard from "./User_Managment/DashBoard/Admin_DashBoard/Admin_Dashboard";
 import Change_Password from "./User_Managment/Password_Recovery/Change_password/Change_Password";
 import Instructor_Landing_Page from "./User_Managment/DashBoard/Instructor_DashBoard/Instructor_landingpage/Instructor_Landing_Page";
 import Instructor_Course_List from "./User_Managment/DashBoard/Instructor_DashBoard/Instructor_Course_List/Instructor_Course_List";
@@ -34,6 +33,7 @@ import Admin_Profile from "./User_Managment/DashBoard/Admin_DashBoard/Admin_Prof
 import Course_Content from "./User_Managment/DashBoard/Instructor_DashBoard/Instructor_Course_Creation/Instructor_Course_Creation/Course_Content";
 import Instructor_CourseCreation from "./User_Managment/DashBoard/Instructor_DashBoard/Instructor_Course_Creation/Instructor_CourseCreation";
 import Course_Description from "./User_Managment/DashBoard/Instructor_DashBoard/Instructor_Course_Creation/Instructor_Course_Creation/Course_Description";
+import Admin_Dashboard from "./User_Managment/DashBoard/Admin_DashBoard/Admin_Dashboard/Admin_Dashboard";
 
 function App() {
   return (
@@ -49,29 +49,29 @@ function App() {
           <Route path="/forgot_password" element={<Forgot_Password />} />
           <Route path="/otp" element={<OTP/>}/>
           <Route path="/reset_password" element={<Reset_Password/>}/>
-          <Route path="/student_landingpage" element={<Student_LandinPage/>}/>
-          <Route path="/student_profile" element={<Student_profile_page/>}/>
-          <Route path="/student_learning" element={<Student_Learning/>}/>
-          <Route path="/course_list" element ={<Course_List/>}/>
           <Route path="/change_password" element={<Change_Password/>} />
-          <Route path="/cart" element ={<Cart/>}/>
-          <Route path="/course_list_for_student" element={<Course_List_for_student/>}/>
-          <Route path="/my_learning" element={<My_Learning/>}/>
-          <Route path="/admin_dashboard" element={<Admin_Dashboard/>} />
-          <Route path="/applicants_list" element={<List_of_Applicants/>}/>
-          <Route path="/list_of_students" element={<List_of_Students/>}/>
-          <Route path="/category_creation" element={<Category_Creation/>} />
-          <Route path="/list_of_courses_tobe_approved" element={<List_of_Courses_tobe_Approved/>} />
-          <Route path="/list_of_courses" element={<List_of_Courses/>} />
-          <Route path="/list_of_categories" element={<List_of_Categories/>} />
-          <Route path="/list_of_instructors" element={<List_of_Instructors/>} />
-          <Route path="/instructor_landingpage" element={<Instructor_Landing_Page/>}/>
-          <Route path="/instructor_course_list" element={<Instructor_Course_List/>}/>
-          <Route path="/instructor_student_list" element={<Instructor_Student_List/>}/>
-          <Route path="/admin_profile" element={<Admin_Profile/>} />
-          <Route path="/instructor_course_creation" element={<Instructor_CourseCreation/>}/>
-          <Route path="/instructor_course_creation/course_content" element={<Course_Content/>} />
-          <Route path="/instructor_course_creation/course_detail" element={<Course_Description/>} />
+          <Route path="/course_list" element ={<Course_List/>}/>
+          <Route path="/student/landingpage" element={<Student_LandinPage/>}/>
+          <Route path="/student/profile" element={<Student_profile_page/>}/>
+          <Route path="/student/learning" element={<Student_Learning/>}/>
+          <Route path="/student/cart" element ={<Cart/>}/>
+          <Route path="/student/course_list" element={<Course_List_for_student/>}/>
+          <Route path="/student/my_learning" element={<My_Learning/>}/>
+          <Route path="/admin/dashboard" element={<Admin_Dashboard/>} />
+          <Route path="/admin/applicants_list" element={<List_of_Applicants/>}/>
+          <Route path="/admin/list_of_students" element={<List_of_Students/>}/>
+          <Route path="/admin/category_creation" element={<Category_Creation/>} />
+          <Route path="/admin/list_of_courses_tobe_approved" element={<List_of_Courses_tobe_Approved/>} />
+          <Route path="/admin/list_of_courses" element={<List_of_Courses/>} />
+          <Route path="/admin/list_of_categories" element={<List_of_Categories/>} />
+          <Route path="/admin/list_of_instructors" element={<List_of_Instructors/>} />
+          <Route path="/admin/profile" element={<Admin_Profile/>} />
+          <Route path="/instructor/landingpage" element={<Instructor_Landing_Page/>}/>
+          <Route path="/instructor/course_list" element={<Instructor_Course_List/>}/>
+          <Route path="/instructor/student_list" element={<Instructor_Student_List/>}/>
+          <Route path="/instructor/course_creation" element={<Instructor_CourseCreation/>}/>
+          <Route path="/instructor/course_creation/course_content" element={<Course_Content/>} />
+          <Route path="/instructor/course_creation/course_detail" element={<Course_Description/>} />
         </Routes>
       </Router>
     </MantineProvider>

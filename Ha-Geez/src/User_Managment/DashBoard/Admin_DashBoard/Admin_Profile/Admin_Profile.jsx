@@ -43,7 +43,7 @@ const Admin_Profile = () => {
           <Button
             variant="transparent"
             className="text-black focus:text-black ml-"
-            onClick={() => navigate("/student_landingpage")}
+            onClick={() => navigate("/admin/dashboard")}
           >
             <FaArrowLeft size="25px" />
           </Button>

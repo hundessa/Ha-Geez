@@ -1,6 +1,6 @@
 import { Button } from "@mantine/core";
-import { FaStar } from "react-icons/fa";
-import ProgressBar from "./ProgressBar";
+// import { FaStar } from "react-icons/fa";
+// import ProgressBar from "./ProgressBar";
 import { useNavigate } from "react-router-dom";
 
 /* eslint-disable react/prop-types */

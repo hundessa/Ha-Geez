@@ -1,10 +1,9 @@
-import React from 'react'
 import 
 { BsBook, BsPeopleFill, BsFillPeopleFill, BsFillPersonPlusFill}
  from 'react-icons/bs'
  
  import 
-{ BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, PieChart, Pie, Legend, ResponsiveContainer, LineChart, Line } 
+{ BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, PieChart, Pie, Legend, ResponsiveContainer } 
 from 'recharts';
 
 function Home() {

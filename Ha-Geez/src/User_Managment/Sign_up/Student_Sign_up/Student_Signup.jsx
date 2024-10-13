@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { redirect, useNavigate } from "react-router-dom";
 // import Cookies from "js-cookie";
-import { Button, Group } from "@mantine/core";
+import { Alert, Button, Group } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import axios from "axios";
 import teaching from "../../../assets/images/Sign up/teaching.jpg";
@@ -11,6 +11,7 @@ import Forms from "./Forms/Forms";
 const Student_Signup = () => {
   const navigate = useNavigate();
 
+  const [error, setError] = useState(null);
   const [firstname, setFirstName] = useState();
   const [lastname, setLastName] = useState();
   const [username, setUserName] = useState();
@@ -88,11 +89,10 @@ const Student_Signup = () => {
       const { message } = response.data;
 
       if(message === "User already exists"){
-        alert("Already have an account")
-        navigate("/student_signup")
-      } else if (message === "Account Created") {
-        // localStorage.setItem("user", JSON.stringify({ role, firstname }));
-        // Cookies.set("user", JSON.stringify({ role, firstname }), { expires: 7 });
+        setError("Already have an account");
+        redirect('/student_signup')
+        // navigate("/student_signup")
+      } else {
         alert("Signup successful!");
         navigate("/login"); 
       }
@@ -148,6 +148,7 @@ const Student_Signup = () => {
                 </div>
               </div>
               <div className="border-[1px] p-16 w-full bg-white mb-10 mr-10 rounded-[20px]">
+              {error && <Alert title="Error" color="red">{error}</Alert>}
               <form onSubmit={form.onSubmit(handleSignup)} className="space-y-4">
         
                 <Forms

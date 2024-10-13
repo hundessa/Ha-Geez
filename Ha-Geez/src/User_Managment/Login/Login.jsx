@@ -5,7 +5,7 @@ import { Alert, Box, Button, Group } from "@mantine/core";
 import Enroll_Modal from "../../Pages/Home page/modals/Enroll_Modal";
 import Forms from "../Sign_up/Student_Sign_up/Forms/Forms";
 import { useForm } from "@mantine/form";
-import Cookies from "js-cookie";
+// import Cookies from "js-cookie";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -28,23 +28,26 @@ const Login = () => {
 
   const handleLogin = async (values) => {
     try {
-      const response = await axios.post("http://localhost:4000/login", values);
+      const response = await axios.post("http://localhost:4000/login", values, { withCredentials: true });
+      console.log("Login response:", response.data);
       const { message, role, firstname, lastname, username, email, phonenumber } = response.data;
 
-      if (message === "Success") {
+      if (message === "User not found" || message === "Incorrect Password") { 
+         setError("Invalid Username or Password");
+        // setError(message)
+      }
+       else {
         localStorage.setItem("user", JSON.stringify({ role, firstname, lastname, username, email, phonenumber }));
-        Cookies.set("user", JSON.stringify({ role, firstname, lastname, username, email, phonenumber }), { expires: 7 });
+        // Cookies.set("user", JSON.stringify({ role, firstname, lastname, username, email, phonenumber }), { expires: 7 });
 
         if (role === "Instructor") {
-          navigate("/instructor_landingpage");
+          navigate("/instructor/landingpage");
         } else if (role === "Student") {
-          navigate("/student_landingpage");
+          navigate("/student/landingpage");
         }else if (role === "Admin") {
-          navigate("/admin_dashboard");
+          navigate("/admin/dashboard");
         }
-      } else {
-        setError("Invalid Username or Password");
-      }
+       }
     } catch (error) {
       console.error("Error during login:", error);
       setError("An error occurred. Please try again.");

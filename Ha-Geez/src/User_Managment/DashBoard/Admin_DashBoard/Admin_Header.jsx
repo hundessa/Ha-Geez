@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Button } from "@mantine/core";
+import Cookies from "js-cookie"
 import logo from "../../../assets/images/Logo/logo-3.png";
-import { Button, TextInput } from "@mantine/core";
 import {
   MdNotifications,
   MdOutlineDarkMode,
@@ -23,6 +24,12 @@ const Admin_Header = () => {
   const toggleDarkMode = () => {
     setIsDarkMode(!isDarkMode);
   };
+
+  const handleLogout = () => {
+    localStorage.clear();
+    Cookies.remove("user");
+    navigate("/")
+  }
 
   return (
     <>
@@ -99,7 +106,7 @@ const Admin_Header = () => {
               <Button
                 variant="transparent"
                 className="ml4 p-0 mt32 space-x-2 font-bold text-red-500"
-                onClick={() => navigate("/")}
+                onClick={handleLogout}
               >
                 <MdLogout className="flex items-center my-auto size-6 mr-2 active:text-red-500" />
                 <h1 className={``}>Log out</h1>

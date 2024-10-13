@@ -88,27 +88,6 @@ const Course_List = () => {
             onChange={handleLevelFilterChange}
           />
         </div>
-        {/* <div className="flex flex-col mt-10">
-        {chunkedCourses.map((courseRow, rowIndex) => (
-          <div key={rowIndex} className="flex justify-center mb-10 ">
-            {courseRow.map((course, index) => (
-              <div key={index} className="mx[-40px]">
-                <Course_Card
-                  image={course.image}
-                  category={course.category}
-                  title={course.title}
-                  description={course.description}
-                  instructorName={course.instructorName}
-                  level={course.level}
-                  price={course.price}
-                  rating={course.rating}
-                  duration={course.duration}
-                />
-              </div>
-            ))}
-          </div>
-        ))}
-      </div> */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[-20px] mt-10 mx-10 ml-[-10px]">
           {paginatedCourses.map((course, index) => {
             return (

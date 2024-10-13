@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, TextInput, Tooltip } from "@mantine/core";
-import Cookies from "js-cookie";
 import logo from "../../../../../assets/images/Logo/logo-3.png";
 import {
   MdOutlineShoppingCart,
@@ -13,6 +12,7 @@ import {
 } from "react-icons/md";
 import { FaExchangeAlt } from "react-icons/fa";
 import student_1 from "../../../../../assets/images/Student_profile/student_1.jpg";
+import axios from "axios";
 
 const Student_Header = () => {
   const navigate = useNavigate();
@@ -69,10 +69,19 @@ if (user){
 }
   }
 
-  const handleLogout = () => {
-    localStorage.clear();
-    Cookies.remove("user");
-    navigate("/")
+  const handleLogout = async () => {
+    try {
+      await axios.post("http://localhost:4000/logoutUser", {}, { withCredentials: true });
+      localStorage.removeItem("user"); // Clear local storage
+
+      // Add a small delay before navigating
+    setTimeout(() => {
+      navigate("/"); // Redirect to home or login page
+    }, 1000);
+
+    } catch (error) {
+      console.error("Error during logout:", error);
+    }
   }
 
   useEffect(() => {
