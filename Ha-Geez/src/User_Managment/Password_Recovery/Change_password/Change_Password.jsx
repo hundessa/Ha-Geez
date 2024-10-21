@@ -199,9 +199,9 @@ const Change_Password = () => {
         alert("Password Changed Successfully");
         setRole(role);
         if (role === "Student") {
-          navigate("/student_landingpage");
+          navigate("/student/landingpage");
         } else if (role === "Instructor") {
-          navigate("/instructor_landingpage");
+          navigate("/instructor/landingpage");
         }
       }
     } catch (err) {
@@ -215,9 +215,9 @@ const Change_Password = () => {
 
   const handleBackButton = () => {
     if (role === "Student") {
-      navigate("/student_landingpage");
+      navigate("/student/landingpage");
     } else if (role === "Instructor") {
-      navigate("/instructor_landingpage");
+      navigate("/instructor/landingpage");
     }
   };
 

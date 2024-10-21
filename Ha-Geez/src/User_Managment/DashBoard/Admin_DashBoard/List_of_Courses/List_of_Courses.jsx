@@ -1,11 +1,11 @@
 import { useMemo, useState } from "react";
 import { Button, Select } from "@mantine/core";
-import Student_Header from "../../Student_DashBoard/Student_Landing_Page/Components/Student_Header";
 import DataTable from "react-data-table-component";
 import { listOfCourses } from "../../../../Pages/Home page/Course_Overview/Reviews/Reviews";
 import { FaEye } from "react-icons/fa";
 import { PiBookOpenText } from "react-icons/pi";
 import Admin_Side_NavBar from "../Admin_Side_NavBar/Admin_Side_NavBar";
+import Admin_Header_Nav_Bar from "../Admin_Side_NavBar/Admin_Header_Nav_Bar/Admin_Header_Nav_Bar";
 
 const List_of_Courses = () => {
 
@@ -112,7 +112,7 @@ const List_of_Courses = () => {
 
   return (
     <>
-    <Student_Header />
+    <Admin_Header_Nav_Bar />
 <Admin_Side_NavBar/>
 <div className="absolute mt-20 ml-10">
   <div className="flex justify-center mx-auto w-[900px] bg-[#E5F1FC] pl-4 py-2 rounded-xl">

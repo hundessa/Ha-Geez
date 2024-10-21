@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import Cookies from "js-cookie";
-import * as jwtDecode from "jwt-decode";
+import axios from "axios";
+import { jwtDecode } from "jwt-decode";
 
 // Create a UserContext
 const UserContext = createContext();
@@ -15,34 +15,52 @@ export const useUser = () => {
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [authToken, setAuthToken] = useState(null);
+  const [loading, setLoading] = useState(true); // Add a loading state
 
   useEffect(() => {
-    // Get the JWT token from cookies
-    const token = Cookies.get("jwt");
+    const token = localStorage.getItem("jwt");
+    const storedUser = localStorage.getItem("user");
+
+    console.log("Token:", token); // Log token
+  console.log("Stored User:", storedUser); // Log stored user
+    
 
     if (token) {
       try {
-        // Decode the JWT token to extract user information
         const decodedToken = jwtDecode(token);
-
-        // Assuming your token has name, email, username
-        setUser({
-          name: decodedToken.name,
+        console.log("Decoded Token:", decodedToken);
+        const userData = {
+          id: decodedToken.id,
           email: decodedToken.email,
-          username: decodedToken.username,
-        });
-
-        // Save the token for future API calls
+          firstname: decodedToken.firstname,
+          lastname: decodedToken.lastname,
+          role: decodedToken.role,
+        };
+        setUser(userData);
         setAuthToken(token);
+        localStorage.setItem("user", JSON.stringify(userData));
+        axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
       } catch (error) {
         console.error("Failed to decode token:", error);
+        localStorage.removeItem("jwt");
+      }
+    } else if (storedUser) {
+      try {
+        const parsedUser = JSON.parse(storedUser);
+        setUser(parsedUser);
+      } catch (error) {
+        console.error("Failed to parse stored user data:", error);
+        localStorage.removeItem("user");
       }
     }
+
+    setLoading(false); // Set loading to false after user data is processed
   }, []);
 
   return (
-    <UserContext.Provider value={{ user, authToken }}>
+    <UserContext.Provider value={{ user, setUser, authToken, loading }}>
       {children}
     </UserContext.Provider>
   );
 };
+

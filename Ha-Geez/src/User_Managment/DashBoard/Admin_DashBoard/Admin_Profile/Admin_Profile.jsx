@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { profile } from "../../../../Pages/Home page/Course_Overview/Reviews/Reviews";
-import Student_Header from "../../Student_DashBoard/Student_Landing_Page/Components/Student_Header";
 import Admin_Side_NavBar from "../Admin_Side_NavBar/Admin_Side_NavBar";
 import { Button, Group, TextInput } from "@mantine/core";
 import { FaArrowLeft, FaPen } from "react-icons/fa";
+import Admin_Header_Nav_Bar from "../Admin_Side_NavBar/Admin_Header_Nav_Bar/Admin_Header_Nav_Bar";
 
 const Admin_Profile = () => {
   const [clicked, setClicked] = useState(false);
@@ -35,7 +35,7 @@ const Admin_Profile = () => {
 
   return (
     <>
-      <Student_Header />
+      <Admin_Header_Nav_Bar />
       <Admin_Side_NavBar />
 
       <div className="absolute mt-16">

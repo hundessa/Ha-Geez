@@ -4,9 +4,9 @@ import DataTable from "react-data-table-component";
 import axios from "axios";
 import { Button, Select } from "@mantine/core";
 import { FaEye, FaRegListAlt, FaPlus } from "react-icons/fa";
-import Student_Header from "../../Student_DashBoard/Student_Landing_Page/Components/Student_Header";
 import Admin_Side_NavBar from "../Admin_Side_NavBar/Admin_Side_NavBar";
 import CategoryDetailModal from "./modals/CategoryDetailModal";
+import Admin_Header_Nav_Bar from "../Admin_Side_NavBar/Admin_Header_Nav_Bar/Admin_Header_Nav_Bar";
 
 const List_of_Categories = () => {
   const navigate = useNavigate();
@@ -16,8 +16,11 @@ const List_of_Categories = () => {
 
   useEffect(() => {
     (async () => {
+      const token = localStorage.getItem('jwt');
       try {
-        const response = await axios.post("http://localhost:4000/category-list", { role: "Admin" });
+        const response = await axios.post("http://localhost:4000/category-list", { role: "Admin" }, {headers: {
+          Authorization: `Bearer ${token}` // Include token in the Authorization header
+        }});
         setCategory(response.data);
       } catch (err) {
         console.log("error: ", err);
@@ -105,7 +108,7 @@ const List_of_Categories = () => {
 
   return (
     <>
-      <Student_Header />
+      <Admin_Header_Nav_Bar />
       <Admin_Side_NavBar />
       <div className="absolute mt-20 ml-10">
         <div className="flex justify-center mx-auto w-[900px] bg-[#E5F1FC] pl-4 py-2 rounded-xl">

@@ -1,11 +1,17 @@
 import logo from "../../../assets/images/Logo/logo-3.png";
-import profile from '../../../assets/images/Admin_Profile/admin_profile.jpg'
+import profile from "../../../assets/images/Admin_Profile/admin_profile.jpg";
 import { useNavigate } from "react-router-dom";
 import { Button, Tooltip } from "@mantine/core";
 import { useEffect, useRef, useState } from "react";
-import { MdLogout, MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
+import {
+  MdLogout,
+  MdOutlineDarkMode,
+  MdOutlineLightMode,
+} from "react-icons/md";
 import { FaExchangeAlt } from "react-icons/fa";
 import axios from "axios";
+import Cookies from "js-cookie";
+import { useUser } from "../../../Context/AuthContext";
 
 /* eslint-disable react/prop-types */
 const Header_Nav_Bar = ({ buttons }) => {
@@ -14,14 +20,14 @@ const Header_Nav_Bar = ({ buttons }) => {
   const [menuVisible, setMenuVisible] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [settingVisible, setSettingVisible] = useState(false);
-  const [user, setUser] =useState([])
+  // const [user, setUser] =useState([])
   const dropdownRef = useRef(null);
   const settingsRef = useRef(null);
+  const { user } = useUser();
 
-
-//   const settingMenu = () => {
-//     setSettingVisible(!settingVisible);
-//   };
+  //   const settingMenu = () => {
+  //     setSettingVisible(!settingVisible);
+  //   };
 
   const toggleMenu = () => {
     setMenuVisible(!menuVisible);
@@ -43,38 +49,34 @@ const Header_Nav_Bar = ({ buttons }) => {
     }
   };
 
-  const handleChangePasswordButton = () =>{
+  const handleChangePasswordButton = () => {
     const user = JSON.parse(localStorage.getItem("user"));
-    if (user){
-      navigate("/change_password")
+    if (user) {
+      navigate("/change_password");
     }
-      }
+  };
 
-      const handleLogout = async () => {
-        try {
-          await axios.post("http://localhost:4000/logoutUser", {}, { withCredentials: true });
-          localStorage.removeItem("user"); // Clear local storage
-          setTimeout(() => {
-            navigate("/"); // Redirect to home or login page
-          }, 1000)
-        } catch (error) {
-          console.error("Error during logout:", error);
-        }
-      }
+  const handleLogout = async () => {
+    try {
+      await axios.post(
+        "http://localhost:4000/logout",
+        {},
+        { withCredentials: true }
+      );
+      console.log("JWT token before removal:", localStorage.getItem("jwt"));
+      localStorage.removeItem("user"); // Clear local storage
+      localStorage.removeItem("jwt");
+      Cookies.remove("jwt"); // If you're using cookies
+      console.log("JWT token after removal:", localStorage.getItem("jwt")); // Should log null
+      console.log("Current path:", window.location.pathname);
+      console.log("JWT before logout:", localStorage.getItem("jwt"));
 
-      useEffect(() => {
-        const storedUser =  localStorage.getItem("user");
-        if(storedUser){
-          try{
-    
-            const userData = JSON.parse(storedUser);
-            setUser(userData);
-          }catch(err){
-            console.error('Failed to parse user from localStorage:', err);
-            localStorage.removeItem('user'); // Remove the invalid item from localStorage
-          }
-        }
-      }, [])
+      navigate("/"); // Redirect to home or login page
+      window.location.reload();
+    } catch (error) {
+      console.error("Error during logout:", error);
+    }
+  };
 
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
@@ -111,19 +113,18 @@ const Header_Nav_Bar = ({ buttons }) => {
                       <button.icon className="flex items-center my-auto size-8 mr-4" />
                     )}
                   </Button>
-                  
                 </Tooltip>
               </div>
             ))}
           </div>
-                <div className={` `} ref={dropdownRef} onClick={toggleMenu}>
-                  <img
-                    // src={button.profile}
-                    src={profile}
-                    alt="profile"
-                    className="size-8 rounded-full cursor-pointer"
-                  />
-                </div>
+          <div className={` `} ref={dropdownRef} onClick={toggleMenu}>
+            <img
+              // src={button.profile}
+              src={profile}
+              alt="profile"
+              className="size-8 rounded-full cursor-pointer"
+            />
+          </div>
         </nav>
         <div
           ref={settingsRef}
@@ -171,8 +172,8 @@ const Header_Nav_Bar = ({ buttons }) => {
         >
           <div className="space-y-4 my-2">
             <div className="text-sm">
-              <h1>{user.firstname} {user.lastname}</h1>
-              <h1 className="text-xs font-light">{user.email}</h1>
+              <h1>{user?.firstname} {user?.lastname}</h1>
+              <h1 className="text-xs font-light">{user?.email}</h1>
             </div>
 
             <div>

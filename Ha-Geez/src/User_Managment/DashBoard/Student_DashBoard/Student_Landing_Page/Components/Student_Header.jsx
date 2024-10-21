@@ -13,6 +13,8 @@ import {
 import { FaExchangeAlt } from "react-icons/fa";
 import student_1 from "../../../../../assets/images/Student_profile/student_1.jpg";
 import axios from "axios";
+import { useUser } from "../../../../../Context/AuthContext";
+
 
 const Student_Header = () => {
   const navigate = useNavigate();
@@ -22,7 +24,14 @@ const Student_Header = () => {
   const [settingVisible, setSettingVisible] = useState(false);
   const dropdownRef = useRef(null);
   const settingsRef = useRef(null);
-  const [user, setUser] =useState([])
+  // const [user, setUser] =useState([])
+  // eslint-disable-next-line no-unused-vars
+  const { user, authToken } = useUser();
+
+
+  // if (!user) {
+  //   return <div>Loading...</div>;
+  // }
 
   const settingMenu = () => {
     setSettingVisible(!settingVisible);
@@ -48,20 +57,6 @@ const Student_Header = () => {
     }
   };
 
-  useEffect(() => {
-    const storedUser =  localStorage.getItem("user");
-    if(storedUser){
-      try{
-
-        const userData = JSON.parse(storedUser);
-        setUser(userData);
-      }catch(err){
-        console.error('Failed to parse user from localStorage:', err);
-        localStorage.removeItem('user'); // Remove the invalid item from localStorage
-      }
-    }
-  }, [])
-
   const handleChangePasswordButton = () =>{
 const user = JSON.parse(localStorage.getItem("user"));
 if (user){
@@ -71,8 +66,9 @@ if (user){
 
   const handleLogout = async () => {
     try {
-      await axios.post("http://localhost:4000/logoutUser", {}, { withCredentials: true });
+      await axios.post("http://localhost:4000/logout", {}, { withCredentials: true });
       localStorage.removeItem("user"); // Clear local storage
+      localStorage.removeItem("jwt");
 
       // Add a small delay before navigating
     setTimeout(() => {
@@ -84,6 +80,7 @@ if (user){
     }
   }
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
@@ -202,8 +199,8 @@ if (user){
         >
           <div className="space-y-4 my-2">
             <div className="text-sm">
-              <h1>{user.firstname} {user.lastname}</h1>
-              <h1 className="text-xs font-light">{user.email}</h1>
+              <h1>{user?.firstname} {user?.lastname}</h1>
+              <h1 className="text-xs font-light">{user?.email}</h1>
             </div>
 
             <div>

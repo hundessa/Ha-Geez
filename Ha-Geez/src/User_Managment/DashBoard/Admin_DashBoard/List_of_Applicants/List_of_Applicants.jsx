@@ -1,9 +1,9 @@
 import { Button, Select } from "@mantine/core";
 import { listOfApplicants } from "../../../../Pages/Home page/Course_Overview/Reviews/Reviews";
-import Student_Header from "../../Student_DashBoard/Student_Landing_Page/Components/Student_Header";
 import DataTable from "react-data-table-component";
 import Admin_Side_NavBar from "../Admin_Side_NavBar/Admin_Side_NavBar";
 import { useMemo, useState } from "react";
+import Admin_Header_Nav_Bar from "../Admin_Side_NavBar/Admin_Header_Nav_Bar/Admin_Header_Nav_Bar";
 
 const List_of_Applicants = () => {
 
@@ -79,7 +79,7 @@ console.log(filter);
 
   return (
     <>
-      <Student_Header />
+      <Admin_Header_Nav_Bar />
       <Admin_Side_NavBar/>
       <div className="mt-16 absolute">
         <div className="flex">

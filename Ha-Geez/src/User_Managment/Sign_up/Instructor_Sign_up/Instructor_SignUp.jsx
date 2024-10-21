@@ -1,11 +1,11 @@
 import { useState } from "react";
 import axios from "axios";
-import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
-import { Button, Group, Select } from "@mantine/core";
+import { Button, Group, Select, Loader } from "@mantine/core"; // Import Loader from Mantine
 import { useForm } from "@mantine/form";
 import Forms from "../Student_Sign_up/Forms/Forms";
-
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { storage } from "../../../config/firebaseConfig";
 
 const Instructor_SignUp = () => {
   const navigate = useNavigate();
@@ -17,8 +17,9 @@ const Instructor_SignUp = () => {
   const [password, setPassword] = useState();
   const [levelofeducation, setLevelofEducation] = useState();
   const [fieldofstudy, setFieldofStudy] = useState();
-  const [yearsofexperiance, setYearsofExperiance] = useState();
+  const [yearsofexperience, setYearsofExperience] = useState();
   const [selectedFile, setSelectedFile] = useState(null);
+  const [uploading, setUploading] = useState(false); // State for loading spinner
 
   const backButton = () => {
     navigate("/");
@@ -34,16 +35,16 @@ const Instructor_SignUp = () => {
         ? "Name must have at least 4 letters"
         : null,
     lastname: (value) =>
-      value.length == 0
-        ? "last name can't be empty"
+      value.length === 0
+        ? "Last name can't be empty"
         : !/^[A-Za-z]+$/.test(value)
         ? "Last name must contain only alphabets"
         : value.length < 4
         ? "Name must have at least 4 letters"
         : null,
     username: (value) =>
-      value.length == 0
-        ? "user name can't be empty"
+      value.length === 0
+        ? "User name can't be empty"
         : !/^[A-Za-z]+$/.test(value)
         ? "User name must contain only alphabets"
         : value.length < 4
@@ -51,10 +52,10 @@ const Instructor_SignUp = () => {
         : null,
     email: (value) => (/^\S+@\S+$/.test(value) ? null : "Invalid email"),
     password: (value) =>
-      value.length == 0 ? "password  can't be empty" : null,
+      value.length === 0 ? "Password can't be empty" : null,
     confirmpassword: (value, values) =>
-      value.length == 0
-        ? "password can't be empty"
+      value.length === 0
+        ? "Password can't be empty"
         : value !== values.password
         ? "Passwords did not match"
         : null,
@@ -79,46 +80,53 @@ const Instructor_SignUp = () => {
 
   const handleSignup = async (values) => {
     try {
-      // if (!selectedFile) {
-      //   return alert("Please select a file");
-      // }
+      setUploading(true); // Set loading state to true before starting upload
 
-      const formData = new FormData();
-      formData.append("file", selectedFile);
-      formData.append("firstname", values.firstname);
-      formData.append("lastname", values.lastname);
-      formData.append("username", values.username);
-      formData.append("email", values.email);
-      formData.append("phonenumber", values.phonenumber);
-      formData.append("password", values.password);
-      formData.append("levelofeducation", values.levelofeducation);
-      formData.append("fieldofstudy", values.fieldofstudy);
-      formData.append("yearsofexperiance", values.yearsofexperiance);
+      const storageRef = ref(storage, `instructorFiles/${selectedFile.name}`);
+      const uploadTask = uploadBytesResumable(storageRef, selectedFile);
 
-      const response = await axios.post(
-        "http://localhost:4000/instructor-registration",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          // Progress tracking
+          const progress =
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          console.log("Upload is " + progress + "% done");
+        },
+        (error) => {
+          console.error("Upload failed:", error);
+          setUploading(false); // Set loading state to false on error
+        },
+        async () => {
+          // Get the download URL after upload is successful
+          const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+
+          const formData = {
+            ...values,
+            professionalcertificate: downloadURL,
+          };
+
+          const response = await axios.post(
+            "http://localhost:4000/instructor-registration",
+            formData
+          );
+          const { message } = response.data;
+          if (message === "User already exists") {
+            alert("Already have an account");
+            navigate("/instructor_signup");
+          } else if (message === "Account Created") {
+            alert("Signup successful!");
+            navigate("/login");
+          }
         }
       );
-      const { message, role, firstname } = response.data;
-      if (message === "User already exists") {
-        alert("Already have an account");
-        navigate("/instructor_signup");
-      } else if (message === "Account Created") {
-        localStorage.setItem("user", JSON.stringify({ role, firstname }));
-        Cookies.set("user", JSON.stringify({ role, firstname }), { expires: 7 });
-        alert("Signup successful!");
-        navigate("/login");
-      }
     } catch (error) {
       console.error("There was an error signing up:", error);
       alert("There was an error signing up. Please try again.");
-    }
+      setUploading(false);
+    } 
 
+    // Clear the form fields
     setFirstName("");
     setLastName("");
     setUserName("");
@@ -132,7 +140,7 @@ const Instructor_SignUp = () => {
   return (
     <>
       <div className="fle h-screen justify-center items-center">
-        <div className="h[1400px] flex flex-col justify-center items-center">
+        <div className="flex flex-col justify-center items-center">
           <div className="mt-10">
             <h1 className="text-[#09335F] font-semibold text-[24px]">
               Please fill up this form if you want to become an instructor of
@@ -157,7 +165,6 @@ const Instructor_SignUp = () => {
                 validation={validation}
                 field="firstname"
                 value={firstname}
-                // onChange={(e) => form.setFieldValue('firstname', e.target.value)}
                 onChange={(e) => setFirstName(e.target.value)}
               />
               <Forms
@@ -169,7 +176,6 @@ const Instructor_SignUp = () => {
                 validation={validation}
                 field="lastname"
                 value={lastname}
-                // onChange={(e) => form.setFieldValue('lastname', e.target.value)}
                 onChange={(e) => setLastName(e.target.value)}
               />
               <Forms
@@ -181,7 +187,6 @@ const Instructor_SignUp = () => {
                 validation={validation}
                 field="username"
                 value={username}
-                // onChange={(e) => form.setFieldValue('username', e.target.value)}
                 onChange={(e) => setUserName(e.target.value)}
               />
               <Forms
@@ -193,7 +198,6 @@ const Instructor_SignUp = () => {
                 validation={validation}
                 field="email"
                 value={email}
-                // onChange={(e) => form.setFieldValue('email', e.target.value)}
                 onChange={(e) => setEmail(e.target.value)}
               />
               <Forms
@@ -204,22 +208,22 @@ const Instructor_SignUp = () => {
                 placeholder="phone number"
                 validation={validation}
                 field="phonenumber"
-                // componentMask={IMaskInput}
-                // mask="+2519 00-00-00-00"
                 value={phonenumber}
                 onChange={(e) => setPhoneNumber(e.target.value)}
-              />
+                />
               <Select
                 form={form}
                 withAsterisk
                 data={["Degree", "Masters", "PHD"]}
                 type="text"
-                label="Level Of education"
+                label="Level Of Education"
                 placeholder="level of education"
                 validation={validation}
                 field="levelofeducation"
                 value={levelofeducation}
-                onChange={(value) => form.setFieldValue("levelofeducation", value)}
+                onChange={(value) =>
+                  form.setFieldValue("levelofeducation", value)
+                }
               />
               <Forms
                 form={form}
@@ -242,7 +246,7 @@ const Instructor_SignUp = () => {
                   name="fileUpload"
                   onChange={handleFileSelect}
                   className="block w-full p-2 border rounded"
-                />
+                  />
                 {selectedFile && (
                   <p className="text-gray-500">{selectedFile.name}</p>
                 )}
@@ -251,12 +255,12 @@ const Instructor_SignUp = () => {
                 form={form}
                 withAsterisk
                 type="text"
-                label="Years of experiance"
-                placeholder="years of experiance"
+                label="Years of Experience"
+                placeholder="years of experience"
                 validation={validation}
-                field="yearsofexperiance"
-                value={yearsofexperiance}
-                onChange={(e) => setYearsofExperiance(e.target.value)}
+                field="yearsofexperience"
+                value={yearsofexperience}
+                onChange={(e) => setYearsofExperience(e.target.value)}
               />
               <Forms
                 form={form}
@@ -267,9 +271,8 @@ const Instructor_SignUp = () => {
                 validation={validation}
                 field="password"
                 value={password}
-                // onChange={(e) => form.setFieldValue('password', e.target.value)}
                 onChange={(e) => setPassword(e.target.value)}
-              />
+                />
               <Forms
                 form={form}
                 withAsterisk
@@ -279,10 +282,16 @@ const Instructor_SignUp = () => {
                 validation={validation}
                 field="confirmpassword"
               />
+                {uploading && (
+                  <div className="flex justify-center mb-4">
+                    <Loader size="lg" className="spinner"/> {/* Show loading spinner */}
+                  </div>
+                )}
               <Group justify="flex-end" mt="xl">
                 <Button
                   type="submit"
                   className="bg-[#09335F] rounded-3xl w-full mt-2"
+                  disabled={uploading} // Disable button while uploading
                 >
                   Sign Up
                 </Button>

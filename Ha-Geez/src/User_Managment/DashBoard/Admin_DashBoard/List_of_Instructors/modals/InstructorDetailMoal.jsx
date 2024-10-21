@@ -3,28 +3,12 @@ import ReactDOM from "react-dom";
 import { Button } from "@mantine/core";
 import { IoClose } from "react-icons/io5";
 
-// eslint-disable-next-line react/prop-types
+
 const InstructorDetailModal = ({ openmodal, setOpenmodal, instructor }) => {
   if (!openmodal || !instructor) return null;
 
   const getProfessionalCertificateUrl = () => {
-    if (
-      !instructor.professionalcertificate ||
-      !instructor.professionalcertificate.data
-    ) {
-      return "";
-    }
-
-    const data = instructor.professionalcertificate.data;
-    const bytes = new Uint8Array(data);
-    let binary = "";
-    for (let i = 0; i < bytes.byteLength; i++) {
-      binary += String.fromCharCode(bytes[i]);
-    }
-    const base64Data = window.btoa(binary); // Use window.btoa to encode binary data to base64
-
-    const imageUrl = `data:${instructor.professionalcertificate.contentType};base64,${base64Data}`;
-    return imageUrl;
+    return instructor.professionalcertificate || "";
   };
 
   return ReactDOM.createPortal(
@@ -64,22 +48,21 @@ const InstructorDetailModal = ({ openmodal, setOpenmodal, instructor }) => {
           </div>
           <div className="mb-4">
             <h2 className="font-semibold">Years of Experience:</h2>
-            <p>{instructor.yearsofexperiance}</p>
+            <p>{instructor.yearsofexperience}</p>
           </div>
           {instructor.professionalcertificate ? (
             <div className="mb-4">
               <h2 className="font-semibold">Professional Certificate:</h2>
               <img
-                src={getProfessionalCertificateUrl()} // Use function to get data URL
+                src={getProfessionalCertificateUrl()}
                 alt="Professional Certificate"
-                // style={{ maxWidth: '100%' }}
-                className="w-[300px] h-[300px]"
+               className="w-[300px] h-[300px] object-cover rounded-md"
               />
             </div>
           ) : (
             <div>
               <h2 className="font-semibold">Professional Certificate:</h2>
-             <p>No Certificate found</p> 
+              <p>No Certificate found</p>
             </div>
           )}
         </div>

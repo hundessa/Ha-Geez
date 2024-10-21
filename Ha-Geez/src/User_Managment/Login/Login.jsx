@@ -5,12 +5,9 @@ import { Alert, Box, Button, Group } from "@mantine/core";
 import Enroll_Modal from "../../Pages/Home page/modals/Enroll_Modal";
 import Forms from "../Sign_up/Student_Sign_up/Forms/Forms";
 import { useForm } from "@mantine/form";
-// import Cookies from "js-cookie";
 
 const Login = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
 
   const validation = {
@@ -28,26 +25,36 @@ const Login = () => {
 
   const handleLogin = async (values) => {
     try {
+      // const response = await axios.post("http://localhost:4000/login", values, {headers: { Authorization: `Bearer ${token}` }, withCredentials: true });
       const response = await axios.post("http://localhost:4000/login", values, { withCredentials: true });
       console.log("Login response:", response.data);
-      const { message, role, firstname, lastname, username, email, phonenumber } = response.data;
+      
+      const { message, role, firstname, lastname, username, email, phonenumber, token } = response.data;
 
       if (message === "User not found" || message === "Incorrect Password") { 
-         setError("Invalid Username or Password");
-        // setError(message)
-      }
-       else {
+        setError("Invalid Username or Password");
+      } else {
+        // Store user data in localStorage
         localStorage.setItem("user", JSON.stringify({ role, firstname, lastname, username, email, phonenumber }));
-        // Cookies.set("user", JSON.stringify({ role, firstname, lastname, username, email, phonenumber }), { expires: 7 });
 
-        if (role === "Instructor") {
-          navigate("/instructor/landingpage");
-        } else if (role === "Student") {
-          navigate("/student/landingpage");
-        }else if (role === "Admin") {
-          navigate("/admin/dashboard");
+        // Store the JWT in localStorage for further use
+        localStorage.setItem("jwt", token); // Adjust if your response contains the token
+
+        // Redirect based on user role
+        switch (role) {
+          case "Instructor":
+            navigate("/instructor/landingpage");
+            break;
+          case "Student":
+            navigate("/student/landingpage");
+            break;
+          case "Admin":
+            navigate("/admin/dashboard");
+            break;
+          default:
+            break;
         }
-       }
+      }
     } catch (error) {
       console.error("Error during login:", error);
       setError("An error occurred. Please try again.");
@@ -78,10 +85,7 @@ const Login = () => {
               type="text"
               label="Email"
               placeholder="email"
-              validation={validation}
               field="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
             />
             <Forms
               form={form}
@@ -89,10 +93,7 @@ const Login = () => {
               type="password"
               label="Password"
               placeholder="password"
-              validation={validation}
               field="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
             />
             <Button
               variant="transparent"

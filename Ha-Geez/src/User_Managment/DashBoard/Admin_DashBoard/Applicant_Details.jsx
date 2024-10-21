@@ -1,4 +1,4 @@
-import Admin_Header from "./Admin_Header";
+import Admin_Header_Nav_Bar from "./Admin_Side_NavBar/Admin_Header_Nav_Bar/Admin_Header_Nav_Bar";
 import Admin_Side_NavBar from "./Admin_Side_NavBar/Admin_Side_NavBar";
 import { Button } from '@mantine/core';
 
@@ -6,7 +6,7 @@ import { Button } from '@mantine/core';
 const Applicant_Details = () => {
   return (
     <div>
-      <Admin_Header />
+      <Admin_Header_Nav_Bar />
         <Admin_Side_NavBar />
 
     <div className="button-group">

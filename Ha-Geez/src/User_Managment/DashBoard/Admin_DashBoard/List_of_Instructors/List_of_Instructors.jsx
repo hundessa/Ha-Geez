@@ -3,9 +3,9 @@ import axios from 'axios';
 import { Button, Select } from '@mantine/core';
 import { FaEye, FaChalkboardTeacher } from 'react-icons/fa';
 import DataTable from 'react-data-table-component';
-import Student_Header from '../../Student_DashBoard/Student_Landing_Page/Components/Student_Header';
 import Admin_Side_NavBar from '../Admin_Side_NavBar/Admin_Side_NavBar';
 import InstructorDetailModal from "./modals/InstructorDetailMoal";
+import Admin_Header_Nav_Bar from '../Admin_Side_NavBar/Admin_Header_Nav_Bar/Admin_Header_Nav_Bar';
 
 const List_of_Instructors = () => {
   const [openmodal, setOpenmodal] = useState(false);
@@ -17,7 +17,7 @@ const List_of_Instructors = () => {
   useEffect(() => {
     const fetchInstructors = async () => {
       try {
-        const response = await axios.post('http://localhost:4000/instructors-list', { role: 'Instructor' });
+        const response = await axios.post('http://localhost:4000/instructors-list', { role: 'Instructor' }, { withCredentials: true });
         console.log('Fetched instructors:', response.data.instructorDetails); // Log the fetched data
         setInstructors(response.data.instructorDetails);
       } catch (error) {
@@ -36,6 +36,32 @@ const List_of_Instructors = () => {
     setSelectedInstructor(instructor);
     setOpenmodal(true);
   };
+
+  const handleEnableButton = async (id, role) => {
+    console.log("ID:", id, "Role:", role);
+
+  if (!role) {
+    console.error("Role is undefined!");
+    return;
+  }
+    try {
+    const response = await axios.post("http://localhost:4000/admin/activate-account", {id, role}, {withCredentials: true});
+    console.log("Sending request with:", { id, role });
+    console.log("Response:", response.data);  
+      // Optionally refetch the student list or update the status in state
+      const updatedInstructors = instructors.map((instructor) =>
+        instructor.id === id
+          ? { ...instructor, status: instructor.status === "Active" ? "Inactive" : "Active" }
+          : instructor
+      );
+      setInstructors(updatedInstructors);
+  
+      console.log(response.data.message);
+    } catch (error) {
+      console.error("Error during account activation-deactivation");
+      
+    }
+   }
 
   const columns = [
     {
@@ -82,7 +108,7 @@ const List_of_Instructors = () => {
             <FaEye />
           </Button>
           <Button
-            // onClick={() => handleButtonClick(row)}
+            onClick={() => handleEnableButton(row.id, row.role)}
             variant="transparent"
             className="p-0 ml-4"
             style={{ color: row.status === 'Active' ? 'red' : 'green' }}
@@ -118,7 +144,7 @@ const List_of_Instructors = () => {
 
   return (
     <>
-      <Student_Header />
+      <Admin_Header_Nav_Bar />
       <Admin_Side_NavBar />
       <div className="absolute mt-20 ml-10">
         <div className="flex justify-center mx-auto w-[900px] bg-[#E5F1FC] pl-4 py-2 rounded-xl">

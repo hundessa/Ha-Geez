@@ -1,10 +1,10 @@
 import { useMemo, useState } from "react";
 import { Button, Select } from "@mantine/core";
-import Student_Header from "../../Student_DashBoard/Student_Landing_Page/Components/Student_Header";
 import DataTable from "react-data-table-component";
 import { listOfCoursestobApproved } from "../../../../Pages/Home page/Course_Overview/Reviews/Reviews";
 import { useNavigate } from "react-router-dom";
 import Admin_Side_NavBar from "../Admin_Side_NavBar/Admin_Side_NavBar";
+import Admin_Header_Nav_Bar from "../Admin_Side_NavBar/Admin_Header_Nav_Bar/Admin_Header_Nav_Bar";
 
 const List_of_Courses_tobe_Approved = () => {
     const navigate = useNavigate();
@@ -100,7 +100,7 @@ const List_of_Courses_tobe_Approved = () => {
 
   return (
     <>
-      <Student_Header />
+      <Admin_Header_Nav_Bar />
 <Admin_Side_NavBar/>
       <div className="absolute mt-20">
         <div className="flex ml-32">
