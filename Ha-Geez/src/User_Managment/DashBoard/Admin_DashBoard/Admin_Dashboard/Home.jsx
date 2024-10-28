@@ -5,9 +5,10 @@ import
  import 
 { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, PieChart, Pie, Legend, ResponsiveContainer } 
 from 'recharts';
+import { useUser} from "../../../../Context/AuthContext"
 
 function Home() {
-
+const { user } = useUser();
     const data = [
         {
           name: 'Coding',
@@ -53,7 +54,7 @@ function Home() {
       
         <div className="p-2 mx-52 h-[100px] text-black bg-[#A2CBF5] rounded-[10px] flex mt-10 w-[700px]">
           <div className=" ml-20 ">
-            <h1 className="text-2xl font-bold"> Welcome Back, Abebe</h1>
+            <h1 className="text-2xl font-bold"> Welcome Back, {user?.firstname}</h1>
             <p>
             Track your activity, progress and update from here
             </p>

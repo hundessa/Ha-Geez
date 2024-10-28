@@ -29,16 +29,13 @@ const Login = () => {
       const response = await axios.post("http://localhost:4000/login", values, { withCredentials: true });
       console.log("Login response:", response.data);
       
-      const { message, role, firstname, lastname, username, email, phonenumber, token } = response.data;
+      const { message, role } = response.data;
 
       if (message === "User not found" || message === "Incorrect Password") { 
         setError("Invalid Username or Password");
       } else {
-        // Store user data in localStorage
-        localStorage.setItem("user", JSON.stringify({ role, firstname, lastname, username, email, phonenumber }));
 
-        // Store the JWT in localStorage for further use
-        localStorage.setItem("jwt", token); // Adjust if your response contains the token
+        // localStorage.setItem("jwt", token); // Adjust if your response contains the token
 
         // Redirect based on user role
         switch (role) {

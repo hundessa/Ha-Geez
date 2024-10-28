@@ -40,10 +40,10 @@ const List_of_Instructors = () => {
   const handleEnableButton = async (id, role) => {
     console.log("ID:", id, "Role:", role);
 
-  if (!role) {
-    console.error("Role is undefined!");
-    return;
-  }
+    if (!id || !role) {
+      console.error("ID or Role is undefined!");
+      return;
+    }
     try {
     const response = await axios.post("http://localhost:4000/admin/activate-account", {id, role}, {withCredentials: true});
     console.log("Sending request with:", { id, role });

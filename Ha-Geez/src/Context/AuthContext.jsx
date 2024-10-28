@@ -1,6 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
-import { jwtDecode } from "jwt-decode";
+
+axios.defaults.withCredentials = true;
 
 // Create a UserContext
 const UserContext = createContext();
@@ -10,57 +11,30 @@ export const useUser = () => {
   return useContext(UserContext);
 };
 
-// Provide User Context
 // eslint-disable-next-line react/prop-types
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [authToken, setAuthToken] = useState(null);
   const [loading, setLoading] = useState(true); // Add a loading state
 
   useEffect(() => {
-    const token = localStorage.getItem("jwt");
-    const storedUser = localStorage.getItem("user");
-
-    console.log("Token:", token); // Log token
-  console.log("Stored User:", storedUser); // Log stored user
-    
-
-    if (token) {
+    const fetchUserData = async () => {
       try {
-        const decodedToken = jwtDecode(token);
-        console.log("Decoded Token:", decodedToken);
-        const userData = {
-          id: decodedToken.id,
-          email: decodedToken.email,
-          firstname: decodedToken.firstname,
-          lastname: decodedToken.lastname,
-          role: decodedToken.role,
-        };
-        setUser(userData);
-        setAuthToken(token);
-        localStorage.setItem("user", JSON.stringify(userData));
-        axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+        // Make a request to the backend to fetch user data
+        const { data } = await axios.get("http://localhost:4000/auth/user", { withCredentials: true });
+        setUser(data.user); // Set the user data in state
       } catch (error) {
-        console.error("Failed to decode token:", error);
-        localStorage.removeItem("jwt");
+        console.error("Failed to fetch user data:", error);
+      } finally {
+        setLoading(false); // Set loading to false after fetching data
       }
-    } else if (storedUser) {
-      try {
-        const parsedUser = JSON.parse(storedUser);
-        setUser(parsedUser);
-      } catch (error) {
-        console.error("Failed to parse stored user data:", error);
-        localStorage.removeItem("user");
-      }
-    }
+    };
 
-    setLoading(false); // Set loading to false after user data is processed
+    fetchUserData(); // Call the function to fetch user data
   }, []);
 
   return (
-    <UserContext.Provider value={{ user, setUser, authToken, loading }}>
+    <UserContext.Provider value={{ user, loading }}>
       {children}
     </UserContext.Provider>
   );
 };
-

@@ -34,6 +34,7 @@ import Course_Content from "./User_Managment/DashBoard/Instructor_DashBoard/Inst
 import Instructor_CourseCreation from "./User_Managment/DashBoard/Instructor_DashBoard/Instructor_Course_Creation/Instructor_CourseCreation";
 import Course_Description from "./User_Managment/DashBoard/Instructor_DashBoard/Instructor_Course_Creation/Instructor_Course_Creation/Course_Description";
 import Admin_Dashboard from "./User_Managment/DashBoard/Admin_DashBoard/Admin_Dashboard/Admin_Dashboard";
+import InstructorProfile from "./User_Managment/DashBoard/Instructor_DashBoard/Instructor_Profile/InstructorProfile";
 
 function App() {
   return (
@@ -72,6 +73,7 @@ function App() {
           <Route path="/instructor/course_creation" element={<Instructor_CourseCreation/>}/>
           <Route path="/instructor/course_creation/course_content" element={<Course_Content/>} />
           <Route path="/instructor/course_creation/course_detail" element={<Course_Description/>} />
+          <Route path="/instructor/profile" element={<InstructorProfile />} />
         </Routes>
       </Router>
     </MantineProvider>

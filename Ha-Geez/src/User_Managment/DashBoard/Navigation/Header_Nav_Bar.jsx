@@ -1,5 +1,4 @@
 import logo from "../../../assets/images/Logo/logo-3.png";
-import profile from "../../../assets/images/Admin_Profile/admin_profile.jpg";
 import { useNavigate } from "react-router-dom";
 import { Button, Tooltip } from "@mantine/core";
 import { useEffect, useRef, useState } from "react";
@@ -12,6 +11,7 @@ import { FaExchangeAlt } from "react-icons/fa";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useUser } from "../../../Context/AuthContext";
+import { FaUserCircle } from "react-icons/fa";
 
 /* eslint-disable react/prop-types */
 const Header_Nav_Bar = ({ buttons }) => {
@@ -20,7 +20,6 @@ const Header_Nav_Bar = ({ buttons }) => {
   const [menuVisible, setMenuVisible] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [settingVisible, setSettingVisible] = useState(false);
-  // const [user, setUser] =useState([])
   const dropdownRef = useRef(null);
   const settingsRef = useRef(null);
   const { user } = useUser();
@@ -55,7 +54,18 @@ const Header_Nav_Bar = ({ buttons }) => {
       navigate("/change_password");
     }
   };
-
+const handleHomeIcon = () => {
+  switch(user.role) {
+    case "Admin":
+      navigate('/admin/dashboard');
+      break;
+    case "Instructor":
+      navigate("/instructor/landingpage");
+      break;
+    case "Student":
+      navigate("/student/landingpage")
+  }
+}
   const handleLogout = async () => {
     try {
       await axios.post(
@@ -63,16 +73,10 @@ const Header_Nav_Bar = ({ buttons }) => {
         {},
         { withCredentials: true }
       );
-      console.log("JWT token before removal:", localStorage.getItem("jwt"));
-      localStorage.removeItem("user"); // Clear local storage
-      localStorage.removeItem("jwt");
-      Cookies.remove("jwt"); // If you're using cookies
-      console.log("JWT token after removal:", localStorage.getItem("jwt")); // Should log null
-      console.log("Current path:", window.location.pathname);
-      console.log("JWT before logout:", localStorage.getItem("jwt"));
+      Cookies.remove("jwt"); 
 
-      navigate("/"); // Redirect to home or login page
-      window.location.reload();
+      navigate("/"); 
+      // window.location.reload();
     } catch (error) {
       console.error("Error during logout:", error);
     }
@@ -89,7 +93,7 @@ const Header_Nav_Bar = ({ buttons }) => {
     <>
       <header className="z-[10001] relative">
         <nav className="bg-[#09335F] bg-opacity90 flex fixed w-full">
-          <div className="flex mr-96" onClick={() => navigate({})}>
+          <div className="flex mr-96" onClick={handleHomeIcon}>
             <div className="size-14 mr-2 cursor-pointer">
               <img src={logo} alt="logo" />
             </div>
@@ -99,7 +103,7 @@ const Header_Nav_Bar = ({ buttons }) => {
               </h1>
             </div>
           </div>
-          <div className="flex justify-end ml-auto">
+          <div className="flex justify-end ml-auto items-center">
             {buttons.map((button, index) => (
               <div key={index}>
                 <Tooltip label={button.label}>
@@ -117,13 +121,17 @@ const Header_Nav_Bar = ({ buttons }) => {
               </div>
             ))}
           </div>
-          <div className={` `} ref={dropdownRef} onClick={toggleMenu}>
-            <img
-              // src={button.profile}
-              src={profile}
-              alt="profile"
-              className="size-8 rounded-full cursor-pointer"
-            />
+          <div className="flex items-center mr-4" ref={dropdownRef} onClick={toggleMenu}>
+          {user?.profilepicture ? (
+  <img
+    src={user.profilepicture}
+    alt="profile"
+    className="size-8 rounded-full cursor-pointer"
+  />
+) : (
+  <FaUserCircle className="size-8 rounded-full cursor-pointer text-slate-300" />
+)}
+
           </div>
         </nav>
         <div

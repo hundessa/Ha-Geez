@@ -18,7 +18,7 @@ const Instructor_Sidebar = ({setSidebarExpanded}) => {
         {
           icon: FaRegUserCircle,
           name: "Profile",
-          route: "/instructor_profile",
+          route: "/instructor/profile",
           variant: "transparent",
           style: {
             active: "bg-[#5A94D0] text-white group-hover:px-2 pl-2 ml-[-14px] w-[50px] group-hover:w-[130px]",
@@ -28,27 +28,17 @@ const Instructor_Sidebar = ({setSidebarExpanded}) => {
           {
             icon: FaUserGraduate,
             name: "Students",
-            route: "/instructor_student_list",
+            route: "/instructor/student_list",
             variant: "transparent",
             style: {
             active: "bg-[#5A94D0] text-white group-hover:px-2 pl-2 ml-[-14px] w-[50px] group-hover:w-[130px]",
             inactive: "bg-transparent text-gray-500",
           },
           },
-        //   {
-        //     icon: FaRegListAlt,
-        //     name: "Categories",
-        //     route: "/list_of_categories",
-        //     variant: "transparent",
-        //     style: {
-        //         active: "bg-[#5A94D0] text-white group-hover:px-2 pl-2 ml-[-14px] w-[50px] group-hover:w-[130px]",
-        //         inactive: "bg-transparent text-gray-500",
-        //       },
-        //   },
           {
             icon: HiOutlineBookOpen,
             name: "Courses",
-            route: "/instructor_course_list",
+            route: "/instructor/course_list",
             variant: "transparent",
             style: {
             active: "bg-[#5A94D0] text-white group-hover:px2 pl-2 ml-[-14px] w-[50px] group-hover:w-[130px]",

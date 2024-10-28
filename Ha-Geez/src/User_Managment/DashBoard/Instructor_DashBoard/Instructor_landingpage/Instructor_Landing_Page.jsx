@@ -1,58 +1,32 @@
 import { Button } from "@mantine/core";
-import Student_Header from "../../Student_DashBoard/Student_Landing_Page/Components/Student_Header";
 import Instructor_Sidebar from "./Components/Instructor_Sidebar";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { PiBookOpenText } from "react-icons/pi";
 import student_1 from "../../../../assets/images/Student_profile/student_1.jpg";
 import course_1 from "../../../../assets/images/Course List/Course List image.jpg";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import StarRating from "../../../../Pages/Home page/Components/styled-components/StarRating";
 import { useNavigate } from "react-router-dom";
-import Cookies from "js-cookie";
-import axios from 'axios'
+import { useUser } from "../../../../Context/AuthContext";
+import InstructorHeaderNavBar from "./Components/InstructorHeaderNavBar";
 
 const Instructor_Landing_Page = () => {
   
   const navigate = useNavigate();
   // eslint-disable-next-line no-unused-vars
   const [progress, setProgress] = useState(20);
-  const [user, setUser] = useState({ firstname: "" });
-  // eslint-disable-next-line no-unused-vars
-  const [data, setData] = useState(null);
+  const { user } = useUser()
 
-  useEffect(() => {
-    const storedUser = Cookies.get('user');
-    if (storedUser) {
-      try {
-        const userData = JSON.parse(storedUser);
-        setUser(userData);
-      } catch (error) {
-        console.error('Failed to parse user from cookies:', error);
-        Cookies.remove('user'); // Remove the invalid cookie
-      }
-    }
-
-    const fetchData = async () => {
-      try {
-        const response = await axios.get('/protected');
-        setData(response.data);
-      } catch (error) {
-        console.error('Failed to fetch data:', error);
-      }
-    };
-
-    fetchData();
-  }, []);
 
   return (
     <>
-      <Student_Header />
+      <InstructorHeaderNavBar />
       <Instructor_Sidebar />
 
       <div className="absolute mt-20">
         <div className="flex bg-[#5A94D0] ml-[300px] bg-opacity-10 shadow-lg p-[15px] rounded-xl">
           <div className="mr-4 ">
-            <h1 className="text-[32px]">Welcome back, Mr. {user.firstname }</h1>
+            <h1 className="text-[32px]">Welcome back, Mr. {user?.firstname }</h1>
             <div>
               <h1>
                 Your students’ progress is{" "}

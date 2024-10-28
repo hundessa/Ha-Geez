@@ -9,7 +9,7 @@ import image from "../../../../assets/images/Cart/ilya-pavlov-OqtafYT5kTw-unspla
 import { FaStar } from "react-icons/fa";
 import { FaRegCirclePlay } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useUser } from "../../../../Context/AuthContext";
 
 const data2 = [
   {
@@ -102,20 +102,8 @@ const data = [
 const Student_LandinPage = () => {
 
   const navigate = useNavigate();
-  const [user, setUser] = useState({ firstname: "" });
+  const { user } = useUser();
 
-  useEffect(() => {
-    const storedUser = localStorage.getItem('user');
-    if (storedUser) {
-      try {
-        const userData = JSON.parse(storedUser);
-        setUser(userData);
-      } catch (error) {
-        console.error('Failed to parse user from localStorage:', error);
-        localStorage.removeItem('user'); // Remove the invalid item from localStorage
-      }
-    }
-  }, []);
   const settings = {
     dots: false,
     infinite: true,
@@ -131,7 +119,7 @@ const Student_LandinPage = () => {
       <div className="flex">
         <div className="p-2 mx-52 h-[100px] bg-[#A2CBF5] rounded-[10px] flex mt-20 w-[700px]">
           <div className=" ml-20 ">
-            <h1 className="text-2xl font-bold"> Hello, {user.firstname}</h1>
+            <h1 className="text-2xl font-bold"> Hello, {user?.firstname}</h1>
             <p>
               Nice to have you back, what an exciting day! Get ready and
               continue your lesson today.

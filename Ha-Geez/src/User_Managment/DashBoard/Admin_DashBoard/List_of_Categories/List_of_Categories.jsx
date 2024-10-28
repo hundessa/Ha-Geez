@@ -16,11 +16,8 @@ const List_of_Categories = () => {
 
   useEffect(() => {
     (async () => {
-      const token = localStorage.getItem('jwt');
       try {
-        const response = await axios.post("http://localhost:4000/category-list", { role: "Admin" }, {headers: {
-          Authorization: `Bearer ${token}` // Include token in the Authorization header
-        }});
+        const response = await axios.post("http://localhost:4000/category-list", { role: "Admin" }, { withCredentials: true})
         setCategory(response.data);
       } catch (err) {
         console.log("error: ", err);
@@ -120,7 +117,7 @@ const List_of_Categories = () => {
           </div>
           <div className="flex justify-end ml-auto mr-10">
             <Select
-              label="Category"
+              label="Status"
               placeholder="Please Select"
               data={["Active", "Inactive"]}
               className="w-[200px]"

@@ -1,4 +1,3 @@
-// import Admin_Header from "../Admin_Header";
 import "./Admin.css";
 import Home from "./Home";
 import Footer from "../../../../Pages/Home page/Components/Footer";
@@ -11,7 +10,6 @@ const Admin_Dashboard = () => {
 
   return (
     <div>
-      {/* <Admin_Header /> */}
       <Admin_Header_Nav_Bar />
       <Admin_Side_NavBar />
       <Home />

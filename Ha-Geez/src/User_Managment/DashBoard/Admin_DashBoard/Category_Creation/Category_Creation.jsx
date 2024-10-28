@@ -64,9 +64,6 @@ const Category_Creation = () => {
           const response = await axios.post(
             "http://localhost:4000/category-creation",
             formData, 
-          //   { headers: {
-          //     "Authorization": `Bearer ${"jwt"}`, // Make sure yourToken is set correctly
-          // }, }
           );
   
           const { message } = response.data;
