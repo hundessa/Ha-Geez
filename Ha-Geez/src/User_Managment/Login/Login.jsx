@@ -25,7 +25,6 @@ const Login = () => {
 
   const handleLogin = async (values) => {
     try {
-      // const response = await axios.post("http://localhost:4000/login", values, {headers: { Authorization: `Bearer ${token}` }, withCredentials: true });
       const response = await axios.post("http://localhost:4000/login", values, { withCredentials: true });
       console.log("Login response:", response.data);
       
