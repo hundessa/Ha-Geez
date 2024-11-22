@@ -75,8 +75,8 @@ const handleHomeIcon = () => {
       );
       Cookies.remove("jwt"); 
 
-      navigate("/"); 
-      // window.location.reload();
+      navigate("/login", { replace: true }); 
+      window.location.reload();
     } catch (error) {
       console.error("Error during logout:", error);
     }

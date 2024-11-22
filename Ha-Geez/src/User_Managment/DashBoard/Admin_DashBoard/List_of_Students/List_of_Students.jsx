@@ -15,18 +15,21 @@ const List_of_Students = () => {
   useEffect(() => {
     const fetchStudents = async () => {
       try {
-        const response = await axios.post("http://localhost:4000/students-list", { role: "Student"}, { withCredentials: true, });
-        console.log('Fetched students:', response.data.studentsDetails); // Log the fetched data
+        const response = await axios.post(
+          "http://localhost:4000/students-list",
+          { role: "Student" },
+          { withCredentials: true }
+        );
+        console.log("Fetched students:", response.data.studentsDetails); // Log the fetched data
         setStudents(response.data.studentsDetails);
       } catch (error) {
         console.error("Error fetching students:", error);
       }
     };
-  
+
     fetchStudents();
   }, []);
-  
-  
+
   const handleCategoryFilter = (event) => {
     setCategoryFilter(event);
   };
@@ -35,44 +38,50 @@ const List_of_Students = () => {
     setStatusFilter(event);
   };
 
+
   const filteredData = useMemo(() => {
-    return students.filter((student) => {
+    return (students || []).filter((student) => {
       return (
         (categoryFilter ? student.category === categoryFilter : true) &&
         (statusFilter ? student.status === statusFilter : true)
       );
     });
   }, [categoryFilter, statusFilter, students]);
-  
 
   const handleButtonClick = (row) => {
     console.log("Button clicked for row:", row);
   };
 
- const handleEnableButton = async (id, role) => {
-  console.log("ID:", id, "Role:", role);
+  const handleEnableButton = async (id, role) => {
+    console.log("ID:", id, "Role:", role);
 
-  if (!role) {
-    console.error("Role is undefined!");
-    return;
-  }
-  try {
-  const response = await axios.post("http://localhost:4000/admin/activate-account", {id, role}, {withCredentials: true});
-  console.log("Response:", response.data);  
-  // Optionally refetch the student list or update the status in state
-    const updatedStudents = students.map((student) =>
-      student.id === id
-        ? { ...student, status: student.status === "Active" ? "Inactive" : "Active" }
-        : student
-    );
-    setStudents(updatedStudents);
+    if (!role) {
+      console.error("Role is undefined!");
+      return;
+    }
+    try {
+      const response = await axios.post(
+        "http://localhost:4000/admin/activate-account",
+        { id, role },
+        { withCredentials: true }
+      );
+      console.log("Response:", response.data);
+      // Optionally refetch the student list or update the status in state
+      const updatedStudents = students.map((student) =>
+        student.id === id
+          ? {
+              ...student,
+              status: student.status === "Active" ? "Inactive" : "Active",
+            }
+          : student
+      );
+      setStudents(updatedStudents);
 
-    console.log(response.data.message);
-  } catch (error) {
-    console.error("Error during account activation-deactivation");
-    
-  }
- }
+      console.log(response.data.message);
+    } catch (error) {
+      console.error("Error during account activation-deactivation");
+    }
+  };
 
   const columns = [
     {

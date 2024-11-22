@@ -20,8 +20,11 @@ export const UserProvider = ({ children }) => {
     const fetchUserData = async () => {
       try {
         // Make a request to the backend to fetch user data
-        const { data } = await axios.get("http://localhost:4000/auth/user", { withCredentials: true });
-        setUser(data.user); // Set the user data in state
+        const { data } = await axios.get("http://localhost:4000/auth", {
+          withCredentials: true,
+        });
+
+        setUser(data); // Set the user data in state
       } catch (error) {
         console.error("Failed to fetch user data:", error);
       } finally {
@@ -32,8 +35,11 @@ export const UserProvider = ({ children }) => {
     fetchUserData(); // Call the function to fetch user data
   }, []);
 
+  const logout = () => {
+    setUser(null);
+  }
   return (
-    <UserContext.Provider value={{ user, loading }}>
+    <UserContext.Provider value={{ user, loading, logout }}>
       {children}
     </UserContext.Provider>
   );

@@ -4,6 +4,7 @@ import { HiPlus, HiTrash } from "react-icons/hi";
 import Course_Creation_Sidebar from "./Instructor_Course_Creation/Component/Course_Creation_Sidebar";
 import Instructor_Sidebar from "../Instructor_landingpage/Components/Instructor_Sidebar";
 import Student_Header from "../../Student_DashBoard/Student_Landing_Page/Components/Student_Header";
+import { useNavigate } from "react-router-dom";
 // import { useNavigate } from "react-router-dom";
 
 const Instructor_CourseCreation = () => {
@@ -13,6 +14,7 @@ const Instructor_CourseCreation = () => {
     const [learningObjectives, setLearningObjectives] = useState([{ id: 0, value: "" }]);
     const [requirements, setRequirements] = useState([{ id: 0, value: "" }]);
     const [intendedLearners, setIntendedLearners] = useState([{ id: 0, value: "" }]);
+    const navigate = useNavigate();
   
     const handleAddLearningObjective = () => {
        // Log the id before updating state
@@ -89,7 +91,7 @@ const Instructor_CourseCreation = () => {
         <Student_Header />
         <Instructor_Sidebar />
         <Course_Creation_Sidebar />
-  
+
         <div className="absolute mt-20 ml-[300px]">
           <div className="mb10">
             <h1 className="font-semibold text-2xl flex justifycenter ml-12 mb-6">
@@ -125,7 +127,9 @@ const Instructor_CourseCreation = () => {
                   {learningObjectives.length > 1 && (
                     <Button
                       variant="light"
-                      onClick={() => handleDeleteLearningObjective(objective.id)}
+                      onClick={() =>
+                        handleDeleteLearningObjective(objective.id)
+                      }
                       className="ml-2"
                     >
                       <HiTrash size="20px" />
@@ -139,12 +143,12 @@ const Instructor_CourseCreation = () => {
             </div>
             <div className="my-10">
               <h1 className="font-bold mb-2">
-                What are the requirements or prerequisites for taking your course
-                ?
+                What are the requirements or prerequisites for taking your
+                course ?
               </h1>
               <h1 className="font-extralight text-sm max-w-[800px]">
-                List the required skills, experience, tools or equipment learners
-                should have prior to taking your course.If there are no
+                List the required skills, experience, tools or equipment
+                learners should have prior to taking your course.If there are no
                 requirements, use this space as an opportunity to lower the
                 barrier for beginners.
               </h1>
@@ -179,9 +183,9 @@ const Instructor_CourseCreation = () => {
             <div className="my-10">
               <h1 className="font-bold mb-2">Who is this course for ?</h1>
               <h1 className="font-extralight text-sm max-w-[800px]">
-                Write a clear description of the intended learners for your course
-                who will find your course content valuable.This will help you
-                attract the right learners to your course.
+                Write a clear description of the intended learners for your
+                course who will find your course content valuable.This will help
+                you attract the right learners to your course.
               </h1>
               {intendedLearners.map((learner) => (
                 <div key={learner.id} className="flex items-center mb-2">
@@ -212,12 +216,18 @@ const Instructor_CourseCreation = () => {
               </Button>
             </div>
           </div>
-  
-          {/* <div className="flex justify-end ml-auto mb-10">
-            <Button color="#09355F" className="w-[100px]" onClick={() => navigate(`/instructor_course_creation/course_content`)}>
+
+          <div className="flex justify-end ml-auto mb-10">
+            <Button
+              color="#09355F"
+              className="w-[100px]"
+              onClick={() =>
+                navigate("/instructor/course_creation/course_detail")
+              }
+            >
               Next
             </Button>
-          </div> */}
+          </div>
         </div>
       </>
     );
