@@ -40,12 +40,15 @@ const Login = () => {
         switch (role) {
           case "Instructor":
             navigate("/instructor/landingpage");
+            window.location.reload();
             break;
           case "Student":
             navigate("/student/landingpage");
+            window.location.reload();
             break;
           case "Admin":
             navigate("/admin/dashboard");
+            window.location.reload();
             break;
           default:
             break;
