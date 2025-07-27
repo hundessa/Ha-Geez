@@ -1,9 +1,4 @@
 import { Button } from '@mantine/core';
-// import { FaStar } from "react-icons/fa";
-// import { FaRegCirclePlay } from "react-icons/fa6";
-// import Slider from "react-slick";
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -14,60 +9,7 @@ import { courses } from '../Course_Overview/Reviews/Reviews';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Virtual, Pagination } from 'swiper/modules';
 
-// const data = [
-//   {
-//     name: "Advanced Web Development",
-//     img: "src/assets/images/Popular Courses/thomas-lefebvre-gp8BLyaTaA0-unsplash.jpg",
-//     top: "Technology",
-//     duration: "10hr 15mins",
-//     icon: <FaRegCirclePlay />,
-//     rating: <FaStar />,
-//     rating2: "4.5(20)",
-//     photo:
-//       "src/assets/images/Popular Courses/jurica-koletic-7YVZYZeITc8-unsplash.jpg",
-//     instructor: "Mr. Abebe",
-//     price: "200$",
-//   },
-//   {
-//     name: "Advanced Web Development",
-//     img: "src/assets/images/Popular Courses/thomas-lefebvre-gp8BLyaTaA0-unsplash.jpg",
-//     top: "Technology",
-//     duration: "10hr 15mins",
-//     icon: <FaRegCirclePlay />,
-//     rating: <FaStar />,
-//     rating2: "4.5(20)",
-//     photo:
-//       "src/assets/images/Popular Courses/jurica-koletic-7YVZYZeITc8-unsplash.jpg",
-//     instructor: "Mr. Abebe",
-//     price: "200$",
-//   },
-//   {
-//     name: "Advanced Web Development",
-//     img: "src/assets/images/Popular Courses/thomas-lefebvre-gp8BLyaTaA0-unsplash.jpg",
-//     top: "Technology",
-//     duration: "10hr 15mins",
-//     icon: <FaRegCirclePlay />,
-//     rating: <FaStar />,
-//     rating2: "4.5(20)",
-//     photo:
-//       "src/assets/images/Popular Courses/jurica-koletic-7YVZYZeITc8-unsplash.jpg",
-//     instructor: "Mr. Abebe",
-//     price: "200$",
-//   },
-//   {
-//     name: "Advanced Web Development",
-//     img: "src/assets/images/Popular Courses/thomas-lefebvre-gp8BLyaTaA0-unsplash.jpg",
-//     top: "Technology",
-//     duration: "10hr 15mins",
-//     icon: <FaRegCirclePlay />,
-//     rating: <FaStar />,
-//     rating2: "4.5(20)",
-//     photo:
-//       "src/assets/images/Popular Courses/jurica-koletic-7YVZYZeITc8-unsplash.jpg",
-//     instructor: "Mr. Abebe",
-//     price: "200$",
-//   },
-// ];
+
 
 const Popular_Courses = () => {
 
@@ -82,51 +24,63 @@ const Popular_Courses = () => {
   // };
 
   return (
-    <div className=" w-3/4 m-auto mt-20">
-      <div className="flex">
-        <h1 className="flex mx-auto font-bold text-3xl mb-10">
+    <div className="md:w-3/4 mx-auto mt-40">
+      <div className="flex sm:justify-center mx-auto sm:w-full w-3/4">
+        <h1 className="text-center font-bold text-3xl mb-10">
           Our Popular Courses
         </h1>
       </div>
-      <div className="flex mx-auto w-[800px] mb-10">
-        <p className="flex text-justify">
+      <div className="w-3/4 md:w-[800px] mx-auto mb-10">
+        <p className="text-justify">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias
           eos nostrum beatae nemo non adipisci aperiam exercitationem quam
           recusandae cum amet earum porro harum ad, maiores dolore veritatis
           placeat corporis.
         </p>
       </div>
-      <div className="flex justify-center ml-[-10px] mr-[-50px]">
-          <Swiper
-            modules={[Virtual, Navigation, Pagination]}
-            slidesPerView={3}
-            spaceBetween={-40}
-            navigation={true}
-          >
-            {courses.map((course, index) => {
-              return (
-                <div key={index} className="">
-                  <SwiperSlide key={index}>
-                    <Course_Card
-                      image={course.image}
-                      category={course.category}
-                      title={course.title}
-                      description={course.description}
-                      instructorName={course.instructorName}
-                      level={course.level}
-                      duration={course.duration}
-                      price={course.price}
-                      rating={course.rating}
-                    />
-                  </SwiperSlide>
-                </div>
-              );
-            })}
-          </Swiper>
-        </div>
+        <Swiper
+          modules={[Virtual, Navigation, Pagination]}
+          slidesPerView={4}
+          spaceBetween={0}
+          navigation={true}
+          breakpoints={{
+            0: {
+              slidesPerView: 1,
+            },
+            640: {
+              slidesPerView: 2,
+            },
+            1024: {
+              slidesPerView: 3,
+            },
+            1280: {
+              slidesPerView: 4,
+            },
+          }}
+        >
+          {courses.map((course, index) => {
+            return (
+              <div key={index} className="">
+                <SwiperSlide key={index}>
+                  <Course_Card
+                    image={course.image}
+                    category={course.category}
+                    title={course.title}
+                    description={course.description}
+                    instructorName={course.instructorName}
+                    level={course.level}
+                    duration={course.duration}
+                    price={course.price}
+                    rating={course.rating}
+                  />
+                </SwiperSlide>
+              </div>
+            );
+          })}
+        </Swiper>
       {/* <div className="custom-slider slick-slider mt-20"> */}
-        {/* <Slider {...settings}> */}
-        {/* {courses.map((course, index) => {
+      {/* <Slider {...settings}> */}
+      {/* {courses.map((course, index) => {
           return (
             <div key={index} className="mr-14">
               <Course_Card
@@ -143,7 +97,7 @@ const Popular_Courses = () => {
                 </div>
               );
             })} */}
-          {/* {data.map((d) => (
+      {/* {data.map((d) => (
             <div key={d} className=" h-[650px]">
               <div className="h-[490px] w-[265px] border-[3px]  justify-center items-center ">
                 <p className="p-2 bg-[#C7C2C2] absolute">{d.top}</p>
@@ -182,9 +136,13 @@ const Popular_Courses = () => {
               </div>
             </div>
           ))} */}
-        {/* </Slider> */}
+      {/* </Slider> */}
       {/* </div> */}
-      <Button color="rgba(9, 51, 95, 1)" className="mt-[50px] flex justify-center mx-auto" onClick={() => navigate("/course_list")}>
+      <Button
+        color="rgba(9, 51, 95, 1)"
+        className="mt-[50px] flex justify-center mx-auto"
+        onClick={() => navigate("/course_list")}
+      >
         Browse All Courses
       </Button>
     </div>

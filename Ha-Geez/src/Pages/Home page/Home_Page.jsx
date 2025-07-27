@@ -10,15 +10,17 @@ import Testimonials from "./Components/Testimonials";
 const Home_Page = () => {
   return (
     <>
-      <Header />
-      <Banner />
-      <Category />
-      <div id="about-us-section">
-        <AboutUs />
+      <div className="w-full overflow-x-hidden pt-[64px]">
+        <Header />
+        <Banner />
+        <Category />
+        <div id="about-us-section">
+          <AboutUs />
+        </div>
+        <Popular_Courses />
+        <Testimonials />
+        <Footer />
       </div>
-      <Popular_Courses />
-      <Testimonials />
-      <Footer />
     </>
   );
 };

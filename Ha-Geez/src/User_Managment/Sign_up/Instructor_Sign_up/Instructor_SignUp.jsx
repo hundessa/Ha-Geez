@@ -19,7 +19,7 @@ const Instructor_SignUp = () => {
   const [fieldofstudy, setFieldofStudy] = useState();
   const [yearsofexperience, setYearsofExperience] = useState();
   const [selectedFile, setSelectedFile] = useState(null);
-  const [uploading, setUploading] = useState(false); // State for loading spinner
+  const [uploading, setUploading] = useState(false);
 
   const backButton = () => {
     navigate("/");
@@ -50,6 +50,30 @@ const Instructor_SignUp = () => {
         : value.length < 4
         ? "Name must have at least 4 letters"
         : null,
+    phonenumber: (value) =>
+      value.length === 0
+        ? "Phone number can't be empty"
+        : !/^[0-9]+$/.test(value)
+        ? "Phone number must contain only numbers"
+        : value.length < 10
+        ? "Phone number must be at least 10 digits"
+        : value.length > 10
+        ? "Phone number can only contain 10 digits"
+        : null,
+    fieldofstudy: (value) =>
+      value.length === 0
+        ? "Field of study can't be empty"
+        : !/^[A-Za-z]+$/.test(value)
+        ? "Field of study must contain only alphabets"
+        : value.length < 4
+        ? "Field of study must have at least 4 letters"
+        : null,
+    yearsofexperience: (value) =>
+      value.length === 0
+        ? "Years of experiance can't be empty"
+        : !/^\d+(\.\d{1,1})?$/.test(value)
+        ? "Years of experience must be a number (max 1 decimal places)"
+        : null,
     email: (value) => (/^\S+@\S+$/.test(value) ? null : "Invalid email"),
     password: (value) =>
       value.length === 0 ? "Password can't be empty" : null,
@@ -68,6 +92,8 @@ const Instructor_SignUp = () => {
       username: "",
       email: "",
       phonenumber: "",
+      fieldofstudy: "",
+      yearsofexperience: "",
       password: "",
       confirmpassword: "",
     },
@@ -124,7 +150,7 @@ const Instructor_SignUp = () => {
       console.error("There was an error signing up:", error);
       alert("There was an error signing up. Please try again.");
       setUploading(false);
-    } 
+    }
 
     // Clear the form fields
     setFirstName("");
@@ -210,7 +236,7 @@ const Instructor_SignUp = () => {
                 field="phonenumber"
                 value={phonenumber}
                 onChange={(e) => setPhoneNumber(e.target.value)}
-                />
+              />
               <Select
                 form={form}
                 withAsterisk
@@ -246,7 +272,7 @@ const Instructor_SignUp = () => {
                   name="fileUpload"
                   onChange={handleFileSelect}
                   className="block w-full p-2 border rounded"
-                  />
+                />
                 {selectedFile && (
                   <p className="text-gray-500">{selectedFile.name}</p>
                 )}
@@ -272,7 +298,7 @@ const Instructor_SignUp = () => {
                 field="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                />
+              />
               <Forms
                 form={form}
                 withAsterisk
@@ -282,11 +308,12 @@ const Instructor_SignUp = () => {
                 validation={validation}
                 field="confirmpassword"
               />
-                {uploading && (
-                  <div className="flex justify-center mb-4">
-                    <Loader size="lg" className="spinner"/> {/* Show loading spinner */}
-                  </div>
-                )}
+              {uploading && (
+                <div className="flex justify-center mb-4">
+                  <Loader size="lg" className="spinner" />{" "}
+                  {/* Show loading spinner */}
+                </div>
+              )}
               <Group justify="flex-end" mt="xl">
                 <Button
                   type="submit"

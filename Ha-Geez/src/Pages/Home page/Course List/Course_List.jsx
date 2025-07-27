@@ -53,19 +53,21 @@ const Course_List = () => {
   return (
     <>
       <Header />
-      <div className="absolute">
-        <div className="p-2 mx-52 h-[100px] bg-[#A2CBF5] flex border-[3px] border-black mt-5 w-[700px]">
+      <div className="absolute w-full overflow-x-hidden mt-20">
+        <div className="sm:mx-auto mx-3 h-[120px] items-center justify-between bg-[#A2CBF5] flex shadow-lg shadow-black sm:mt-5 w-fit sm:px-16 px-6 rounded-lg">
           <img
             className="w-[100px] h-[80px]"
             src="src/assets/images/Course List/Course List image.jpg"
             alt="Course List"
           />
-          <div className="ml-20">
-            <h1 className="text-2xl font-bold">HA-GEEZ COURSES</h1>
-            <p>Explore Inspiring Online Courses</p>
+          <div className="sm:ml-20 ml-4">
+            <h1 className="sm:text-2xl text-base font-bold font-playfair">
+              HA-GEEZ COURSES
+            </h1>
+            <p className="sm:text-base text-sm">Explore Inspiring Online Courses</p>
           </div>
         </div>
-        <div className="flex justify-end ml-auto mr-10 space-x-6">
+        <div className="flex sm:justify-end sm:ml-auto sm:mr-10 sm:mt-0 mt-12 mx-6 justifycenter space-x-6">
           <Select
             label="Category"
             placeholder="Please Select"
@@ -88,26 +90,28 @@ const Course_List = () => {
             onChange={handleLevelFilterChange}
           />
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[-20px] mt-10 mx-10 ml-[-10px]">
-          {paginatedCourses.map((course, index) => {
-            return (
-              <div key={index} className="my-4">
-                <Course_Card
-                  image={course.image}
-                  category={course.category}
-                  title={course.title}
-                  description={course.description}
-                  instructorName={course.instructorName}
-                  level={course.level}
-                  duration={course.duration}
-                  price={course.price}
-                  rating={course.rating}
-                />
-              </div>
-            );
-          })}
+        <div className="flex justify-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[-20px] mt-10 mx-10 ml-[-10px]">
+            {paginatedCourses.map((course, index) => {
+              return (
+                <div key={index} className="my-4">
+                  <Course_Card
+                    image={course.image}
+                    category={course.category}
+                    title={course.title}
+                    description={course.description}
+                    instructorName={course.instructorName}
+                    level={course.level}
+                    duration={course.duration}
+                    price={course.price}
+                    rating={course.rating}
+                  />
+                </div>
+              );
+            })}
+          </div>
         </div>
-        <div className="flex justify-center mt-4">
+        <div className="flex justify-center my-10">
           {Array.from({ length: totalPages }, (_, index) => (
             <button
               key={index}

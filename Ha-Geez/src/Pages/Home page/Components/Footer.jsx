@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 const Footer = () => {
   return (
     <>
-      <div className="pb-8 bg-[#09335F] bg-opacity-90">
+      <div className="pb-8 bg-[#09335F] bg-opacity-90 relative">
         <div className="flex mb-12">
           <div className="flex my-auto justify-center items-center">
             <div className="font-bold ml-10">
@@ -19,13 +19,13 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col justify-end space-y-2 ml-auto mr-32 text-slate-300 font-semibold cursor-pointer first:hover:text-[20px]">
-            <NavLink to="/" className="hover:text-slate-200 hover:text-[17px]">
+          <div className="absolute right-10 top-50%] top-24 space-y-10 mr-32 text-slate-300 font-semibold cursor-pointer first:hover:text[20px]">
+            <NavLink to="/" className="hover:text-slate-200 hover:text-[17px] absolute">
               Home
             </NavLink>
             <NavLink
               to="/course_list"
-              className="hover:text-slate-50 hover:text-[17px]"
+              className="hover:text-slate-50 hover:text-[17px] absolute"
             >
               Courses
             </NavLink>

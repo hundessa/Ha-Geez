@@ -23,98 +23,114 @@ const Category = () => {
 
   return (
     <>
-      <div className="">
+      <div className="mt-20">
         <div className="flex">
-          <h1 className="flex mx-auto font-bold text-3xl mb-10">
+          <h1 className="mx-auto font-bold text-3xl mb-10">
             Course Category
           </h1>
         </div>
-        <div className="flex mx-auto w-[900px]">
-          <p className="flex mb-14">
+        <div className="flex sm:mx-auto md:w-[900px] mb-10 px-4">
+          <p className="text-justify">
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Molestias
             eos nostrum beatae nemo non adipisci aperiam exercitationem quam
             recusandae cum amet earum porro harum ad, maiores dolore veritatis
             placeat corporis.
           </p>
         </div>
-        <div className="flex mx-auto flex-wrap justify-center gap-14">
-          <Category_Card
-            backgroundImage={development}
-            isBlurred={blurredCard === "1"}
-          >
-            <Category_name
-              backgroundColor="transparent"
-              hoverBackgroundColor="white"
-              hoverColor="black"
-              onMouseEnter={() => handleMouseEnter("1")}
-              onMouseLeave={handleMouseLeave}
+        {/* <div className="flex mx-auto flex-wrap justify-center gap-14"> */}
+        <div className="flex mx-auto">
+          {/* <div className="grid justify-items-center mx-auto grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-14"> */}
+          <div className="flex flex-wrap justify-center gap-14 mx-auto max-w-screen-x  max-w-[1600px]">
+            <Category_Card
+              backgroundImage={development}
+              isBlurred={blurredCard === "1"}
             >
-              Development
-            </Category_name>
-          </Category_Card>
-          <Category_Card
-            backgroundImage={business}
-            isBlurred={blurredCard === "2"}
-          >
-            <Category_name
-              color="dark"
-              backgroundColor="transparent"
-              hoverBackgroundColor="white"
-              hoverColor="black"
-              onMouseEnter={() => handleMouseEnter("2")}
-              onMouseLeave={handleMouseLeave}
+              <Category_name
+                backgroundColor="transparent"
+                hoverBackgroundColor="white"
+                hoverColor="black"
+                onMouseEnter={() => handleMouseEnter("1")}
+                onMouseLeave={handleMouseLeave}
+              >
+                Development
+              </Category_name>
+            </Category_Card>
+            <Category_Card
+              backgroundImage={business}
+              isBlurred={blurredCard === "2"}
             >
-              Business
-            </Category_name>
-          </Category_Card>
-          <Category_Card backgroundImage={marketing}isBlurred={blurredCard === "3"}
-          >
-            <Category_name
-              color="dark"
-              backgroundColor="transparent"
-              hoverBackgroundColor="white"
-              hoverColor="black"
-              onMouseEnter={() => handleMouseEnter("3")}
-              onMouseLeave={handleMouseLeave}
+              <Category_name
+                color="dark"
+                backgroundColor="transparent"
+                hoverBackgroundColor="white"
+                hoverColor="black"
+                onMouseEnter={() => handleMouseEnter("2")}
+                onMouseLeave={handleMouseLeave}
+              >
+                Business
+              </Category_name>
+            </Category_Card>
+            <Category_Card
+              backgroundImage={marketing}
+              isBlurred={blurredCard === "3"}
             >
-              Marketing
-            </Category_name></Category_Card>
-          <Category_Card backgroundImage={design}isBlurred={blurredCard === "4"}
-          >
-            <Category_name
-              color="dark"
-              backgroundColor="transparent"
-              hoverBackgroundColor="white"
-              hoverColor="black"
-              onMouseEnter={() => handleMouseEnter("4")}
-              onMouseLeave={handleMouseLeave}
+              <Category_name
+                color="dark"
+                backgroundColor="transparent"
+                hoverBackgroundColor="white"
+                hoverColor="black"
+                onMouseEnter={() => handleMouseEnter("3")}
+                onMouseLeave={handleMouseLeave}
+              >
+                Marketing
+              </Category_name>
+            </Category_Card>
+            <Category_Card
+              backgroundImage={design}
+              isBlurred={blurredCard === "4"}
             >
-              Design
-            </Category_name></Category_Card>
-          <Category_Card backgroundImage={finance}isBlurred={blurredCard === "5"}
-          >
-            <Category_name
-              color="dark"
-              backgroundColor="transparent"
-              hoverBackgroundColor="white"
-              hoverColor="black"
-              onMouseEnter={() => handleMouseEnter("5")}
-              onMouseLeave={handleMouseLeave}
+              <Category_name
+                color="dark"
+                backgroundColor="transparent"
+                hoverBackgroundColor="white"
+                hoverColor="black"
+                onMouseEnter={() => handleMouseEnter("4")}
+                onMouseLeave={handleMouseLeave}
+              >
+                Design
+              </Category_name>
+            </Category_Card>
+            <Category_Card
+              backgroundImage={finance}
+              isBlurred={blurredCard === "5"}
             >
-              Finance
-            </Category_name></Category_Card>
-          <Category_Card backgroundImage={photography}isBlurred={blurredCard === "6"}
-          >
-            <Category_name
-              color="dark"
-              backgroundColor="transparent"
-              hoverBackgroundColor="white"
-              hoverColor="black"
-              onMouseEnter={() => handleMouseEnter("6")}
-              onMouseLeave={handleMouseLeave}
+              <Category_name
+                color="dark"
+                backgroundColor="transparent"
+                hoverBackgroundColor="white"
+                hoverColor="black"
+                onMouseEnter={() => handleMouseEnter("5")}
+                onMouseLeave={handleMouseLeave}
+              >
+                Finance
+              </Category_name>
+            </Category_Card>
+            <Category_Card
+              backgroundImage={photography}
+              isBlurred={blurredCard === "6"}
             >
-              Photography & Video
-            </Category_name></Category_Card>
+              <Category_name
+                color="dark"
+                backgroundColor="transparent"
+                hoverBackgroundColor="white"
+                hoverColor="black"
+                onMouseEnter={() => handleMouseEnter("6")}
+                onMouseLeave={handleMouseLeave}
+              >
+                Photography & Video
+              </Category_name>
+            </Category_Card>
+          </div>
         </div>
       </div>
     </>
