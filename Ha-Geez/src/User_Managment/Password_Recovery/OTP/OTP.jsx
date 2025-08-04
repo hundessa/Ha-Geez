@@ -63,58 +63,60 @@ const OTP = () => {
 
   return (
     <>
-      <Button
-        variant="white"
-        color="rgba(8, 8, 8, 1)"
-        size="md"
-        onClick={() => navigate("/forgot_password")}
-      >
-        <FaArrowLeftLong size={28} />
-      </Button>
-      {/* <div className="flex flex-col"> */}
+      <div className="min-h-screen flex flex-col">
+        <Button
+          variant="white"
+          color="rgba(8, 8, 8, 1)"
+          size="md"
+          className="max-w-fit border-none"
+          onClick={() => navigate("/forgot_password")}
+        >
+          <FaArrowLeftLong size={28} />
+        </Button>
+        {/* <div className="flex flex-col"> */}
 
-      <div className="flex-1 flex flex-col min-h-screen sm:flex-row items-center justify-center p-4 sm:p-8 gap-8">
-        <div className="w-full max-w-md">
-          <h1 className="text-3xl font-semibold textcenter font-serif">
-            Please Enter Your OTP
-          </h1>
-          <p className="mb-8">
-            Input the code sent to your email for verification
-          </p>
-          {error && (
-            <Alert title="Error" color="red">
-              {error}
-            </Alert>
-          )}
-          <form onSubmit={form.onSubmit(handleClick)}>
-            <Forms
-              form={form}
-              withAsterisk
-              type="text"
-              label="OTP"
-              placeholder="Enter the six-digit code"
-              field="otp"
-              className="w-full"
-            />
-            <Button
-              type="submit"
-              className="bg-[#09335F] rounded-3xl w-full mt-4 duration-500 py-2"
-            >
-              Reset Password
-            </Button>
-
-            <div className="flex mt-4 items-center">
-              <p className="text-sm">Did not receive a code?</p>
+        <div className="flex-1 flex flex-col sm:flex-row items-center justify-center p-4 sm:p-8 gap-8">
+          <div className="w-full max-w-md">
+            <h1 className="text-3xl font-semibold textcenter font-serif">
+              Please Enter Your OTP
+            </h1>
+            <p className="mb-8">
+              Input the code sent to your email for verification
+            </p>
+            {error && (
+              <Alert title="Error" color="red">
+                {error}
+              </Alert>
+            )}
+            <form onSubmit={form.onSubmit(handleClick)} className="w-ful">
+              <Forms
+                form={form}
+                withAsterisk
+                type="text"
+                label="OTP"
+                placeholder="Enter the six-digit code"
+                field="otp"
+                className="w-full"
+              />
               <Button
-                variant="transparent"
-                href="#"
-                className="text-[#09335F] text-sm font-medium duration-300"
+                type="submit"
+                className="bg-[#09335F] rounded-3xl w-full mt-4 duration-500 py-2"
               >
-                Resend OTP
+                Reset Password
               </Button>
-            </div>
 
-            {/* <Button
+              <div className="flex mt-4 items-center">
+                <p className="text-sm">Did not receive a code?</p>
+                <Button
+                  variant="transparent"
+                  href="#"
+                  className="text-[#09335F] text-sm font-medium duration-300"
+                >
+                  Resend OTP
+                </Button>
+              </div>
+
+              {/* <Button
                   type="submit"
                   className="mt-12 ml-14 w-[100px]"
                   variant="filled"
@@ -124,7 +126,8 @@ const OTP = () => {
                 >
                   Next
                 </Button> */}
-          </form>
+            </form>
+          </div>
         </div>
       </div>
       {/* </div> */}

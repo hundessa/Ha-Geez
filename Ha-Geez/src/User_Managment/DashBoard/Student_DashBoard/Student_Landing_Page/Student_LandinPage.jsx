@@ -1,223 +1,198 @@
+import { useMemo, useState } from "react";
 import Student_Header from "./Components/Student_Header";
 import Student_side_navbar from "./Components/Student_side_navbar";
+import Footer from "../../../../Pages/Home page/Components/Footer"
 import { Button } from "@mantine/core";
-import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../../../../Pages/Home page/Components/popular.css";
-import image from "../../../../assets/images/Cart/ilya-pavlov-OqtafYT5kTw-unsplash.jpg";
-import { FaStar } from "react-icons/fa";
-import { FaRegCirclePlay } from "react-icons/fa6";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { useUser } from "../../../../Context/AuthContext";
-
-const data2 = [
-  {
-    name: "Advanced Web Development",
-    img: "src/assets/images/Popular Courses/thomas-lefebvre-gp8BLyaTaA0-unsplash.jpg",
-    top: "Technology",
-    duration: "10hr 15mins",
-    icon: <FaRegCirclePlay />,
-    rating: <FaStar />,
-    rating2: "4.5(20)",
-    photo:
-      "src/assets/images/Popular Courses/jurica-koletic-7YVZYZeITc8-unsplash.jpg",
-    instructor: "Mr. Abebe",
-    price: "200$",
-  },
-  {
-    name: "Advanced Web Development",
-    img: "src/assets/images/Popular Courses/thomas-lefebvre-gp8BLyaTaA0-unsplash.jpg",
-    top: "Technology",
-    duration: "10hr 15mins",
-    icon: <FaRegCirclePlay />,
-    rating: <FaStar />,
-    rating2: "4.5(20)",
-    photo:
-      "src/assets/images/Popular Courses/jurica-koletic-7YVZYZeITc8-unsplash.jpg",
-    instructor: "Mr. Abebe",
-    price: "200$",
-  },
-  {
-    name: "Advanced Web Development",
-    img: "src/assets/images/Popular Courses/thomas-lefebvre-gp8BLyaTaA0-unsplash.jpg",
-    top: "Technology",
-    duration: "10hr 15mins",
-    icon: <FaRegCirclePlay />,
-    rating: <FaStar />,
-    rating2: "4.5(20)",
-    photo:
-      "src/assets/images/Popular Courses/jurica-koletic-7YVZYZeITc8-unsplash.jpg",
-    instructor: "Mr. Abebe",
-    price: "200$",
-  },
-  {
-    name: "Advanced Web Development",
-    img: "src/assets/images/Popular Courses/thomas-lefebvre-gp8BLyaTaA0-unsplash.jpg",
-    top: "Technology",
-    duration: "10hr 15mins",
-    icon: <FaRegCirclePlay />,
-    rating: <FaStar />,
-    rating2: "4.5(20)",
-    photo:
-      "src/assets/images/Popular Courses/jurica-koletic-7YVZYZeITc8-unsplash.jpg",
-    instructor: "Mr. Abebe",
-    price: "200$",
-  },
-];
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Grid, Pagination } from "swiper/modules";
+import { courses, learningdata } from "../../../../Pages/Home page/Course_Overview/Reviews/Reviews";
+import Course_Card from "../../../../Pages/Home page/Components/styled-components/Course_Card";
+import { GrFormPrevious, GrFormNext } from "react-icons/gr";
 
 
-const data = [
-  {
-    title: "Social Media Marketing",
-    img: image,
-    // icon: "",
-    progress: "65%",
-    instructor: "By Lidiya Fissha",
-  },
-  {
-    title: "Social Media Marketing",
-    img: image,
-    // icon: "",
-    progress: "65%",
-    instructor: "By Lidiya Fissha",
-  },
-  {
-    title: "Social Media Marketing",
-    img: image,
-    // icon: "",
-    progress: "65%",
-    instructor: "By Lidiya Fissha",
-  },
-  {
-    title: "Social Media Marketing",
-    img: image,
-    // icon: "",
-    progress: "65%",
-    instructor: "By Lidiya Fissha",
-  },
-];
-
+const ITEMS_PER_PAGE = 4;
 
 const Student_LandinPage = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  // eslint-disable-next-line no-unused-vars
+  const [progress, setProgress] = useState();
 
-  const navigate = useNavigate();
+  const filteredCourses = useMemo(() => {
+    let filteredList = courses;
+
+    return filteredList;
+  }, []);
+
+  const totalPages = Math.ceil(filteredCourses.length / ITEMS_PER_PAGE);
+
+  const paginatedCourses = filteredCourses.slice(
+    (currentPage - 1) * ITEMS_PER_PAGE,
+    currentPage * ITEMS_PER_PAGE
+  );
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
+  // const navigate = useNavigate();
   const { user } = useUser();
 
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 1,
-  };
   return (
     <>
-      <Student_Header />
-      <Student_side_navbar />
-
-      <div className="flex">
-        <div className="p-2 mx-52 h-[100px] bg-[#A2CBF5] rounded-[10px] flex mt-20 w-[700px]">
-          <div className=" ml-20 ">
-            <h1 className="text-2xl font-bold"> Hello, {user?.firstname}</h1>
-            <p>
-              Nice to have you back, what an exciting day! Get ready and
-              continue your lesson today.
-            </p>
-          </div>
-        </div>
-
-        <Button
-          variant="filled"
-          color="#BADBFF"
-          radius="xl"
-          className="text-black mt-2"
-        >
-          My Learning
-        </Button>
-      </div>
-
-    
-
-      <h2 className="ml-32 font-bold text-xl size-[10px] mt-3 w-[150px] ">
-        Your Courses
-      </h2>
-
-      <div className="mt-5  ml-14 bg-blue-100 slick-slider">
-        <Slider {...settings}>
-          {data.map((d, index) => (
-            <div key={index} className=" mt-10 ml-20">
-              <img className="w-[200px] h-[100px]" src={d.img} />
-              <h2 className="font-bold">{d.title}</h2>
-              <p className="text-sm mt-1">{d.instructor}</p>
-              {/* <p>{d.icon}</p> */}
-              <p className="mt-3">{d.progress}</p>
-            </div>
-          ))}
-        </Slider>
-      </div>
-
-      
-
-<div className="bg-[#D9D9D9] h-[700px] w-[1300px] mt-20">
-  <div className="flex">
-        <div>
-          <h2 className="mt-10 ml-20 font-bold text-xl ">Recommended Courses</h2>
-          <p className="ml-24 mt-5">
-            Based on your learning activity we have curated a course just for
-            you.
-          </p>
-        </div>
-
-       
-      </div>
-
-      <div className=" slick-slider mt-16 ml-20">
-        <Slider {...settings}>
-          {data2.map((d) => (
-            <div key={d} className=" h-[650px]">
-              <div className="h-[490px] w-[265px] border-[3px]  justify-center items-center ">
-                <p className="p-2 bg-[#C7C2C2] absolute">{d.top}</p>
-                <img src={d.img} alt="" className="h-44 w-150 " />
-                <div className="flex flex-col justify-center items-center gap-4 p-4">
-                  <p className="text-xl font-bold fontsize-40">{d.name} </p>
-                  <div className="flex ml-28 gap-1">
-                    <p>{d.duration}</p>
-                    <p>{d.icon}</p>
-                  </div>
-                  <div className="flex mr-40 gap-2">
-                    <p>{d.rating}</p>
-                    <p>{d.rating2}</p>
-                  </div>
-                  <div className="flex  mr-32 gap-2 ">
-                    <img
-                      src={d.photo}
-                      alt=""
-                      className="h-10 w-10 rounded-full"
-                    />
-                    <p className="w-[110px]">{d.instructor}</p>
-                  </div>
-                  <div className="border-t-2 w-[265px] flex gap-9 ml-1">
-                    <p className="ml-3 mt-3 font-bold">{d.price}</p>
-                    <Button
-                      variant="default"
-                      color="rgba(0, 0, 0, 1)"
-                      size="md"
-                      className="mt-2"
-                      onClick={() => navigate("/course_overview")}
-                    >
-                      Enroll Now
-                    </Button>
-                  </div>
-                </div>
+      <div className="min-h-screen flex flex-col">
+        <Student_Header />
+        <Student_side_navbar />
+        <main className="flex-grow">
+          <div className="flex justify-around">
+            <div className="p-2 mx52 h-[100px] bg-[#A2CBF5] rounded-[10px] flex mt-20 w-[700px]">
+              <div className="mx-12">
+                <h1 className="text-2xl font-bold">
+                  {" "}
+                  Hello, {user?.firstname}
+                </h1>
+                <p>
+                  Nice to have you back, what an exciting day! Get ready and
+                  continue your lesson today.
+                </p>
               </div>
             </div>
-          ))}
-        </Slider>
-      </div>
 
-</div>
-    
+            <Button
+              variant="filled"
+              color="#BADBFF"
+              radius="xl"
+              className="text-black mt-24"
+            >
+              My Learning
+            </Button>
+          </div>
+
+          <h2 className="ml-32 font-bold text-xl mt-3">Your Courses</h2>
+
+          <div className="mt-5 slickslider overflow-xscroll px-20">
+            <Swiper
+              // slidesPerView={5}
+              breakpoints={{
+                0: {
+                  slidesPerView: 1,
+                },
+                640: {
+                  slidesPerView: 2,
+                },
+                1024: {
+                  slidesPerView: 3,
+                },
+                1280: {
+                  slidesPerView: 5,
+                },
+              }}
+              grid={{
+                rows: 1,
+              }}
+              spaceBetween={0}
+              pagination={{
+                clickable: true,
+              }}
+              modules={[Grid, Pagination]}
+              // className="mySwiper"
+            >
+              {learningdata.map((d, index) => {
+                return (
+                  <div key={index}>
+                    <SwiperSlide key={index}>
+                      <div
+                        key={index}
+                        className="mx-10 w-[300px] mb-10  bg-blue-100 rounded-lg"
+                      >
+                        <img
+                          className="w-full w[200px] h-[150px] p-2"
+                          src={d.img}
+                        />
+                        <div className="ml-4 mt-4">
+                          <h2 className="font-bold">{d.title}</h2>
+                          <p className="text-sm mt-1 mb-4">{d.instructor}</p>
+                          <div className="flex">
+                            <progress
+                              className="w-[200px] mb-4 h-3 appearance-none mr-4"
+                              value={d.progress}
+                              max="100"
+                              style={{
+                                borderRadius: "5px",
+                                overflow: "hidden",
+                              }}
+                            />
+                            <h1 className="text-right text-sm mt-[-4px]">
+                              {d.progress}%
+                            </h1>
+                          </div>
+                        </div>
+                      </div>
+                    </SwiperSlide>
+                  </div>
+                );
+              })}
+            </Swiper>
+          </div>
+
+          <div className="bg-[#DDD] bg-opacity-30 h[700px] wfull mt-20">
+            <div className="pt-10 flex-1 text-center">
+              {/* <div> */}
+              <h2 className="font-bold text-2xl">Recommended Courses</h2>
+              <p className="sm:mt-1 mt-3 mx-4 sm:mx-0">
+                Based on your learning activity we have curated a course just
+                for you.
+              </p>
+              {/* </div> */}
+            </div>
+
+            <div className="flex justify-center">
+              {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[-20px] mt-10 mx-10 ml-[-10px]"> */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-8 mt-10 sm:mx-10 mx-auto">
+                {paginatedCourses.map((course, index) => {
+                  return (
+                    <div key={index} className="my-4">
+                      <Course_Card
+                        image={course.image}
+                        category={course.category}
+                        title={course.title}
+                        description={course.description}
+                        instructorName={course.instructorName}
+                        level={course.level}
+                        duration={course.duration}
+                        price={course.price}
+                        rating={course.rating}
+                      />
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+            <div className="flex justify-center gap-4 mt-10 pb-12">
+              <Button
+                onClick={() => handlePageChange(currentPage - 1)}
+                disabled={currentPage === 1}
+                className="bg-blue-500 text-white px-4 py-2 rounded disabled:opacity-50"
+              >
+                <GrFormPrevious size={32} />
+              </Button>
+
+              <Button
+                onClick={() => handlePageChange(currentPage + 1)}
+                disabled={currentPage === totalPages}
+                className="bg-blue-500 text-white px-4 py-2 rounded disabled:opacity-50"
+              >
+                <GrFormNext size={32} />
+              </Button>
+            </div>
+          </div>
+        </main>
+        <Footer />
+      </div>
     </>
   );
 };

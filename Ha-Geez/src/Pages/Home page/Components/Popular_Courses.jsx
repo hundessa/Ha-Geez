@@ -78,66 +78,6 @@ const Popular_Courses = () => {
             );
           })}
         </Swiper>
-      {/* <div className="custom-slider slick-slider mt-20"> */}
-      {/* <Slider {...settings}> */}
-      {/* {courses.map((course, index) => {
-          return (
-            <div key={index} className="mr-14">
-              <Course_Card
-                      image={course.image}
-                      category={course.category}
-                      title={course.title}
-                      description={course.description}
-                      instructorName={course.instructorName}
-                      level={course.level}
-                      duration={course.duration}
-                      price={course.price}
-                      rating={course.rating}
-                    />
-                </div>
-              );
-            })} */}
-      {/* {data.map((d) => (
-            <div key={d} className=" h-[650px]">
-              <div className="h-[490px] w-[265px] border-[3px]  justify-center items-center ">
-                <p className="p-2 bg-[#C7C2C2] absolute">{d.top}</p>
-                <img src={d.img} alt="" className="h-44 w-150 " />
-                <div className="flex flex-col justify-center items-center gap-4 p-4">
-                  <p className="text-xl font-bold fontsize-40">{d.name} </p>
-                  <div className="flex ml-28 gap-1">
-                    <p>{d.duration}</p>
-                    <p>{d.icon}</p>
-                  </div>
-                  <div className="flex mr-40 gap-2">
-                    <p>{d.rating}</p>
-                    <p>{d.rating2}</p>
-                  </div>
-                  <div className="flex  mr-32 gap-2 ">
-                    <img
-                      src={d.photo}
-                      alt=""
-                      className="h-10 w-10 rounded-full"
-                    />
-                    <p className="w-[110px]">{d.instructor}</p>
-                  </div>
-                  <div className="border-t-2 w-[265px] flex gap-9 ml-1">
-                    <p className="ml-3 mt-3 font-bold">{d.price}</p>
-                    <Button
-                      variant="default"
-                      color="rgba(0, 0, 0, 1)"
-                      size="md"
-                      className="mt-2 hover:bg-[#09335F] hover:text-white"
-                      onClick={() => navigate("/course_overview")}
-                    >
-                      Enroll Now
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))} */}
-      {/* </Slider> */}
-      {/* </div> */}
       <Button
         color="rgba(9, 51, 95, 1)"
         className="mt-[50px] flex justify-center mx-auto"

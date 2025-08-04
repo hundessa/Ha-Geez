@@ -6,6 +6,8 @@ import course_1 from "../../../../assets/images/Category/business1.jpg";
 import course_2 from "../../../../assets/images/Category/design.jpg";
 import course_3 from "../../../../assets/images/Category/development.jpg";
 import course_4 from "../../../../assets/images/Category/finance.jpg";
+import image from "../../../../assets/images/Cart/ilya-pavlov-OqtafYT5kTw-unsplash.jpg";
+
 
 export const Reviews = [
   {
@@ -1149,3 +1151,91 @@ export const instructorCoursesList = [
     level: "Advanced"
   },
 ]
+
+
+export const learningdata = [
+  {
+    title: "Introduction to Programming",
+    img: image,
+    // icon: "",
+    progress: "15",
+    instructor: "By Lidiya Fissha",
+  },
+  {
+    title: "Bussiness Analyssis",
+    img: course_1,
+    // icon: "",
+    progress: "5",
+    instructor: "By Lidiya Fissha",
+  },
+  {
+    title: "Social Media Marketing",
+    img: course_2,
+    // icon: "",
+    progress: "36",
+    instructor: "By Lidiya Fissha",
+  },
+  {
+    title: "Python Programming",
+    img: course_3,
+    // icon: "",
+    progress: "51",
+    instructor: "By Lidiya Fissha",
+  },
+  {
+    title: "Social Media Marketing",
+    img: course_4,
+    // icon: "",
+    progress: "0",
+    instructor: "By Lidiya Fissha",
+  },
+  {
+    title: "Social Media Marketing",
+    img: image,
+    // icon: "",
+    progress: "0",
+    instructor: "By Lidiya Fissha",
+  },
+  {
+    title: "Social Media Marketing",
+    img: course_1,
+    // icon: "",
+    progress: "0",
+    instructor: "By Lidiya Fissha",
+  },
+  {
+    title: "Social Media Marketing",
+    img: course_2,
+    // icon: "",
+    progress: "23",
+    instructor: "By Lidiya Fissha",
+  },
+  {
+    title: "Social Media Marketing",
+    img: course_3,
+    // icon: "",
+    progress: "18",
+    instructor: "By Lidiya Fissha",
+  },
+  {
+    title: "Social Media Marketing",
+    img: course_4,
+    // icon: "",
+    progress: "9",
+    instructor: "By Lidiya Fissha",
+  },
+  {
+    title: "Social Media Marketing",
+    img: image,
+    // icon: "",
+    progress: "38",
+    instructor: "By Lidiya Fissha",
+  },
+  {
+    title: "Social Media Marketing",
+    img: course_1,
+    // icon: "",
+    progress: "22",
+    instructor: "By Lidiya Fissha",
+  },
+];

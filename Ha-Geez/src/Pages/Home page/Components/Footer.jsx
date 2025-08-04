@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 const Footer = () => {
   return (
     <>
-      <div className="pb-8 bg-[#09335F] bg-opacity-90 relative">
+      <div className="pb-8 bg-[#09335F] bg-opacity-90 relative z-[10001]">
         <div className="flex mb-12">
           <div className="flex my-auto justify-center items-center">
             <div className="font-bold ml-10">

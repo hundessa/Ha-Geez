@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { CiStar } from "react-icons/ci";
 import user_1 from "../../../assets/images/Popular Courses/jurica-koletic-7YVZYZeITc8-unsplash.jpg";
 import StarRating from "./styled-components/StarRating";
+import { Grid, Pagination } from "swiper/modules";
 // import "./popular.css";
 
 const data = [
@@ -76,7 +77,13 @@ const testimonials = () => {
           </h1>
         </div>
         <div className="w-full max-w-7xl mx-auto px-4">
-          <Slider {...settings}>
+          <Slider
+            {...settings}
+            pagination={{
+              clickable: true,
+            }}
+            modules={[Grid, Pagination]}
+          >
             {data.map((d) => (
               <div key={d} className="my-8 px-2">
                 <div className="bg-[#09335F] space-y-6 p-6 rounded-xl">
