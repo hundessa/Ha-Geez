@@ -64,6 +64,8 @@ const Course_List_for_student = () => {
                     instructorName={course.instructorName}
                     level={course.level}
                     duration={course.duration}
+                    price={course.price}
+                    rating={course.rating}
                   />
                 </div>
               ))}

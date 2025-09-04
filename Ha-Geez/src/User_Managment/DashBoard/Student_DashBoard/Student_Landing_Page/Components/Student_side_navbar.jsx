@@ -22,7 +22,8 @@ const Student_side_navbar = ({setSidebarExpanded}) => {
       route: "/student/profile",
       variant: "outline",
       style: {
-        active: "bg-[#5A94D0] text-white group-hover:px-2 pl-2 ml-[-14px] w-[50px] group-hover:w-[130px]",
+        active:
+          "bg-[#5A94D0] text-white group-hover:px-2 pl-2 ml-[-14px] w-[50px] group-hover:w-[130px]",
         inactive: "bg-transparent text-gray-500 border-0",
       },
     },
@@ -32,17 +33,19 @@ const Student_side_navbar = ({setSidebarExpanded}) => {
       route: "/student/learning",
       variant: "outline",
       style: {
-        active: "bg-[#5A94D0] text-white group-hover:px-2 pl-2 ml-[-14px] w-[50px] group-hover:w-[130px]",
+        active:
+          "bg-[#5A94D0] text-white group-hover:px-2 pl-2 ml-[-14px] w-[50px] group-hover:w-[130px]",
         inactive: "bg-transparent text-gray-500 border-0",
       },
     },
     {
       icon: HiOutlineBookOpen,
       name: "Courses",
-      route: "/courselist",
+      route: "/student/course_list",
       variant: "outline",
       style: {
-        active: "bg-[#5A94D0] text-white group-hover:px-2 pl-2 ml-[-14px] w-[50px] group-hover:w-[130px]",
+        active:
+          "bg-[#5A94D0] text-white group-hover:px-2 pl-2 ml-[-14px] w-[50px] group-hover:w-[130px]",
         inactive: "bg-transparent text-gray-500 border-0",
       },
     },

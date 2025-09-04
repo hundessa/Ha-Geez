@@ -150,9 +150,9 @@ const Student_LandinPage = () => {
               {/* </div> */}
             </div>
 
-            <div className="flex justify-center">
-              {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[-20px] mt-10 mx-10 ml-[-10px]"> */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-8 mt-10 sm:mx-10 mx-auto">
+            {/* <div className="flex justify-center"> */}
+            <div className="w-full px-4 sm:px-10 max-w-[1440px] mx-auto">
+              {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-8 mt-10 sm:mx-10 mx-auto">
                 {paginatedCourses.map((course, index) => {
                   return (
                     <div key={index} className="my-4">
@@ -170,7 +170,43 @@ const Student_LandinPage = () => {
                     </div>
                   );
                 })}
-              </div>
+              </div> */}
+              <Swiper
+                // slidesPerView={1}
+                breakpoints={{
+                  0: {
+                    slidesPerView: 1,
+                  },
+                  640: {
+                    slidesPerView: 2,
+                  },
+                  1024: {
+                    slidesPerView: 3,
+                  },
+                  1280: {
+                    slidesPerView: 4,
+                  },
+                }}
+                spaceBetween={20}
+                pagination={{ clickable: true }}
+                className="w-full max-wmd mx-auto mt-10"
+              >
+                {paginatedCourses.map((course, index) => (
+                  <SwiperSlide key={index}>
+                    <Course_Card
+                      image={course.image}
+                      category={course.category}
+                      title={course.title}
+                      description={course.description}
+                      instructorName={course.instructorName}
+                      level={course.level}
+                      duration={course.duration}
+                      price={course.price}
+                      rating={course.rating}
+                    />
+                  </SwiperSlide>
+                ))}
+              </Swiper>
             </div>
             <div className="flex justify-center gap-4 mt-10 pb-12">
               <Button
